@@ -100,7 +100,7 @@ cd recycling-share-app
 ## 🗓️ Lộ trình phát triển
 
 - [x] Khảo sát và phân tích yêu cầu
-- [ ] Thiết kế hệ thống (Use case, ERD, kiến trúc)
+- [x] Thiết kế hệ thống (Use case, ERD, kiến trúc)
 - [ ] Thiết kế giao diện UI/UX
 - [ ] Xây dựng chức năng cốt lõi (đăng tin, tìm kiếm, chat)
 - [ ] Tích hợp bản đồ & điểm xanh
