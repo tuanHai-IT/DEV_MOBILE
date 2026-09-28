@@ -6,7 +6,7 @@
 
 ## 📖 Giới thiệu
 
-**Recycling Share App** là ứng dụng di động cho phép người dùng đăng tải, chia sẻ và trao tặng những vật dụng không còn sử dụng (quần áo, sách vở, đồ điện tử, đồ gia dụng, vật liệu tái chế…) cho những người có nhu cầu, đồng thời kết nối với các điểm thu gom rác tái chế gần nhất.
+**Recycling Share App** là ứng dụng di động cho phép người dùng đăng tải, chia sẻ và trao tặng những vật dụng không còn sử dụng (quần áo, sách vở, đồ điện tử, đồ gia dụng, vật liệu tái chế…) cho những người có nhu cầu, kết nối người cho và người nhận ngay trong cộng đồng.
 
 Dự án được thực hiện trong khuôn khổ **đồ án môn học** nhằm ứng dụng kiến thức phân tích, thiết kế hệ thống và phát triển phần mềm vào một bài toán thực tế về môi trường.
 
@@ -14,47 +14,46 @@ Dự án được thực hiện trong khuôn khổ **đồ án môn học** nh�
 
 **Vấn đề**
 - Nhiều đồ dùng còn sử dụng được bị vứt bỏ do không biết trao tặng cho ai.
-- Người dân thiếu thông tin về cách phân loại rác và địa điểm thu gom tái chế.
+- Thiếu cơ chế đánh giá và kiểm duyệt nên khó tin tưởng khi trao đổi với người lạ.
 - Chưa có kênh tập trung, tin cậy và dễ dùng để kết nối người cho – người nhận.
 
 **Mục tiêu**
 - Xây dựng nền tảng chia sẻ đồ dùng cũ nhanh chóng, minh bạch.
 - Khuyến khích thói quen phân loại rác và tái chế trong cộng đồng.
-- Đo lường và ghi nhận đóng góp xanh của từng người dùng.
+- Tăng độ tin cậy nhờ đánh giá người dùng, báo cáo vi phạm và kiểm duyệt của quản trị viên.
 
 ## ✨ Tính năng chính
 
 | Nhóm | Tính năng |
 |------|-----------|
-| 👤 Tài khoản | Đăng ký / đăng nhập, quản lý hồ sơ cá nhân |
-| 📦 Chia sẻ đồ dùng | Đăng tin tặng/trao đổi kèm hình ảnh, mô tả, tình trạng, vị trí |
-| 🔍 Tìm kiếm | Tìm theo danh mục, từ khóa, khoảng cách |
-| 💬 Liên hệ | Nhắn tin trực tiếp giữa người cho và người nhận |
-| 🗺️ Bản đồ | Hiển thị điểm thu gom, trung tâm tái chế gần bạn |
-| 🌱 Điểm xanh | Tích điểm khi chia sẻ/tái chế, bảng xếp hạng cộng đồng |
-| 📚 Kiến thức | Hướng dẫn phân loại rác, mẹo tái chế và tái sử dụng |
-| 🔔 Thông báo | Nhắc lịch hẹn, phản hồi yêu cầu nhận đồ |
+| 👤 Tài khoản & phân quyền | Đăng ký / đăng nhập / đăng xuất, hồ sơ cá nhân, địa chỉ (Thành phố – Quận/Huyện), phân quyền theo vai trò |
+| 📦 Bài đăng & đồ tái chế | Tạo / sửa / xóa bài đăng gồm nhiều món đồ (danh mục, chất liệu, tình trạng, số lượng, đơn vị), ảnh, video, thẻ tag, vị trí |
+| 🔍 Tìm kiếm & tương tác | Tìm theo từ khóa, danh mục, thành phố và sắp xếp; lịch sử tìm kiếm và xem; thích, bình luận, yêu thích, chia sẻ bài đăng |
+| 🤝 Yêu cầu & trao đổi | Gửi / hủy yêu cầu nhận đồ, người cho duyệt / từ chối, đặt lịch và địa điểm giao nhận, xác nhận hoàn tất |
+| 💬 Chat & thông báo | Nhắn tin giữa các bên (kèm tệp đính kèm), thông báo theo loại |
+| ⭐ Đánh giá & báo cáo | Đánh giá người dùng sau trao đổi theo tiêu chí; báo cáo bài đăng / người dùng kèm lý do và bằng chứng |
+| 🛡️ Quản trị | Duyệt / từ chối bài, khóa người dùng, xử lý báo cáo, quản lý danh mục, nhật ký và cấu hình hệ thống |
 
 ## 👥 Đối tượng sử dụng
 
-- **Người cho / người nhận:** sinh viên, hộ gia đình, cộng đồng khu dân cư.
-- **Điểm thu gom / tổ chức tái chế:** đăng thông tin, nhận đồ tái chế.
-- **Quản trị viên:** duyệt bài đăng, quản lý người dùng và nội dung.
+- **Người dùng (người cho / người nhận):** sinh viên, hộ gia đình, cộng đồng khu dân cư.
+- **Quản trị viên:** duyệt bài đăng, khóa tài khoản, xử lý báo cáo, quản lý danh mục và hệ thống.
 
 ## 🔄 Luồng hoạt động
 
-1. Người dùng đăng tin về món đồ muốn chia sẻ.
-2. Hệ thống hiển thị tin cho người dùng xung quanh.
-3. Người nhận gửi yêu cầu và trao đổi qua tin nhắn.
-4. Hai bên hẹn thời gian, địa điểm để trao đổi.
-5. Hoàn tất giao dịch → cả hai nhận điểm xanh.
+1. Người dùng đăng bài chia sẻ gồm một hoặc nhiều món đồ.
+2. Quản trị viên duyệt bài; bài được duyệt sẽ hiển thị để người khác tìm kiếm theo từ khóa, danh mục, thành phố.
+3. Người nhận gửi yêu cầu nhận đồ và trao đổi qua tin nhắn.
+4. Người cho duyệt yêu cầu; hai bên chốt lịch hẹn và địa điểm giao nhận.
+5. Hoàn tất trao đổi → hai bên đánh giá lẫn nhau.
 
 ## 🛠️ Công nghệ sử dụng
 
 > _Cập nhật theo công nghệ thực tế của nhóm._
 
-- **Frontend / Mobile:** `<Flutter / React Native / Android (Java, Kotlin)>`
-- **Backend:** `<Node.js / Spring Boot / Firebase>`
+- **Ngôn ngữ / Nền tảng:** Java, Android (giao diện XML)
+- **IDE:** Android Studio
+- **Backend:** `<Firebase / REST API (Spring Boot, Node.js)>`
 - **Cơ sở dữ liệu:** `<MySQL / SQL Server / Firestore>`
 - **Bản đồ:** `<Google Maps API / OpenStreetMap>`
 - **Công cụ thiết kế:** `<Figma, draw.io, StarUML>`
@@ -63,10 +62,17 @@ Dự án được thực hiện trong khuôn khổ **đồ án môn học** nh�
 
 ```
 recycling-share-app/
+├── app/
+│   └── src/main/
+│       ├── AndroidManifest.xml
+│       ├── java/<package>/
+│       │   ├── ui/         # Activity, Fragment, Adapter
+│       │   ├── data/       # Repository, API / Firebase
+│       │   ├── model/      # Post, User, Category, CollectionPoint...
+│       │   └── utils/      # Hàm tiện ích, hằng số
+│       └── res/            # layout, drawable, values, mipmap...
 ├── docs/           # Tài liệu phân tích, thiết kế (SRS, UML, ERD)
 ├── design/         # Wireframe, mockup UI/UX
-├── backend/        # Mã nguồn server / API
-├── app/            # Mã nguồn ứng dụng
 ├── database/       # Script tạo CSDL, dữ liệu mẫu
 └── README.md
 ```
@@ -88,7 +94,7 @@ cd recycling-share-app
 ## 🗓️ Lộ trình phát triển
 
 - [x] Khảo sát và phân tích yêu cầu
-- [x] Thiết kế hệ thống (Use case, ERD, kiến trúc)
+- [ ] Thiết kế hệ thống (Use case, ERD, kiến trúc)
 - [ ] Thiết kế giao diện UI/UX
 - [ ] Xây dựng chức năng cốt lõi (đăng tin, tìm kiếm, chat)
 - [ ] Tích hợp bản đồ & điểm xanh
@@ -98,8 +104,10 @@ cd recycling-share-app
 
 | Họ tên | MSSV | Vai trò |
 |--------|------|---------|
-| Võ Hoàng Tuấn Hải | 31241027049 |
+| _Họ tên_ | _MSSV_ | _Nhóm trưởng / Dev / Design_ |
 | _Họ tên_ | _MSSV_ | _…_ |
+
+**Giảng viên hướng dẫn:** _Họ tên GVHD_
 
 ## 📄 Giấy phép
 
