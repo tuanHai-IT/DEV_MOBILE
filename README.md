@@ -112,6 +112,8 @@ cd recycling-share-app
 |--------|------|---------|
 | Võ Hoàng Tuấn Hải | 31241027049 | Nhóm Trưởng |
 | Lê Dương Anh Khoa | 31241020839 | Thành Viên |
+| Nguyễn Đức Trung | 31241021311 | Thành Viên |
+| Lý Minh Đạt | 31241022041 | Thành Viên |
 
 **Giảng viên hướng dẫn:** _Họ tên GVHD_
 
