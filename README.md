@@ -4,7 +4,7 @@
 
 ---
 
-## 📖 Giới thiệu
+/## 📖 Giới thiệu
 
 **Recycling Share App** là ứng dụng di động cho phép người dùng đăng tải, chia sẻ và trao tặng những vật dụng không còn sử dụng (quần áo, sách vở, đồ điện tử, đồ gia dụng, vật liệu tái chế…) cho những người có nhu cầu, kết nối người cho và người nhận ngay trong cộng đồng, đồng thời kết nối với các điểm thu gom rác tái chế gần nhất.
 
