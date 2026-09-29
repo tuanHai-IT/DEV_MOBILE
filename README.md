@@ -106,7 +106,7 @@ cd recycling-share-app
 - [ ] Tích hợp bản đồ & điểm xanh
 - [ ] Kiểm thử và hoàn thiện
 
-### 👨‍💻 Thành viên nhóm
+## 👨‍💻 Thành viên nhóm
 
 | Họ tên | MSSV | Vai trò |
 |--------|------|---------|
