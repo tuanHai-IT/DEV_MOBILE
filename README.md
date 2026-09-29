@@ -117,7 +117,7 @@ cd recycling-share-app
 
 **Giảng viên hướng dẫn:** _Họ tên GVHD_
 
-## 📄 Giấy phép
+# 📄 Giấy phép
 
 Dự án phục vụ mục đích học tập. Phát hành theo giấy phép [MIT](LICENSE).
 
