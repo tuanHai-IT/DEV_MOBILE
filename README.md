@@ -1,4 +1,4 @@
-# ♻️ Recycling Share App
+# ♻️ Recycling Share App (Nhóm 9)
 
 > Ứng dụng kết nối cộng đồng để chia sẻ, trao tặng và tái chế đồ dùng — giảm rác thải, tiết kiệm tài nguyên, sống xanh mỗi ngày.
 
