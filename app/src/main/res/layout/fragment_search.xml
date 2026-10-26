@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/search_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/search_heading" android:id="@+id/search_heading" />
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/search_query_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/search_query" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/search_category_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/search_category" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/search_submit" android:text="@string/search_submit" android:tag="search" app:icon="@drawable/ic_search" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/search_results" android:id="@+id/search_results" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/search_open" android:text="@string/search_open" android:tag="screen:market_detail" app:icon="@drawable/ic_nav_market" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>

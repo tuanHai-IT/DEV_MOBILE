@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/community_mint">
+    <LinearLayout android:id="@id/community_header" android:layout_width="match_parent" android:layout_height="64dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="12dp" android:background="#FFFFFF">
+        <TextView android:id="@id/community_back" android:layout_width="48dp" android:layout_height="48dp" android:gravity="center" android:text="&#x2039;" android:textSize="30sp" android:textColor="@color/community_green" android:contentDescription="@string/community_back_label" android:background="@drawable/community_pill" android:clickable="true" android:focusable="true" />
+        <TextView android:id="@id/community_title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:paddingHorizontal="12dp" android:textColor="@color/community_ink" android:textSize="19sp" android:textStyle="bold" />
+        <TextView android:id="@id/community_action" android:layout_width="wrap_content" android:layout_height="48dp" android:minWidth="48dp" android:gravity="center" android:paddingHorizontal="8dp" android:textColor="@color/community_green" android:textStyle="bold" android:visibility="gone" android:clickable="true" android:focusable="true" />
+    </LinearLayout>
+    <ScrollView android:id="@id/community_scroll" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true" android:clipToPadding="false">
+        <LinearLayout android:id="@id/community_body" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp" android:paddingBottom="24dp" />
+    </ScrollView>
+    <LinearLayout android:id="@id/community_footer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="8dp" android:background="#FFFFFF" android:visibility="gone" />
+</LinearLayout>
