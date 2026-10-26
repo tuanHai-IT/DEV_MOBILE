@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/register_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/register_heading" android:id="@+id/register_heading" />
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_eco_leaf" android:layout_marginEnd="8dp" android:importantForAccessibility="no" />
+        <TextView style="@style/Eco.CardTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="0dp" android:text="@string/register_intro_title" />
+      </LinearLayout>
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/register_intro_body" />
+    </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/register_name_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/register_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/register_email_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/register_email" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/register_password_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/register_password" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/register_submit" android:text="@string/register_submit" android:tag="register" app:icon="@drawable/ic_arrow_back" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>
