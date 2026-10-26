@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/edit_profile_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/edit_profile_heading" android:id="@+id/edit_profile_heading" />
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/profile_name_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/profile_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLength="1000" android:text="@string/profile_name_value" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/profile_bio_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/profile_bio" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textMultiLine" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/profile_city_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/profile_city" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLength="1000" android:text="@string/profile_city_value" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/profile_save" android:text="@string/profile_save" android:tag="save_profile" app:icon="@drawable/ic_verified" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/profile_addresses" android:text="@string/profile_addresses" android:tag="screen:addresses" app:icon="@drawable/ic_map_pin" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>
