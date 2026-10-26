@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/order_detail_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/order_detail_heading" android:id="@+id/order_detail_heading" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+      <TextView style="@style/Eco.CardTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/order_state_lbl" android:layout_marginBottom="0dp" />
+      <TextView style="@style/Eco.Badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/order_state" android:text="@string/no_order_lbl" android:layout_marginBottom="0dp" />
+    </LinearLayout>
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_nav_market" android:layout_marginEnd="8dp" android:importantForAccessibility="no" />
+        <TextView style="@style/Eco.CardTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="0dp" android:text="@string/order_product_title" />
+      </LinearLayout>
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/order_product_body" />
+    </LinearLayout>
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_map_pin" android:layout_marginEnd="8dp" android:importantForAccessibility="no" />
+        <TextView style="@style/Eco.CardTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="0dp" android:text="@string/order_shipping_box_title" />
+      </LinearLayout>
+    </LinearLayout>
+    <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/order_delivery" android:id="@+id/order_delivery" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="18sp" android:layout_marginTop="8dp" android:layout_marginBottom="12dp" android:text="@string/sec_thao_t_c___n_h_ng" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/order_payment" android:text="@string/order_payment" android:tag="retry_payment" app:icon="@drawable/ic_wallet" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/order_ship_demo" android:text="@string/order_ship_demo" android:tag="ship_order" app:icon="@drawable/ic_truck" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/order_complete" android:text="@string/order_complete" android:tag="complete_order" app:icon="@drawable/ic_verified" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/order_review" android:text="@string/order_review" android:tag="screen:review" app:icon="@drawable/ic_star" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/order_dispute" android:text="@string/order_dispute" android:tag="screen:dispute" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/order_cancel" android:text="@string/order_cancel" android:tag="cancel_order" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>
