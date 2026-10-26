@@ -1,0 +1,64 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="240dp"
+    android:viewportWidth="200"
+    android:viewportHeight="240">
+    <!-- Cozy warm background -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:pathData="M0,0h200v240h-200z" />
+    <!-- Wooden circular top base -->
+    <path
+        android:fillColor="#A16207"
+        android:pathData="M30,30h140c8,0 15,6 15,14s-7,14 -15,14h-140c-8,0 -15,-6 -15,-14s7,-14 15,-14z" />
+    <path
+        android:fillColor="#CA8A04"
+        android:pathData="M40,36h120c4,0 8,3 8,7s-4,7 -8,7h-120c-4,0 -8,-3 -8,-7s4,-7 8,-7z" />
+    <!-- Hanging Strings with Beads -->
+    <path
+        android:strokeColor="#78350F"
+        android:strokeWidth="1.5"
+        android:pathData="M55,58v140 M100,58v160 M145,58v130" />
+    <!-- Colorful Glass Beads -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M55,80 A4,4 0 1,1 55,79.9 Z M100,75 A4,4 0 1,1 100,74.9 Z M145,85 A4,4 0 1,1 145,84.9 Z" />
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M55,130 A4,4 0 1,1 55,129.9 Z M100,120 A4,4 0 1,1 100,119.9 Z M145,135 A4,4 0 1,1 145,134.9 Z" />
+    <!-- Wine Cork Cylinders -->
+    <!-- Cork 1 Left Top -->
+    <path
+        android:fillColor="#D97706"
+        android:pathData="M40,90h30c3,0 6,3 6,6v30c0,3 -3,6 -6,6h-30c-3,0 -6,-3 -6,-6v-30c0,-3 3,-6 6,-6z" />
+    <path
+        android:fillColor="#B45309"
+        android:pathData="M44,98h22 M44,112h22 M44,124h22"
+        android:strokeWidth="1"
+        android:strokeColor="#92400E" />
+    <!-- Cork 1 Left Bottom -->
+    <path
+        android:fillColor="#D97706"
+        android:pathData="M40,145h30c3,0 6,3 6,6v30c0,3 -3,6 -6,6h-30c-3,0 -6,-3 -6,-6v-30c0,-3 3,-6 6,-6z" />
+    <!-- Cork 2 Center Middle -->
+    <path
+        android:fillColor="#D97706"
+        android:pathData="M85,130h30c3,0 6,3 6,6v36c0,3 -3,6 -6,6h-30c-3,0 -6,-3 -6,-6v-36c0,-3 3,-6 6,-6z" />
+    <path
+        android:fillColor="#B45309"
+        android:pathData="M89,140h22 M89,155h22"
+        android:strokeWidth="1"
+        android:strokeColor="#92400E" />
+    <!-- Cork 2 Center Bottom -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M85,182h30c3,0 6,3 6,6v30c0,3 -3,6 -6,6h-30c-3,0 -6,-3 -6,-6v-30c0,-3 3,-6 6,-6z" />
+    <!-- Cork 3 Right Top -->
+    <path
+        android:fillColor="#D97706"
+        android:pathData="M130,95h30c3,0 6,3 6,6v30c0,3 -3,6 -6,6h-30c-3,0 -6,-3 -6,-6v-30c0,-3 3,-6 6,-6z" />
+    <!-- Cork 3 Right Bottom -->
+    <path
+        android:fillColor="#B45309"
+        android:pathData="M130,145h30c3,0 6,3 6,6v30c0,3 -3,6 -6,6h-30c-3,0 -6,-3 -6,-6v-30c0,-3 3,-6 6,-6z" />
+</vector>

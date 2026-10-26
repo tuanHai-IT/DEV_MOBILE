@@ -1,0 +1,87 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="280dp"
+    android:viewportWidth="360"
+    android:viewportHeight="280">
+    <!-- Background Wooden Plank Wall -->
+    <path
+        android:fillColor="#ECEFEA"
+        android:pathData="M0,0h360v280H0z" />
+    <!-- Vertical wood planks with soft texture lines -->
+    <path
+        android:fillColor="#E2E7DF"
+        android:pathData="M60,0h4v280h-4zM120,0h4v280h-4zM180,0h4v280h-4zM240,0h4v280h-4zM300,0h4v280h-4z" />
+    <path
+        android:fillColor="#D5DCD2"
+        android:pathData="M0,140h360v2H0zM0,230h360v2H0z" />
+
+    <!-- Planter 1: Yellow Tin Can (Top Left) -->
+    <path
+        android:fillColor="#EAB308"
+        android:pathData="M50,70h45v55a6,6 0,0,1 -6,6h-33a6,6 0,0,1 -6,-6v-55z" />
+    <path
+        android:fillColor="#CA8A04"
+        android:pathData="M48,68h49v6h-49z" />
+    <!-- Vine hanging from yellow can -->
+    <path
+        android:fillColor="#15803D"
+        android:pathData="M65,70c-8,-15 -2,-30 4,-35c6,5 12,20 4,35zM75,65c5,-12 15,-18 20,-15c-3,8 -12,18 -20,15z" />
+
+    <!-- Planter 2: Blue recycled bottle/can (Top Center) -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M170,105h24v38a4,4 0,0,1 -4,4h-16a4,4 0,0,1 -4,-4v-38z" />
+    <path
+        android:fillColor="#0369A1"
+        android:pathData="M168,103h28v4h-28z" />
+
+    <!-- Planter 3: Red Ribbed Tin Can (Top Right) -->
+    <path
+        android:fillColor="#DC2626"
+        android:pathData="M250,75h60v75a8,8 0,0,1 -8,8h-44a8,8 0,0,1 -8,-8v-75z" />
+    <path
+        android:fillColor="#B91C1C"
+        android:pathData="M248,73h64v6h-64zM250,90h60v3h-60zM250,105h60v3h-60zM250,120h60v3h-60zM250,135h60v3h-60z" />
+
+    <!-- Planter 4: Large Black Recycled Container (Center-Left) -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M100,165h65v70a6,6 0,0,1 -6,6h-53a6,6 0,0,1 -6,-6v-70z" />
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M98,162h69v6h-69z" />
+
+    <!-- Lush Tall Plant & Pink Zinnia Flowers growing out of the black container -->
+    <!-- Stems -->
+    <path
+        android:fillColor="#166534"
+        android:pathData="M130,70h4v100h-4zM110,135h3v35h-3zM155,140h3v30h-3z" />
+    <!-- Leaves -->
+    <path
+        android:fillColor="#22C55E"
+        android:pathData="M132,75c-15,-6 -25,2 -28,15c12,5 24,-2 28,-15zM134,95c15,-6 25,2 28,15c-12,5 -24,-2 -28,-15zM132,115c-18,-4 -26,6 -28,18c14,4 25,-4 28,-18zM134,135c18,-4 26,6 28,18c-14,4 -25,-4 -28,-18z" />
+    <path
+        android:fillColor="#15803D"
+        android:pathData="M110,140c-10,-4 -16,4 -18,12c8,2 16,-3 18,-12zM155,145c10,-4 16,4 18,12c-8,2 -16,-3 -18,-12z" />
+    <!-- Pink Flowers -->
+    <path
+        android:fillColor="#F43F5E"
+        android:pathData="M108,132a6,6 0,1 0,0 12a6,6 0,1 0,0 -12zM158,138a5,5 0,1 0,0 10a5,5 0,1 0,0 -10z" />
+    <path
+        android:fillColor="#FFE4E6"
+        android:pathData="M108,135a3,3 0,1 0,0 6a3,3 0,1 0,0 -6zM158,141a2.5,2.5 0,1 0,0 5a2.5,2.5 0,1 0,0 -5z" />
+
+    <!-- Planter 5: Yellow Bottom Planter -->
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M165,220h55v50a6,6 0,0,1 -6,6h-43a6,6 0,0,1 -6,-6v-50z" />
+    <!-- Green sprouts in yellow planter -->
+    <path
+        android:fillColor="#4ADE80"
+        android:pathData="M190,205c-10,-10 0,-20 8,-22c4,8 0,18 -8,22zM195,208c10,-8 18,0 16,10c-8,4 -16,-2 -16,-10z" />
+
+    <!-- Hanging Strings / Ropes -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M72,0h1v70h-1zM182,0h1v105h-1zM280,0h1v75h-1zM132,0h1v165h-1z" />
+</vector>

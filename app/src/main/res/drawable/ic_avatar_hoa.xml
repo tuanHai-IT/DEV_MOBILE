@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Soft warm background circle -->
+    <path
+        android:fillColor="#FCE7F3"
+        android:pathData="M24,24m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <!-- Hair background -->
+    <path
+        android:fillColor="#6B4226"
+        android:pathData="M16,16c0,-8 16,-8 16,0c2,8 4,14 4,18c0,4 -6,6 -12,6s-12,-2 -12,-6c0,-4 2,-10 4,-18z" />
+    <!-- Head / Face -->
+    <path
+        android:fillColor="#FFDFBA"
+        android:pathData="M24,14c-4.4,0 -8,3.6 -8,8c0,4.4 3.6,8 8,8s8,-3.6 8,-8c0,-4.4 -3.6,-8 -8,-8z" />
+    <!-- Hair bangs -->
+    <path
+        android:fillColor="#54321A"
+        android:pathData="M16,19c2,-4 6,-5 8,-5s6,1 8,5c0,0 -3,-3 -8,-3s-8,3 -8,3z" />
+    <!-- Cheeks blush -->
+    <path
+        android:fillColor="#F87171"
+        android:pathData="M19,23a1.5,1.5 0,1 0,0 3a1.5,1.5 0,1 0,0 -3zM29,23a1.5,1.5 0,1 0,0 3a1.5,1.5 0,1 0,0 -3z" />
+    <!-- Torso / Striped shirt -->
+    <path
+        android:fillColor="#1B6B4C"
+        android:pathData="M14,40c0,-6 4.5,-9 10,-9s10,3 10,9v4H14v-4z" />
+    <path
+        android:fillColor="#D4F772"
+        android:pathData="M22,31h4v13h-4z" />
+</vector>
