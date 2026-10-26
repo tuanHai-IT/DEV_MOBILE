@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="160dp"
+    android:viewportWidth="400"
+    android:viewportHeight="160">
+    <!-- Gradient Sky / Nature Background -->
+    <path
+        android:fillColor="@color/eco_gradient_start"
+        android:pathData="M0,0h400v160H0z" />
+    <!-- Subtle Eco Curved Waves -->
+    <path
+        android:fillColor="#3B9C77"
+        android:pathData="M0,80C100,50 180,120 400,60V160H0z" />
+    <path
+        android:fillColor="@color/eco_gradient_end"
+        android:pathData="M0,110C120,80 240,140 400,100V160H0z" />
+    <!-- Sun glow / Eco circle -->
+    <path
+        android:fillColor="#D4F772"
+        android:pathData="M340,50m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <!-- Floating leaves in wind -->
+    <path
+        android:fillColor="#86EFAC"
+        android:pathData="M80,40c10,-5 20,2 22,12c-10,5 -20,-2 -22,-12zM210,30c12,-6 24,3 26,15c-12,6 -24,-3 -26,-15zM290,90c8,-4 16,2 18,10c-8,4 -16,-2 -18,-10z" />
+</vector>

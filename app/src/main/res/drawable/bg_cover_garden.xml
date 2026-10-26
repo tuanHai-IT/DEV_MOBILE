@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="160dp"
+    android:viewportWidth="400"
+    android:viewportHeight="160">
+    <!-- Rustic Wood Planks -->
+    <path
+        android:fillColor="#E5E7EB"
+        android:pathData="M0,0h400v160h-400z" />
+    <path
+        android:fillColor="#D1D5DB"
+        android:pathData="M0,0h400v50h-400z" />
+    <path
+        android:fillColor="#9CA3AF"
+        android:strokeWidth="1"
+        android:strokeColor="#9CA3AF"
+        android:pathData="M0,52h400 M0,105h400" />
+    <!-- Upcycled dark planter on left -->
+    <path
+        android:fillColor="#1F2937"
+        android:pathData="M60,0h70v85c0,6 -4,10 -10,10h-50c-6,0 -10,-4 -10,-10z" />
+    <!-- Vibrant Pink Flower -->
+    <path
+        android:fillColor="#15803D"
+        android:pathData="M70,120 Q65,100 70,80 Q75,100 70,120 Z M68,100 Q50,95 68,90 Z" />
+    <path
+        android:fillColor="#EC4899"
+        android:pathData="M70,72 A8,8 0 1,1 70,71.9 Z M62,72 A6,6 0 1,1 62,71.9 Z M78,72 A6,6 0 1,1 78,71.9 Z M70,64 A6,6 0 1,1 70,63.9 Z M70,80 A6,6 0 1,1 70,79.9 Z" />
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M70,72 A4,4 0 1,1 70,71.9 Z" />
+    <!-- Center Green Vine / Upcycled bottle plant -->
+    <path
+        android:fillColor="#22C55E"
+        android:pathData="M200,160 Q205,100 210,50 Q215,20 230,10"
+        android:strokeColor="#16A34A"
+        android:strokeWidth="3" />
+    <path
+        android:fillColor="#16A34A"
+        android:pathData="M210,80 Q225,75 220,65 Q205,70 210,80 Z M205,110 Q190,105 195,95 Q210,100 205,110 Z M215,45 Q230,40 225,30 Q210,35 215,45 Z" />
+    <!-- Right side planter -->
+    <path
+        android:fillColor="#E11D48"
+        android:pathData="M320,100h50v50h-50z" />
+    <path
+        android:fillColor="#84CC16"
+        android:pathData="M345,100 Q360,80 345,60 Q330,80 345,100 Z" />
+</vector>
