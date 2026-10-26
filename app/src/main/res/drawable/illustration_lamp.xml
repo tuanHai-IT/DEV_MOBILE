@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="200dp"
+    android:viewportWidth="320"
+    android:viewportHeight="200">
+    <!-- Gradient-like background -->
+    <path android:fillColor="#E2F2E7" android:pathData="M0,0h320v200h-320z"/>
+    <!-- Soft warm radial glow behind jars -->
+    <path android:fillColor="#F6FCE8" android:pathData="M80,50h160v120h-160z"/>
+    <!-- Subtle shadow base -->
+    <path android:fillColor="#BDD9C7" android:pathData="M30,172a130,10 0,1 0,260 0a130,10 0,1 0,-260 0"/>
+    <!-- Glass Jars (Mint tint with elegant borders) -->
+    <path android:fillColor="#F0FAF3" android:strokeColor="#52996E" android:strokeWidth="2.5" android:pathData="M75,71h46v82q0,14 -14,14h-18q-14,0 -14,-14zM137,43h53v110q0,14 -14,14h-25q-14,0 -14,-14zM207,88h40v65q0,14 -14,14h-12q-14,0 -14,-14z"/>
+    <!-- Jar Glass highlights -->
+    <path android:fillColor="#FFFFFF" android:pathData="M80,76h6v70h-6zM143,49h7v96h-7zM212,93h5v56h-5z"/>
+    <!-- Cork / Wooden Lids -->
+    <path android:fillColor="#C69C6D" android:strokeColor="#8C653C" android:strokeWidth="1.5" android:pathData="M72,63h52v10h-52zM134,35h59v10h-59zM204,80h46v10h-46z"/>
+    <!-- Candle Wax base -->
+    <path android:fillColor="#FFF6DD" android:strokeColor="#E2D0A4" android:strokeWidth="1" android:pathData="M85,137h27v21h-27zM149,127h29v31h-29zM214,140h26v18h-26z"/>
+    <!-- Warm Candle Flames -->
+    <path android:fillColor="#FFB703" android:pathData="M98,114q-14,17 0,21q14,-4 0,-21M163,101q-15,20 0,24q15,-4 0,-24M227,119q-12,15 0,19q12,-4 0,-19"/>
+    <!-- Inner Flame Core (Golden bright) -->
+    <path android:fillColor="#FFF3B0" android:pathData="M98,122q-5,8 0,11q5,-3 0,-11M163,111q-6,9 0,12q6,-3 0,-12M227,126q-5,7 0,10q5,-3 0,-10"/>
+    <!-- Eco leaf badge on main center jar -->
+    <path android:fillColor="#2D6A4F" android:pathData="M163,82C157,83 155,87 154,90L155,90.5A2.5,2.5 0,0 0,157 91C164,91 166,80 166,80C165,81 161,81.5 158,82V83Z"/>
+</vector>

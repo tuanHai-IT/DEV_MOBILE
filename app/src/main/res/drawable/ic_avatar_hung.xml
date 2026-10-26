@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Amber background circle -->
+    <path
+        android:fillColor="#FEF3C7"
+        android:pathData="M24,24m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <!-- Brown wavy hair -->
+    <path
+        android:fillColor="#78350F"
+        android:pathData="M16,18c0,-6 4,-9 8,-9s8,3 8,9v2h-16v-2z" />
+    <!-- Head / Face -->
+    <path
+        android:fillColor="#FCD34D"
+        android:pathData="M24,14c-4.4,0 -8,3.6 -8,8c0,4.4 3.6,8 8,8s8,-3.6 8,-8c0,-4.4 -3.6,-8 -8,-8z" />
+    <!-- Torso / Dark casual tee -->
+    <path
+        android:fillColor="#334155"
+        android:pathData="M14,40c0,-6 4.5,-9 10,-9s10,3 10,9v4H14v-4z" />
+</vector>

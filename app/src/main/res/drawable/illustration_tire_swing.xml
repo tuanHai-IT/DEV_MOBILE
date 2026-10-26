@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+    <!-- Nature background -->
+    <path
+        android:fillColor="#EAF5EE"
+        android:pathData="M0,0h200v150H0z" />
+    <!-- Tree branch -->
+    <path
+        android:fillColor="#78350F"
+        android:pathData="M0,20c60,5 120,0 200,-10v16c-80,10 -140,5 -200,-6z" />
+    <!-- Leaves on branch -->
+    <path
+        android:fillColor="#16A34A"
+        android:pathData="M30,15c10,-12 30,-5 35,5c-15,10 -30,0 -35,-5zM80,18c12,-15 35,-6 40,6c-18,12 -35,0 -40,-6zM140,12c12,-15 35,-6 40,6c-18,12 -35,0 -40,-6z" />
+    <!-- Ropes -->
+    <path
+        android:fillColor="#B45309"
+        android:pathData="M80,24h2v60h-2zM120,24h2v60h-2z" />
+    <!-- Recycled Tire Outer -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M100,110m-32,0a32,32 0,1 1,64 0a32,32 0,1 1,-64 0" />
+    <!-- Tire Inner Hole -->
+    <path
+        android:fillColor="#EAF5EE"
+        android:pathData="M100,110m-16,0a16,16 0,1 1,32 0a16,16 0,1 1,-32 0" />
+    <!-- Colorful tire ribbons / decorations -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M70,100c-3,10 0,20 6,24c-3,-10 0,-20 -6,-24z" />
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M124,100c3,10 0,20 -6,24c3,-10 0,-20 6,-24z" />
+</vector>
