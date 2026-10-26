@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/otp_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/otp_heading" android:id="@+id/otp_heading" />
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_shield" android:layout_marginEnd="8dp" android:importantForAccessibility="no" />
+        <TextView style="@style/Eco.CardTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="0dp" android:text="@string/otp_card_title" />
+      </LinearLayout>
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/otp_card_body" />
+    </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout style="@style/Eco.Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/otp_code_hint">
+      <com.google.android.material.textfield.TextInputEditText android:id="@+id/otp_code" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" android:maxLength="1000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/otp_submit" android:text="@string/otp_submit" android:tag="otp" app:icon="@drawable/ic_verified" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>
