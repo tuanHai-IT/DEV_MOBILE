@@ -13,3 +13,35 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.qa/
+/app/build/
+__pycache__/
+emulator-*.log
+/.tools/
+**/node_modules/
+/backend/lib/
+/.firebase/
+*-debug.log
+*.log
+/backend/.env
+/backend/.env.*
+!/backend/.env.example
+!/backend/.env.demo-recycling-share
+/backend/.secret.local
+*service-account*.json
+*serviceAccount*.json
+google-services.json
+/admin-web/firebase-config.local.js
+/admin-web/firebase-config.production.js
+
+# GitHub team source handoff
+/.idea/
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+*.p8
+*firebase-adminsdk*.json
+# Firebase public client config is intentionally shared with the team.
+!/app/google-services.json
