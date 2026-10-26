@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="community_back_label">Quay lại</string>
+    <color name="community_mint">#EFFCF4</color>
+    <color name="community_green">#166B4D</color>
+    <color name="community_ink">#123C38</color>
+    <color name="community_muted">#677D81</color>
+    <color name="community_red">#EB3B66</color>
+    <color name="community_gold">#D49600</color>
+    <item name="community_body" type="id" />
+    <item name="community_header" type="id" />
+    <item name="community_title" type="id" />
+    <item name="community_back" type="id" />
+    <item name="community_action" type="id" />
+    <item name="community_scroll" type="id" />
+    <item name="community_footer" type="id" />
+    <item name="community_draft" type="id" />
+    <item name="community_draft_title" type="id" />
+    <item name="community_weight" type="id" />
+    <item name="community_tags" type="id" />
+    <item name="community_comment" type="id" />
+    <item name="community_search" type="id" />
+    <item name="community_submit" type="id" />
+    <item name="community_conversations" type="id" />
+    <item name="community_chat_input" type="id" />
+    <item name="community_chat_send" type="id" />
+    <item name="community_chat_messages" type="id" />
+    <item name="community_camera" type="id" />
+    <item name="home_eco_points_banner" type="id" />
+    <item name="home_eco_points_value" type="id" />
+</resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "711510847515",
+    "project_id": "recycling-share-app",
+    "storage_bucket": "recycling-share-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711510847515:android:49a382a2806cf0707548be",
+        "android_client_info": {
+          "package_name": "com.example.recyclingshareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711510847515-sj0aispotsfftech76brs4qebuhplfrc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.recyclingshareapp",
+            "certificate_hash": "670537d87a103a85c73bffb100f00b52387a823c"
+          }
+        },
+        {
+          "client_id": "711510847515-68duul7ropne9jnjscogqttsmmgge9ju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXhSybiYS3ZxBGn-6nkFlazyHWHswcTds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711510847515-68duul7ropne9jnjscogqttsmmgge9ju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
