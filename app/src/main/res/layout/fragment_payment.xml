@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/payment_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/payment_heading" android:id="@+id/payment_heading" />
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="20dp">
+      <TextView style="@style/Eco.Eyebrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/payment_total_lbl" android:layout_gravity="center" />
+      <TextView style="@style/Eco.PriceTag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/payment_total" android:textSize="32sp" android:text="@string/sample_total" android:layout_gravity="center" />
+    </LinearLayout>
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_shield" android:layout_marginEnd="8dp" android:importantForAccessibility="no" />
+        <TextView style="@style/Eco.CardTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="0dp" android:text="@string/payment_safe_note_title" />
+      </LinearLayout>
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/payment_safe_note_body" />
+    </LinearLayout>
+    <RadioGroup android:id="@+id/payment_provider" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+      <RadioButton android:id="@+id/provider_momo" android:layout_width="match_parent" android:layout_height="56dp" android:checked="true" android:text="@string/momo" />
+      <RadioButton android:id="@+id/provider_vnpay" android:layout_width="match_parent" android:layout_height="56dp" android:text="@string/vnpay" />
+    </RadioGroup>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/payment_demo_success" android:text="@string/payment_demo_success" android:tag="pay:success" app:icon="@drawable/ic_verified" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/payment_demo_pending" android:text="@string/payment_demo_pending" android:tag="pay:pending" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/payment_demo_failure" android:text="@string/payment_demo_failure" android:tag="pay:failed" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/payment_cancel" android:text="@string/payment_cancel" android:tag="cancel_order" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>

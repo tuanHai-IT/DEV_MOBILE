@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/eco_background">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="18dp" android:paddingVertical="18dp">
+    <TextView style="@style/Eco.Eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/market_subtitle" />
+    <TextView style="@style/Eco.Title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/market_heading" android:id="@+id/market_heading" />
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_verified" android:layout_marginEnd="8dp" android:importantForAccessibility="no" />
+        <TextView style="@style/Eco.CardTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="0dp" android:text="@string/market_trust_box_title" />
+        <TextView style="@style/Eco.Badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="0dp" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:textSize="11sp" android:text="@string/market_trust_box_badge" />
+      </LinearLayout>
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/market_trust_box_body" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/market_search" android:text="@string/market_search" android:tag="screen:search" app:icon="@drawable/ic_search" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <LinearLayout style="@style/Eco.Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      <ImageView android:layout_width="match_parent" android:layout_height="180dp" android:src="@drawable/illustration_lamp" android:background="@drawable/bg_card_mint" android:contentDescription="@string/desc_lamp2" android:scaleType="centerInside" android:layout_marginBottom="12dp" />
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+        <TextView style="@style/Eco.Badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_badge_verified" android:text="@string/badge_new2" android:textSize="10.5sp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:layout_marginBottom="0dp" android:layout_marginEnd="6dp" />
+        <TextView style="@style/Eco.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:text="@string/city_hcm2" android:layout_marginBottom="0dp" />
+      </LinearLayout>
+      <TextView style="@style/Eco.CardTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/market_lamp_title" />
+      <TextView style="@style/Eco.PriceTag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/market_lamp_price" android:layout_marginBottom="6dp" />
+      <TextView style="@style/Eco.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/market_lamp_desc" />
+      <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/market_lamp_open" android:text="@string/market_lamp_open" android:tag="screen:market_detail" app:icon="@drawable/ic_nav_market" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/market_sell" android:text="@string/market_sell" android:tag="screen:create_listing" app:icon="@drawable/ic_plus" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+    <com.google.android.material.button.MaterialButton style="@style/Eco.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/market_orders" android:text="@string/market_orders" android:tag="screen:orders" app:icon="@drawable/ic_truck" app:iconGravity="textStart" app:iconSize="18dp" app:iconPadding="8dp" android:focusable="true" android:minHeight="48dp" />
+  </LinearLayout>
+</ScrollView>
