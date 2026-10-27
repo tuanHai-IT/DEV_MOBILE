@@ -1,0 +1,129 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Domain mutations run in the authenticated backend using the Admin SDK.
+    // Clients cannot change roles, KYC decisions, inventory, money or points.
+    function active() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'ACTIVE';
+    }
+    function admin() {
+      return active()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
+    }
+    function moderator() {
+      return active()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['ADMIN', 'MODERATOR'];
+    }
+    function owner(uid) {
+      return active() && request.auth.uid == uid;
+    }
+    function member(data) {
+      return active() && request.auth.uid in data.get('_member_ids', []);
+    }
+    function conversationMember(data) {
+      return member(data) || (active()
+        && request.auth.uid in [data.get('member_a_id', ''), data.get('member_b_id', '')]);
+    }
+    function orderMember(data) {
+      return member(data) || (active()
+        && request.auth.uid in [data.get('buyer_id', ''), data.get('seller_id', '')]);
+    }
+    function parentOrderMember(orderId) {
+      return orderId is string
+        && orderMember(get(/databases/$(database)/documents/orders/$(orderId)).data);
+    }
+    function listingReadable(listingId) {
+      let listing = get(/databases/$(database)/documents/listings/$(listingId)).data;
+      return listing.status == 'APPROVED' || owner(listing.seller_id) || moderator();
+    }
+    function publicMedia(data) {
+      return data.visibility == 'PUBLIC' && data.get('_status', '') == 'READY'
+        && ((data.get('listing_id', null) is string
+            && get(/databases/$(database)/documents/listings/$(data.listing_id)).data.status == 'APPROVED')
+          || (data.get('content_id', null) is string
+            && get(/databases/$(database)/documents/content_entries/$(data.content_id)).data.get('kind', 'ARTICLE') != 'SCAN'
+            && get(/databases/$(database)/documents/content_entries/$(data.content_id)).data.status == 'PUBLISHED'));
+    }
+    function publicReview(data) {
+      // Do not accidentally publish additional fields if the server schema grows.
+      return data.keys().hasOnly(['id', 'order_id', 'author_id', 'target_user_id', 'rating', 'body', 'created_at', '_member_ids'])
+        && get(/databases/$(database)/documents/orders/$(data.order_id)).data.status == 'COMPLETED';
+    }
+
+    match /users/{id} {
+      allow read: if owner(id) || admin();
+    }
+    match /verifications/{id} {
+      allow read: if owner(resource.data.user_id) || admin();
+    }
+    match /addresses/{id} {
+      allow read: if owner(resource.data.user_id) || admin();
+    }
+    match /categories/{id} {
+      allow read: if resource.data.active == true || admin();
+    }
+    match /listings/{id} {
+      allow read: if resource.data.status == 'APPROVED'
+        || owner(resource.data.seller_id) || moderator();
+    }
+    match /listing_items/{id} {
+      allow read: if listingReadable(resource.data.listing_id);
+    }
+    match /media_assets/{id} {
+      allow read: if owner(resource.data.uploader_id) || admin() || publicMedia(resource.data);
+    }
+    match /interactions/{id} {
+      allow read: if owner(resource.data.user_id) || admin()
+        || (resource.data.type == 'FRIEND_REQUEST' && member(resource.data));
+    }
+    match /orders/{id} {
+      allow read: if orderMember(resource.data) || admin();
+    }
+    match /order_items/{id} {
+      allow read: if member(resource.data) || parentOrderMember(resource.data.order_id) || admin();
+    }
+    match /payments/{id} {
+      allow read: if member(resource.data) || parentOrderMember(resource.data.order_id) || admin();
+    }
+    match /conversations/{id} {
+      allow read: if conversationMember(resource.data) || admin();
+    }
+    match /messages/{id} {
+      allow read: if member(resource.data) || admin()
+        || conversationMember(get(/databases/$(database)/documents/conversations/$(resource.data.conversation_id)).data);
+    }
+    match /reviews/{id} {
+      allow read: if publicReview(resource.data) || admin()
+        || owner(resource.data.author_id) || owner(resource.data.target_user_id);
+    }
+    match /reports/{id} {
+      allow read: if owner(resource.data.reporter_id) || admin()
+        || (moderator() && resource.data.get('order_id', null) == null);
+    }
+    match /collection_points/{id} {
+      allow read: if resource.data.status == 'ACTIVE' || admin();
+    }
+    match /green_ledger/{id} {
+      allow read: if owner(resource.data.user_id) || admin();
+    }
+    match /content_entries/{id} {
+      // SCAN is private even if a malformed record accidentally says PUBLISHED.
+      allow read: if resource.data.get('kind', 'ARTICLE') == 'SCAN'
+        ? (owner(resource.data.author_id) || admin())
+        : (resource.data.status == 'PUBLISHED'
+          || owner(resource.data.author_id) || moderator());
+    }
+    match /audit_logs/{id} {
+      allow read: if admin();
+    }
+    match /system_settings/{id} {
+      allow read: if admin();
+    }
+    match /{document=**} {
+      allow write: if false;
+      allow read: if false;
+    }
+  }
+}

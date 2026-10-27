@@ -1,0 +1,41 @@
+{
+  "name": "ecoshare-firebase-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "lib/src/index.js",
+  "engines": {
+    "node": "22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test --test-concurrency=1 lib/test/*.test.js",
+    "test:integration": "npm run test",
+    "emulators": "npm run build && node scripts/emulators.mjs start",
+    "test:emulators": "node scripts/emulators.mjs test",
+    "seed:emulator": "npm run build && node lib/scripts/seed-emulator.js",
+    "bootstrap:admin": "npm run build && node lib/scripts/bootstrap-admin.js",
+    "dev": "npm run build && node lib/src/local.js",
+    "dev:cloud": "npm run build && node scripts/dev-cloud.mjs"
+  },
+  "dependencies": {
+    "cors": "2.8.6",
+    "express": "5.3.0",
+    "firebase-admin": "14.5.0",
+    "firebase-functions": "7.4.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "5.0.2",
+    "@types/cors": "2.8.19",
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.5",
+    "firebase": "12.19.0",
+    "firebase-tools": "15.34.0",
+    "google-auth-library": "11.3.1",
+    "typescript": "7.0.2"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "1.14.6"
+  }
+}
