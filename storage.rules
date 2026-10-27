@@ -1,0 +1,35 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function validUpload(uid, mediaId) {
+      let actor = firestore.get(/databases/(default)/documents/users/$(uid)).data;
+      let media = firestore.get(/databases/(default)/documents/media_assets/$(mediaId)).data;
+      return actor.status == 'ACTIVE'
+        && media.uploader_id == uid
+        && media._status == 'UPLOADING'
+        && media.storage_key == 'uploads/' + uid + '/' + mediaId + '/original'
+        && (media.get('_parent_type', '') != 'SCAN' || media.visibility == 'PRIVATE')
+        && media.mime_type == request.resource.contentType
+        && request.resource.size > 0
+        && request.resource.size <= 10 * 1024 * 1024
+        && request.resource.size <= media._max_bytes
+        && request.resource.contentType in ['image/jpeg', 'image/png', 'image/webp', 'application/pdf']
+        && (request.resource.contentType != 'application/pdf'
+          || (media.visibility == 'PRIVATE'
+            && (media.get('verification_id', null) != null || media.get('report_id', null) != null)))
+        // Reserved Firebase download tokens are not surfaced consistently in
+        // this map. Backend finalization strips them before marking READY.
+        && request.resource.metadata.keys().hasOnly([]);
+    }
+    match /uploads/{uid}/{mediaId}/original {
+      // resource == null is a create-only guard. Server controls finalization.
+      allow write: if resource == null && request.resource != null
+        && request.auth != null && request.auth.uid == uid
+        && validUpload(uid, mediaId);
+    }
+    match /{path=**} {
+      // Backend authorizes each download and issues a short-lived signed URL.
+      allow read, write: if false;
+    }
+  }
+}
