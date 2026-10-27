@@ -13,9 +13,10 @@ Checkout, tạo bài bán, tạo phiên thanh toán, gửi chat và điều ch�
 | Công khai | GET `/listings`, `/listings/:id` | Bài đã duyệt; danh sách lọc city/seller_id |
 | Công khai | GET `/users/:id`, `/users/:id/reviews` | Hồ sơ công khai và đánh giá đã lọc PII |
 | Cá nhân | GET/PATCH `/me` | Hồ sơ; PATCH chỉ display_name, phone, bio, city, avatar_key, cover_key |
+| Nhận tiền | GET/PUT `/me/payout-account` | Khai báo riêng tư BANK hoặc MOMO; chỉ chính chủ. `/me` trả thêm `payout_account_ready`. Xem [chi tiết](payout-account.md). |
 | Cá nhân | GET/POST `/me/addresses`, PATCH/DELETE `/me/addresses/:id` | Địa chỉ; recipient, phone, line, city, is_default |
 | Xác minh | GET/POST `/me/verifications` | POST `{}` mở hồ sơ PENDING rồi upload chứng minh qua media |
-| Bài bán | GET `/me/listings`, POST `/listings`, PATCH `/listings/:id` | Tạo/sửa phải VERIFIED; đưa lại hàng chờ duyệt |
+| Bài bán | GET `/me/listings`, POST `/listings`, PATCH `/listings/:id` | Tạo mới/gửi lại phải VERIFIED và đã khai báo tài khoản nhận tiền; đưa lại hàng chờ duyệt |
 | Tồn kho | PATCH `/listing-items/:id/stock` | Người bán đặt số lượng còn có thể bán: `{stock}` |
 | Sản phẩm | PATCH `/listing-items/:id` | Người bán sửa trường sản phẩm/giá; thay đổi nội dung đưa bài về PENDING, đơn cũ giữ snapshot |
 | Đơn hàng | POST `/orders`, GET `/me/orders`, GET `/orders/:id` | Checkout theo snapshot server; giới hạn người tham gia |

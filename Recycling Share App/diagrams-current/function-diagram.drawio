@@ -41,7 +41,7 @@
         <mxCell id="root" value="EcoShare / Function&#10;Các luồng có giao diện sử dụng trong Android và Admin Web" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
           <mxGeometry as="geometry" x="765" y="100" width="590" height="105" />
         </mxCell>
-        <mxCell id="g0" value="Tài khoản&#10;• Đăng nhập email/mật khẩu và khôi phục mật khẩu&#10;• Hồ sơ, ảnh đại diện/ảnh bìa, địa chỉ và xác minh&#10;• Đăng nhập Google" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+        <mxCell id="g0" value="Tài khoản&#10;• Đăng nhập email/mật khẩu và khôi phục mật khẩu&#10;• Hồ sơ, ảnh đại diện/ảnh bìa, địa chỉ và xác minh&#10;• Khai báo tài khoản nhận tiền ngân hàng hoặc MoMo&#10;• Đăng nhập Google" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
           <mxGeometry as="geometry" x="40" y="245" width="620" height="170" />
         </mxCell>
         <mxCell id="g1" value="Cộng đồng&#10;• Bài chia sẻ và mẹo hay: tạo, sửa, đọc&#10;• Thích, lưu, bình luận và trả lời&#10;• Story ảnh/video; báo cáo nội dung" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
@@ -50,7 +50,7 @@
         <mxCell id="g2" value="Khám phá&#10;• Tìm kiếm bài viết, mẹo hay và tin bán&#10;• Thử thách và cộng điểm Eco&#10;• Duyệt tin bán trước khi hiện công khai" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
           <mxGeometry as="geometry" x="1440" y="245" width="620" height="170" />
         </mxCell>
-        <mxCell id="g3" value="Mua bán&#10;• Tạo/sửa tin bán, giá và tồn kho&#10;• Đơn mua và kiểm tra xác minh hai bên&#10;• Danh sách và chi tiết đơn hàng" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+        <mxCell id="g3" value="Mua bán&#10;• Khai báo tài khoản nhận tiền trước khi đăng/gửi lại tin bán&#10;• Tạo/sửa tin bán, giá và tồn kho&#10;• Đơn mua và kiểm tra xác minh hai bên&#10;• Danh sách và chi tiết đơn hàng" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
           <mxGeometry as="geometry" x="40" y="480" width="620" height="170" />
         </mxCell>
         <mxCell id="g4" value="DEMO · Thanh toán&#10;• Chọn MoMo hoặc VNPay trong app&#10;• Lưu kết quả demo trên thiết bị&#10;• Không chuyển tiền thật" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">

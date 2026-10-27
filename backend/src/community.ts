@@ -17,6 +17,7 @@ import {
   type Actor,
   type Context,
 } from "./core.js";
+import { payoutAccountReady, payoutAccountSchema, savedPayoutAccount } from "./payout-account.js";
 
 const identifier = z
   .string()
@@ -206,6 +207,7 @@ export function registerCommunityRoutes(router: Router, ctx: Context): void {
       const row = res.locals.authenticated_user ?? docData(await ctx.db.collection("users").doc(who.uid).get());
       res.json({
         ...meProjection(row),
+        payout_account_ready: payoutAccountReady(row._payout_account),
         verified: await verified(ctx, who.uid, row),
         pending_verification_id: row._pending_verification_id ?? null,
       });
@@ -256,9 +258,37 @@ export function registerCommunityRoutes(router: Router, ctx: Context): void {
       const updated = (await ref.get()).data()!;
       res.json({
         ...meProjection({ ...updated, id: ref.id }),
+        payout_account_ready: payoutAccountReady(updated._payout_account),
         verified: await verified(ctx, who.uid, updated),
         pending_verification_id: updated._pending_verification_id ?? null,
       });
+    }),
+  );
+
+  router.get(
+    "/me/payout-account",
+    asyncRoute(async (_req, res) => {
+      const who = actor(res);
+      const row = docData(await ctx.db.collection("users").doc(who.uid).get());
+      const payoutAccount = savedPayoutAccount(row._payout_account);
+      res.json({ payout_account: payoutAccount, payout_account_ready: payoutAccount !== null });
+    }),
+  );
+
+  router.put(
+    "/me/payout-account",
+    asyncRoute(async (req, res) => {
+      const who = actor(res);
+      const input = payoutAccountSchema.parse(req.body);
+      const payoutAccount = await ctx.db.runTransaction(async (tx) => {
+        const ref = ctx.db.collection("users").doc(who.uid);
+        const row = docData(await tx.get(ref));
+        requireThat(row.status === "ACTIVE", 403, "ACCOUNT_INACTIVE", "Tài khoản phải đang hoạt động.");
+        const account = { ...input, updated_at: ctx.now() };
+        tx.update(ref, { _payout_account: account, updated_at: ctx.now() });
+        return account;
+      });
+      res.json({ payout_account: payoutAccount, payout_account_ready: true });
     }),
   );
 

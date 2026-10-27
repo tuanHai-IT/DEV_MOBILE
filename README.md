@@ -4,6 +4,7 @@
 
 ## Bản bàn giao hiện tại
 
+- **Khai báo tài khoản nhận tiền trước khi đăng bán:** Hồ sơ/Cài đặt hỗ trợ ngân hàng hoặc ví MoMo; app và backend cùng kiểm tra trước khi tạo/gửi lại/duyệt tin bán. Đây là thông tin tự khai báo; thanh toán vẫn là demo. Xem [hướng dẫn](docs/payout-account.md).
 - **53 layout màn hình Android native Java/XML**, ngoài layout host `activity_main.xml`. Luồng cộng đồng đã dùng Firebase Auth và REST API: đăng bài/mẹo hay, đọc toàn văn và bình luận, thích/lưu, bạn bè, thông báo và SCAN. Các luồng hồ sơ, địa chỉ, xác minh, đăng bán và đơn hàng cũng đã nối API.
 - **Trang chủ hiển thị bài chia sẻ đã xuất bản và story**. Khám phá có **Mẹo hay**, **Thử thách** và **Chợ đồ cũ**. Nút **+** mở lựa chọn đăng bài chia sẻ, mẹo hay hoặc tin bán. Trái tim chuyển đỏ khi thích; biểu tượng lưu chuyển vàng; bài POST/TIP có thể chia sẻ qua tin nhắn.
 - **Admin web dùng Firebase thật** tại trang mặc định: quản lý người dùng, xác minh, bài chia sẻ, mẹo hay, ảnh SCAN, chợ đồ cũ, đơn hàng, thanh toán, báo cáo và các khu vực vận hành. Có xem toàn văn/ảnh/bình luận, tạo/sửa/ẩn/lưu trữ, lý do xử lý và nhật ký.
@@ -50,10 +51,6 @@ Recycling Share App/
   diagrams-current/            # Class/ERD/Function theo mã nguồn hiện tại
 ```
 
-## Thiết lập trên máy thành viên
-
-Xem [hướng dẫn bàn giao cho team](HUONG_DAN_TEAM.md) để cài công cụ, cấp quyền Firebase và chạy bằng Node.js trong PATH.
-
 ## Chạy Android
 
 Mở **thư mục gốc này** bằng Android Studio, để IDE dùng Gradle JDK đi kèm Android Studio. Project giữ nguyên cấu hình SDK/AGP/Gradle đang có (compile/target API 37, min API 24). SDK path trong `local.properties` là cấu hình riêng trên máy, không commit.
@@ -64,7 +61,7 @@ Mở **thư mục gốc này** bằng Android Studio, để IDE dùng Gradle JDK
 
 APK: `app/build/outputs/apk/debug/app-debug.apk`. Chọn module `app` và Run lên emulator/điện thoại.
 
-Bản đóng gói GitHub này đã kèm `app/google-services.json` và cho phép commit cấu hình client này; Google Services plugin 4.5.0 chỉ áp dụng khi file này tồn tại. Thêm file không tự bật Firestore/Auth/Storage, deploy backend hoặc kích hoạt Google Sign-In. Client dùng REST nên không cần thêm Firebase Android SDK; xem [kết nối Android](docs/android-firebase.md).
+`app/google-services.json` được loại khỏi Git; Google Services plugin 4.5.0 chỉ áp dụng khi file này tồn tại. Thêm file không tự bật Firestore/Auth/Storage, deploy backend hoặc kích hoạt Google Sign-In. Client dùng REST nên không cần thêm Firebase Android SDK; xem [kết nối Android](docs/android-firebase.md).
 
 Để dùng dữ liệu cloud hiện tại: khởi chạy API Spark bên dưới và mở bản Android debug. Project `recycling-share-app` tự chọn **Spark miễn phí · Backend máy tính + Firestore cloud** và bỏ lựa chọn kết nối cũ đã lưu; không còn nút chọn backend ở màn hình đăng nhập. Dùng tài khoản Firebase thật và mật khẩu đã đặt; Android Emulator gọi API máy Windows qua `10.0.2.2:5002`. Kiểm thử Firebase Emulator dùng cấu hình trong mã kiểm thử, không chuyển môi trường trên màn hình đăng nhập; xem [hướng dẫn Android](docs/android-firebase.md).
 

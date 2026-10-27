@@ -1,4 +1,3 @@
-
 package com.example.recyclingshareapp.ui;
 
 import android.content.Context;
@@ -281,7 +280,7 @@ public final class CommunityFragment extends Fragment {
             case "scanner": layout = R.layout.fragment_scanner; break;
             case "market_detail": layout = R.layout.fragment_market_detail; break;
             case "create_listing": layout = R.layout.fragment_create_listing; break;
-            case "profile": case "edit_profile": case "addresses": case "orders": case "order_detail": case "payment_demo": case "payment_demo_result": case "my_listings": case "verification": case "admin_dashboard": case "admin_moderation": case "admin_reports": layout = R.layout.fragment_profile; break;
+            case "profile": case "edit_profile": case "payout_account": case "addresses": case "orders": case "order_detail": case "payment_demo": case "payment_demo_result": case "my_listings": case "verification": case "admin_dashboard": case "admin_moderation": case "admin_reports": layout = R.layout.fragment_profile; break;
             default: layout = R.layout.fragment_home;
         }
         return inflater.inflate(layout, container, false);
@@ -361,6 +360,7 @@ public final class CommunityFragment extends Fragment {
             case "user_profile": userProfile(); break;
             case "message_requests": messageRequests(); break;
             case "edit_profile": editProfile(); break;
+            case "payout_account": payoutAccount(); break;
             case "addresses": addresses(); break;
             case "orders": orders(); break;
             case "order_detail": orderDetail(); break;
@@ -3464,7 +3464,32 @@ public final class CommunityFragment extends Fragment {
         retryLp.topMargin = dp(8);
         body.addView(retry, retryLp);
     }
-    private void listingComposer(){header("Đăng bán đồ cũ",true);body.removeAllViews();if(!signedIn())return;body.addView(text("Người bán và người mua phải được xác minh. Tin bán sẽ được quản trị viên duyệt trước khi xuất hiện trong Chợ đồ cũ.",14,MUTED,false));label("TÊN SẢN PHẨM");draftTitle=input("Tên món đồ muốn bán",200,R.id.community_draft_title);draftTitle.setText(savedTitle);addComposerField(draftTitle,56);label("MÔ TẢ SẢN PHẨM");draft=input("Tình trạng, chất liệu, thông tin sản phẩm (ít nhất 10 ký tự)…",10000,R.id.community_draft);draft.setMinLines(4);draft.setGravity(Gravity.TOP);draft.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);draft.setText(savedBody);addComposerField(draft,120);label("KHU VỰC");city=input("Tỉnh / thành phố",100,0);JSONObject profile=BackendSession.profile();if(profile!=null)city.setText(savedCity.isEmpty()?profile.optString("city",""):savedCity);addComposerField(city,56);label("GIÁ BÁN (VND)");price=input("Ví dụ: 50000",9,0);price.setInputType(InputType.TYPE_CLASS_NUMBER);price.setText(savedPrice);addComposerField(price,56);label("SỐ LƯỢNG");stock=input("Số lượng còn bán",5,0);stock.setText(savedStock);stock.setInputType(InputType.TYPE_CLASS_NUMBER);addComposerField(stock,56);label("VẬT LIỆU");chips();photosForm();label("DANH MỤC");LinearLayout categories=column();body.addView(categories);final String[] selected={null};get("/categories",result->{JSONArray entries=result.optJSONArray("items");if(entries==null||entries.length()==0){empty(categories,"Chưa có danh mục. Liên hệ quản trị viên.");return;}android.widget.RadioGroup choices=new android.widget.RadioGroup(requireContext());for(int i=0;i<entries.length();i++){JSONObject category=entries.optJSONObject(i);if(category==null)continue;android.widget.RadioButton option=new android.widget.RadioButton(requireContext());option.setId(View.generateViewId());option.setText(category.optString("name"));option.setMinHeight(dp(48));option.setTag(category.optString("id"));choices.addView(option);}choices.setOnCheckedChangeListener((group,id)->{View selectedView=group.findViewById(id);selected[0]=selectedView==null?null:String.valueOf(selectedView.getTag());});categories.addView(choices);});action("Gửi duyệt",()->publishListing(selected[0]));publish=root.findViewById(R.id.community_action);}
+    private void listingComposer() {
+        header("Đăng bán đồ cũ", true);
+        body.removeAllViews();
+        root.findViewById(R.id.community_action).setVisibility(View.GONE);
+        publish = null;
+        if (!signedIn()) return;
+        TextView wait = loading(body);
+        getFresh("/me/payout-account", response -> {
+            body.removeView(wait);
+            updatePayoutReadiness(response.optBoolean("payout_account_ready", false));
+            if (response.optBoolean("payout_account_ready", false)) {
+                renderListingComposer();
+                return;
+            }
+            LinearLayout notice = card(body);
+            TextView title = text("Thêm tài khoản nhận tiền để đăng bán", 19, INK, true);
+            notice.addView(title);
+            TextView detail = text("Khai báo tài khoản ngân hàng hoặc ví MoMo để EcoShare có thông tin nhận tiền của bạn. Sau khi lưu, bạn có thể tiếp tục tạo tin bán.", 14, MUTED, false);
+            detail.setPadding(0, dp(10), 0, dp(6));
+            notice.addView(detail);
+            Button declare = orderActionButton("Khai báo tài khoản nhận tiền", R.drawable.ic_wallet_white, false,
+                    () -> go("payout_account", "create_listing", false));
+            declare.setId(R.id.community_payout_open);
+        });
+    }
+    private void renderListingComposer(){body.addView(text("Người bán và người mua phải được xác minh. Tin bán sẽ được quản trị viên duyệt trước khi xuất hiện trong Chợ đồ cũ.",14,MUTED,false));label("TÊN SẢN PHẨM");draftTitle=input("Tên món đồ muốn bán",200,R.id.community_draft_title);draftTitle.setText(savedTitle);addComposerField(draftTitle,56);label("MÔ TẢ SẢN PHẨM");draft=input("Tình trạng, chất liệu, thông tin sản phẩm (ít nhất 10 ký tự)…",10000,R.id.community_draft);draft.setMinLines(4);draft.setGravity(Gravity.TOP);draft.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);draft.setText(savedBody);addComposerField(draft,120);label("KHU VỰC");city=input("Tỉnh / thành phố",100,0);JSONObject profile=BackendSession.profile();if(profile!=null)city.setText(savedCity.isEmpty()?profile.optString("city",""):savedCity);addComposerField(city,56);label("GIÁ BÁN (VND)");price=input("Ví dụ: 50000",9,0);price.setInputType(InputType.TYPE_CLASS_NUMBER);price.setText(savedPrice);addComposerField(price,56);label("SỐ LƯỢNG");stock=input("Số lượng còn bán",5,0);stock.setText(savedStock);stock.setInputType(InputType.TYPE_CLASS_NUMBER);addComposerField(stock,56);label("VẬT LIỆU");chips();photosForm();label("DANH MỤC");LinearLayout categories=column();body.addView(categories);final String[] selected={null};get("/categories",result->{JSONArray entries=result.optJSONArray("items");if(entries==null||entries.length()==0){empty(categories,"Chưa có danh mục. Liên hệ quản trị viên.");return;}android.widget.RadioGroup choices=new android.widget.RadioGroup(requireContext());for(int i=0;i<entries.length();i++){JSONObject category=entries.optJSONObject(i);if(category==null)continue;android.widget.RadioButton option=new android.widget.RadioButton(requireContext());option.setId(View.generateViewId());option.setText(category.optString("name"));option.setMinHeight(dp(48));option.setTag(category.optString("id"));choices.addView(option);}choices.setOnCheckedChangeListener((group,id)->{View selectedView=group.findViewById(id);selected[0]=selectedView==null?null:String.valueOf(selectedView.getTag());});categories.addView(choices);});action("Gửi duyệt",()->publishListing(selected[0]));publish=root.findViewById(R.id.community_action);}
     private void publishListing(String category){if(busy)return;String title=draftTitle.getText().toString().trim(),description=draft.getText().toString().trim(),location=city.getText().toString().trim();if(title.isEmpty()){draftTitle.setError("Nhập tên sản phẩm.");return;}if(description.length()<10){draft.setError("Mô tả cần ít nhất 10 ký tự.");return;}if(location.isEmpty()){city.setError("Nhập tỉnh / thành phố.");return;}long amount;int quantity;try{amount=Long.parseLong(price.getText().toString());if(amount<1000||amount>999999999)throw new NumberFormatException();}catch(NumberFormatException e){price.setError("Giá từ 1.000 đến 999.999.999 đ.");return;}try{quantity=Integer.parseInt(stock.getText().toString());if(quantity<1||quantity>10000)throw new NumberFormatException();}catch(NumberFormatException e){stock.setError("Số lượng từ 1 đến 10.000.");return;}String material=materials.isEmpty()?"Hỗn hợp":android.text.TextUtils.join(", ",materials);JSONObject item=json("category_id",category,"name",title,"material",material,"condition","GOOD","price_vnd",amount,"stock",quantity,"unit","cái");busy=true;publish.setEnabled(false);send("POST","/listings",json("title",title,"description",description,"city",location,"items",new JSONArray().put(item)),createKey,listing->uploadPictures("LISTING",listing.optString("id"),0,()->{clearPagedSnapshots();busy=false;message("Đã lưu tin bán và gửi quản trị viên duyệt.");go("market_detail",listing.optString("id"),false);}));}
 
     private void profileEcoProgress(LinearLayout parent, long points) {
@@ -3683,6 +3708,22 @@ public final class CommunityFragment extends Fragment {
         ordersBtn.setOnClickListener(v->go("orders",null,false));
         actionRow.addView(ordersBtn,new LinearLayout.LayoutParams(0,dp(46),1));
         mainCard.addView(actionRow);
+        LinearLayout payoutShortcut = row();
+        payoutShortcut.setId(R.id.community_payout_open);
+        payoutShortcut.setBackgroundResource(R.drawable.bg_profile_action_outline);
+        payoutShortcut.setPadding(dp(14), dp(12), dp(14), dp(12));
+        payoutShortcut.setClickable(true);
+        payoutShortcut.setFocusable(true);
+        LinearLayout payoutLabels = column();
+        payoutLabels.addView(text("Tài khoản nhận tiền", 14, INK, true));
+        payoutLabels.addView(text(profile.optBoolean("payout_account_ready", false)
+                ? "Đã khai báo · Chạm để cập nhật" : "Khai báo để bắt đầu đăng bán", 11, MUTED, false));
+        payoutShortcut.addView(payoutLabels, new LinearLayout.LayoutParams(0, -2, 1));
+        payoutShortcut.addView(text("›", 25, GREEN, false));
+        payoutShortcut.setOnClickListener(view -> go("payout_account", null, false));
+        LinearLayout.LayoutParams payoutLp = new LinearLayout.LayoutParams(-1, -2);
+        payoutLp.topMargin = dp(10);
+        mainCard.addView(payoutShortcut, payoutLp);
 
         body.addView(mainCard,mainCardLp);
 
@@ -3841,6 +3882,137 @@ public final class CommunityFragment extends Fragment {
         });
         tile.setOnClickListener(view -> chooseImage.run());
         return tile;
+    }
+
+    private void updatePayoutReadiness(boolean ready) {
+        JSONObject profile = BackendSession.profile();
+        if (profile == null) return;
+        try {
+            JSONObject updated = new JSONObject(profile.toString());
+            updated.put("payout_account_ready", ready);
+            BackendSession.setProfile(updated);
+        } catch (JSONException ignored) { }
+    }
+
+    private void payoutAccount() {
+        header("Tài khoản nhận tiền", true);
+        body.removeAllViews();
+        root.findViewById(R.id.community_action).setVisibility(View.GONE);
+        publish = null;
+        if (!signedIn()) return;
+        TextView wait = loading(body);
+        getFresh("/me/payout-account", response -> {
+            body.removeView(wait);
+            updatePayoutReadiness(response.optBoolean("payout_account_ready", false));
+            renderPayoutAccount(response.optJSONObject("payout_account"));
+        });
+    }
+
+    private EditText payoutField(LinearLayout parent, String label, String hint, String initial,
+                                 int max, int type, int id) {
+        TextView caption = text(label, 12, MUTED, true);
+        caption.setPadding(0, dp(14), 0, 0);
+        parent.addView(caption);
+        EditText entry = field(parent, hint, initial, max, type);
+        entry.setId(id);
+        entry.setSaveEnabled(false);
+        if (android.os.Build.VERSION.SDK_INT >= 26)
+            entry.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO);
+        return entry;
+    }
+
+    private void renderPayoutAccount(JSONObject saved) {
+        LinearLayout intro = card(body);
+        TextView title = text("Nhận tiền bán hàng", 21, INK, true);
+        intro.addView(title);
+        TextView status = text(saved == null ? "Chưa khai báo" : "Đã khai báo", 12, GREEN, true);
+        status.setId(R.id.community_payout_status);
+        status.setPadding(0, dp(8), 0, dp(8));
+        intro.addView(status);
+        intro.addView(text("Bạn cần khai báo tài khoản nhận tiền trước khi gửi tin bán để duyệt. Có thể cập nhật thông tin tại đây bất cứ lúc nào.", 14, MUTED, false));
+
+        final String[] method = {saved != null && "MOMO".equals(saved.optString("method")) ? "MOMO" : "BANK"};
+        LinearLayout form = card(body);
+        form.addView(text("PHƯƠNG THỨC NHẬN TIỀN", 12, MUTED, true));
+        LinearLayout choices = row();
+        LinearLayout.LayoutParams choicesLp = new LinearLayout.LayoutParams(-1, -2);
+        choicesLp.topMargin = dp(10);
+        form.addView(choices, choicesLp);
+        Button bankChoice = button("Ngân hàng", () -> { });
+        bankChoice.setId(R.id.community_payout_bank_method);
+        Button momoChoice = button("Ví MoMo", () -> { });
+        momoChoice.setId(R.id.community_payout_momo_method);
+        choices.addView(bankChoice, new LinearLayout.LayoutParams(0, dp(48), 1));
+        choices.addView(new View(requireContext()), new LinearLayout.LayoutParams(dp(8), 0));
+        choices.addView(momoChoice, new LinearLayout.LayoutParams(0, dp(48), 1));
+
+        JSONObject profile = BackendSession.profile();
+        String holderName = saved == null ? profile.optString("display_name", "") : saved.optString("account_holder", "");
+        EditText holder = payoutField(form, "TÊN CHỦ TÀI KHOẢN", "Tên người đứng tên tài khoản", holderName,
+                100, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS, R.id.community_payout_holder);
+        LinearLayout bankFields = column();
+        form.addView(bankFields);
+        EditText bank = payoutField(bankFields, "NGÂN HÀNG", "Ví dụ: Vietcombank", saved == null ? "" : saved.optString("bank_name", ""),
+                100, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS, R.id.community_payout_bank);
+        EditText number = payoutField(bankFields, "SỐ TÀI KHOẢN", "Nhập từ 6 đến 30 chữ số", saved == null ? "" : saved.optString("account_number", ""),
+                30, InputType.TYPE_CLASS_NUMBER, R.id.community_payout_number);
+        LinearLayout momoFields = column();
+        form.addView(momoFields);
+        EditText phone = payoutField(momoFields, "SỐ ĐIỆN THOẠI VÍ MOMO", "Ví dụ: 0901234567", saved == null ? "" : saved.optString("phone", ""),
+                13, InputType.TYPE_CLASS_PHONE, R.id.community_payout_phone);
+        Runnable selectMethod = () -> {
+            boolean isBank = "BANK".equals(method[0]);
+            bankFields.setVisibility(isBank ? View.VISIBLE : View.GONE);
+            momoFields.setVisibility(isBank ? View.GONE : View.VISIBLE);
+            bankChoice.setBackgroundTintList(null);
+            momoChoice.setBackgroundTintList(null);
+            bankChoice.setBackgroundResource(isBank ? R.drawable.bg_order_payment : R.drawable.bg_profile_action_outline);
+            momoChoice.setBackgroundResource(isBank ? R.drawable.bg_profile_action_outline : R.drawable.bg_order_payment);
+            bankChoice.setTextColor(isBank ? Color.WHITE : GREEN);
+            momoChoice.setTextColor(isBank ? GREEN : Color.WHITE);
+            bankChoice.setSelected(isBank);
+            momoChoice.setSelected(!isBank);
+        };
+        bankChoice.setOnClickListener(view -> { if (!busy) { method[0] = "BANK"; selectMethod.run(); } });
+        momoChoice.setOnClickListener(view -> { if (!busy) { method[0] = "MOMO"; selectMethod.run(); } });
+        selectMethod.run();
+
+        TextView note = text("Thông tin do bạn khai báo, chưa được ngân hàng hoặc MoMo xác minh. Thanh toán hiện tại vẫn là demo và chưa thực hiện chi trả.", 12, MUTED, false);
+        note.setPadding(dp(4), 0, dp(4), dp(6));
+        body.addView(note);
+        Button save = orderActionButton("Lưu tài khoản nhận tiền", R.drawable.ic_wallet_white, false, () -> {
+            if (busy) return;
+            String owner = holder.getText().toString().trim();
+            if (owner.length() < 2) { holder.setError("Nhập tên chủ tài khoản (ít nhất 2 ký tự)."); holder.requestFocus(); return; }
+            JSONObject payload;
+            if ("BANK".equals(method[0])) {
+                String bankName = bank.getText().toString().trim();
+                String accountNumber = number.getText().toString().trim();
+                if (bankName.length() < 2) { bank.setError("Nhập tên ngân hàng."); bank.requestFocus(); return; }
+                if (!accountNumber.matches("[0-9]{6,30}")) { number.setError("Số tài khoản phải có từ 6 đến 30 chữ số."); number.requestFocus(); return; }
+                payload = json("method", "BANK", "bank_name", bankName, "account_number", accountNumber, "account_holder", owner);
+            } else {
+                String walletPhone = phone.getText().toString().trim();
+                if (!walletPhone.matches("(?:0[0-9]{9}|\\+?84[0-9]{9})")) { phone.setError("Nhập số điện thoại MoMo 10 số hoặc đầu +84."); phone.requestFocus(); return; }
+                payload = json("method", "MOMO", "phone", walletPhone, "account_holder", owner);
+            }
+            busy = true;
+            publish.setEnabled(false);
+            send("PUT", "/me/payout-account", payload, null, result -> {
+                busy = false;
+                publish.setEnabled(true);
+                boolean ready = result.optBoolean("payout_account_ready", false);
+                updatePayoutReadiness(ready);
+                status.setText(ready ? "Đã khai báo" : "Chưa khai báo");
+                if (ready && "create_listing".equals(entityId)) {
+                    go("create_listing", null, false);
+                } else {
+                    message("Đã lưu tài khoản nhận tiền.");
+                }
+            });
+        });
+        save.setId(R.id.community_payout_save);
+        publish = save;
     }
 
     private void editProfile(){

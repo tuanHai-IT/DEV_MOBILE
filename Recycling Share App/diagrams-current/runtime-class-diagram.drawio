@@ -138,7 +138,7 @@
         <mxCell id="MainActivity" value="MainActivity&#10;Host điều hướng native&#10;show(destination, addHistory)&#10;bindActions(view)" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
           <mxGeometry as="geometry" x="45" y="110" width="550" height="205" />
         </mxCell>
-        <mxCell id="CommunityFragment" value="CommunityFragment&#10;Luồng giao diện nối API&#10;go(screen, id, focus)&#10;selectExploreTab(tab)&#10;POST, TIP, chat, chợ, hồ sơ" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+        <mxCell id="CommunityFragment" value="CommunityFragment&#10;Luồng giao diện nối API&#10;go(screen, id, focus)&#10;selectExploreTab(tab)&#10;payoutAccount() / listingComposer()&#10;POST, TIP, chat, chợ, hồ sơ" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
           <mxGeometry as="geometry" x="695" y="110" width="550" height="205" />
         </mxCell>
         <mxCell id="ScreenFragment" value="ScreenFragment&#10;Host các màn Android phụ&#10;onCreateView(inflater)&#10;Nhận xử lý tương tác từ MainActivity" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
