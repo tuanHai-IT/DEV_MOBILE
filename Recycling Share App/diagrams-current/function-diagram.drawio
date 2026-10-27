@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Function Diagram — tính năng trên app" id="function-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" page="1" pageWidth="2160" pageHeight="1155">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edge0" value="" edge="1" parent="1" source="root" target="g0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge1" value="" edge="1" parent="1" source="root" target="g1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge2" value="" edge="1" parent="1" source="root" target="g2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge3" value="" edge="1" parent="1" source="root" target="g3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge4" value="" edge="1" parent="1" source="root" target="g4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge5" value="" edge="1" parent="1" source="root" target="g5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge6" value="" edge="1" parent="1" source="root" target="g6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge7" value="" edge="1" parent="1" source="root" target="g7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge8" value="" edge="1" parent="1" source="root" target="g8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge9" value="" edge="1" parent="1" source="root" target="g9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge10" value="" edge="1" parent="1" source="root" target="g10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="root" value="EcoShare / Function&#10;Các luồng có giao diện sử dụng trong Android và Admin Web" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="765" y="100" width="590" height="105" />
+        </mxCell>
+        <mxCell id="g0" value="Tài khoản&#10;• Đăng nhập email/mật khẩu và khôi phục mật khẩu&#10;• Hồ sơ, ảnh đại diện/ảnh bìa, địa chỉ và xác minh&#10;• Đăng nhập Google" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="245" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g1" value="Cộng đồng&#10;• Bài chia sẻ và mẹo hay: tạo, sửa, đọc&#10;• Thích, lưu, bình luận và trả lời&#10;• Story ảnh/video; báo cáo nội dung" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="740" y="245" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g2" value="Khám phá&#10;• Tìm kiếm bài viết, mẹo hay và tin bán&#10;• Thử thách và cộng điểm Eco&#10;• Duyệt tin bán trước khi hiện công khai" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1440" y="245" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g3" value="Mua bán&#10;• Tạo/sửa tin bán, giá và tồn kho&#10;• Đơn mua và kiểm tra xác minh hai bên&#10;• Danh sách và chi tiết đơn hàng" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="480" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g4" value="DEMO · Thanh toán&#10;• Chọn MoMo hoặc VNPay trong app&#10;• Lưu kết quả demo trên thiết bị&#10;• Không chuyển tiền thật" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="740" y="480" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g5" value="Bạn bè và thông báo&#10;• Tìm bạn, gửi và xử lý lời mời&#10;• Xem thông báo và đánh dấu đã đọc&#10;• Chia sẻ bài viết qua tin nhắn" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1440" y="480" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g6" value="Tin nhắn&#10;• Hội thoại 1-1 và tin nhắn chờ&#10;• Gửi tin nhắn chữ, ảnh và bài viết&#10;• Tải lịch sử tin nhắn theo trang" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="715" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g7" value="SCAN&#10;• Chụp hoặc chọn ảnh sản phẩm&#10;• Lưu lịch sử quét riêng tư&#10;• Đọc ảnh qua API có kiểm tra quyền" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="740" y="715" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g8" value="Điểm Eco&#10;• Xem điểm và thanh tiến trình hồ sơ&#10;• Hoàn tất thử thách để nhận điểm" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1440" y="715" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g9" value="Admin Web&#10;• Quản lý người dùng, nội dung, tin bán, đơn hàng và giao dịch&#10;• Đối soát thanh toán; xử lý xác minh và báo cáo&#10;• Thống kê, cấu hình, sổ điểm, hoàn tiền và xuất CSV" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="950" width="620" height="170" />
+        </mxCell>
+        <mxCell id="g10" value="Admin mobile&#10;• Xem tổng quan quản trị&#10;• Duyệt hoặc từ chối tin bán&#10;• Xử lý báo cáo kèm lý do" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="740" y="950" width="620" height="170" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

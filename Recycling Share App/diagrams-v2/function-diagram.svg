@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2080" height="2295" viewBox="0 0 2080 2295" role="img" aria-label="Function Diagram — Cộng đồng, SCAN &amp; Admin"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#799987"/></marker></defs><rect width="100%" height="100%" fill="#f4f8f3"/><text x="40" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#193d2d">Function Diagram — Cộng đồng, SCAN &amp; Admin</text><text x="40" y="68" font-family="Arial,sans-serif" font-size="14" fill="#52675b">EcoShare v2 • 20 domain classes • INTEGER VND • Editable source: draw.io / Mermaid</text>
+<path d="M735,165.0 L640,457.5" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L1020.0,290" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1265,165.0 L1400,457.5" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L340.0,685" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L1020.0,685" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1265,165.0 L1400,852.5" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L340.0,1080" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L1020.0,1080" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L1700.0,1080" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L340.0,1475" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L1020.0,1475" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L1700.0,1475" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<path d="M1000.0,220 L340.0,1870" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title></title></path>
+<g><rect x="735" y="110" width="530" height="110" rx="15" fill="white" stroke="#94b39d"/><rect x="735" y="110" width="530" height="43" rx="15" fill="#193d2d"/><text x="749" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">EcoShare v2 / Function</text>
+<text x="749" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Mua bán có xác minh hai bên</text>
+<text x="749" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Thanh toán qua MoMo / VNPay</text>
+</g>
+<g><rect x="40" y="290" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="40" y="290" width="600" height="43" rx="15" fill="#193d2d"/><text x="54" y="318" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Tài khoản &amp; xác minh</text>
+<text x="54" y="355" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đăng ký, đăng nhập, OTP; hồ sơ, địa chỉ</text>
+<text x="54" y="377" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Xác minh cả người mua và người bán</text>
+<text x="54" y="399" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Admin web duyệt / từ chối / hết hạn</text>
+<text x="54" y="421" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="54" y="443" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">User, Verification, Address</text>
+</g>
+<g><rect x="720" y="290" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="720" y="290" width="600" height="43" rx="15" fill="#193d2d"/><text x="734" y="318" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Trang chủ &amp; bài chia sẻ</text>
+<text x="734" y="355" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Trang chủ chỉ POST đã đăng; soạn tối đa 500</text>
+<text x="734" y="377" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">ký tự</text>
+<text x="734" y="399" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Xem đầy đủ bài và bình luận; thích đỏ, lưu</text>
+<text x="734" y="421" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">vàng</text>
+<text x="734" y="443" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Ảnh, vật liệu, cân nặng, tags; bỏ tính năng</text>
+<text x="734" y="465" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">chia sẻ</text>
+<text x="734" y="487" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="734" y="509" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">ContentEntry, Interaction, MediaAsset</text>
+</g>
+<g><rect x="1400" y="290" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="1400" y="290" width="600" height="43" rx="15" fill="#193d2d"/><text x="1414" y="318" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Đơn hàng mua bán</text>
+<text x="1414" y="355" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Kiểm tra hai bên VERIFIED, không tự mua</text>
+<text x="1414" y="377" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chốt giá, giữ tồn kho trong transaction</text>
+<text x="1414" y="399" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Giao nhận, hoàn tất, hủy, tranh chấp</text>
+<text x="1414" y="421" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="1414" y="443" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Order, OrderItem</text>
+</g>
+<g><rect x="40" y="685" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="40" y="685" width="600" height="43" rx="15" fill="#193d2d"/><text x="54" y="713" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Thanh toán trung gian</text>
+<text x="54" y="750" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• MoMo / VNPay; backend tạo phiên</text>
+<text x="54" y="772" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Webhook chữ ký, số tiền, mã đơn, idempotency</text>
+<text x="54" y="794" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Thử lại, đối soát, hoàn tiền qua cổng</text>
+<text x="54" y="816" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="54" y="838" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Payment</text>
+</g>
+<g><rect x="720" y="685" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="720" y="685" width="600" height="43" rx="15" fill="#193d2d"/><text x="734" y="713" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Bạn bè, chat &amp; thông báo</text>
+<text x="734" y="750" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Lời mời kết bạn; chấp nhận / từ chối; tìm bạn</text>
+<text x="734" y="772" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Thông báo thích, bình luận, kết bạn; đọc tất</text>
+<text x="734" y="794" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">cả</text>
+<text x="734" y="816" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chat giữa hai tài khoản; tệp theo quyền</text>
+<text x="734" y="838" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="734" y="860" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Conversation, Message, Interaction, MediaAsset</text>
+</g>
+<g><rect x="1400" y="685" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="1400" y="685" width="600" height="43" rx="15" fill="#193d2d"/><text x="1414" y="713" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Đánh giá &amp; hỗ trợ</text>
+<text x="1414" y="750" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đánh giá mỗi bên một lần sau hoàn tất</text>
+<text x="1414" y="772" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Báo cáo tin / tài khoản / khiếu nại đơn</text>
+<text x="1414" y="794" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Bằng chứng, người xử lý, kết quả</text>
+<text x="1414" y="816" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="1414" y="838" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Review, Report, MediaAsset</text>
+</g>
+<g><rect x="40" y="1080" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="40" y="1080" width="600" height="43" rx="15" fill="#193d2d"/><text x="54" y="1108" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Bản đồ &amp; thu gom</text>
+<text x="54" y="1145" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Danh sách / bản đồ điểm thu gom</text>
+<text x="54" y="1167" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Vật liệu tiếp nhận, giờ làm, vị trí</text>
+<text x="54" y="1189" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Admin web quản lý điểm &amp; đơn vị</text>
+<text x="54" y="1211" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="54" y="1233" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">CollectionPoint</text>
+</g>
+<g><rect x="720" y="1080" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="720" y="1080" width="600" height="43" rx="15" fill="#193d2d"/><text x="734" y="1108" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Điểm xanh &amp; nội dung</text>
+<text x="734" y="1145" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Sổ điểm, huy hiệu, bảng xếp hạng</text>
+<text x="734" y="1167" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Kiến thức, nhóm, sự kiện, thử thách, thưởng</text>
+<text x="734" y="1189" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tương tác tham gia; không cộng trùng</text>
+<text x="734" y="1211" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="734" y="1233" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">GreenLedger, ContentEntry, Interaction</text>
+</g>
+<g><rect x="1400" y="1080" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="1400" y="1080" width="600" height="43" rx="15" fill="#193d2d"/><text x="1414" y="1108" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Admin web: vận hành đầy đủ</text>
+<text x="1414" y="1145" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Người dùng, phân quyền, xác minh, tin, báo</text>
+<text x="1414" y="1167" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">cáo</text>
+<text x="1414" y="1189" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đơn hàng, thanh toán, đối soát, hoàn tiền</text>
+<text x="1414" y="1211" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Danh mục, điểm thu gom, nội dung, điểm xanh</text>
+<text x="1414" y="1233" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="1414" y="1255" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">User, Verification, Listing, Report, Order,</text>
+<text x="1414" y="1277" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Payment, Category, CollectionPoint, ContentEntry,</text>
+<text x="1414" y="1299" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">GreenLedger</text>
+</g>
+<g><rect x="40" y="1475" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="40" y="1475" width="600" height="43" rx="15" fill="#193d2d"/><text x="54" y="1503" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Admin web: kiểm soát hệ thống</text>
+<text x="54" y="1540" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Cấu hình ứng dụng, chính sách &amp; vai trò</text>
+<text x="54" y="1562" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Nhật ký quản trị, thống kê, xuất dữ liệu</text>
+<text x="54" y="1584" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Bắt buộc lý do cho thao tác nhạy cảm</text>
+<text x="54" y="1606" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="54" y="1628" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">SystemSetting, AuditLog</text>
+</g>
+<g><rect x="720" y="1475" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="720" y="1475" width="600" height="43" rx="15" fill="#193d2d"/><text x="734" y="1503" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Admin mobile: chức năng cơ bản</text>
+<text x="734" y="1540" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tổng quan chỉ số</text>
+<text x="734" y="1562" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Duyệt / từ chối bài đăng</text>
+<text x="734" y="1584" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tiếp nhận báo cáo; việc khác qua web</text>
+<text x="734" y="1606" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="734" y="1628" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Listing, Report, AuditLog</text>
+</g>
+<g><rect x="1400" y="1475" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="1400" y="1475" width="600" height="43" rx="15" fill="#193d2d"/><text x="1414" y="1503" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Khám phá: mẹo hay &amp; chợ đồ cũ</text>
+<text x="1414" y="1540" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Mẹo hay TIP; soạn và đọc nội dung hướng dẫn</text>
+<text x="1414" y="1562" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chợ SALE có giá, tồn kho; duyệt trước niêm</text>
+<text x="1414" y="1584" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">yết</text>
+<text x="1414" y="1606" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đặt mua cần xác minh cả người mua và người</text>
+<text x="1414" y="1628" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">bán</text>
+<text x="1414" y="1650" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="1414" y="1672" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">ContentEntry, Listing, ListingItem, Category,</text>
+<text x="1414" y="1694" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">MediaAsset</text>
+</g>
+<g><rect x="40" y="1870" width="600" height="335" rx="15" fill="white" stroke="#94b39d"/><rect x="40" y="1870" width="600" height="43" rx="15" fill="#193d2d"/><text x="54" y="1898" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">SCAN: ảnh lưu riêng tư</text>
+<text x="54" y="1935" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Spark: ảnh Firestore inline tối đa 384 KiB</text>
+<text x="54" y="1957" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chỉ chủ ảnh và ADMIN xem; MODERATOR không xem</text>
+<text x="54" y="1979" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Lịch sử SCAN; Storage là tùy chọn Blaze riêng</text>
+<text x="54" y="2001" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Models:</text>
+<text x="54" y="2023" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">ContentEntry, MediaAsset, AuditLog</text>
+</g>
+</svg>

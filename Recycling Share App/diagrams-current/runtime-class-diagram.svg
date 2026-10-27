@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1990" height="1480" viewBox="0 0 1990 1480" role="img" aria-label="Class Diagram — lớp Android chính"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#799987"/></marker></defs><rect width="100%" height="100%" fill="#f4f8f3"/><text x="40" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#193d2d">Class Diagram — lớp Android chính</text><text x="40" y="68" font-family="Arial,sans-serif" font-size="14" fill="#52675b">EcoShare • rà soát mã nguồn 23/10/2026 • sửa bằng draw.io / Mermaid</text>
+<path d="M595,165 L615,165 L615,333 L677,333 L677,165 L695,165" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>điều hướng</title></path>
+<path d="M595,191 L628,191 L628,342 L1315,342 L1315,191 L1345,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>điều hướng</title></path>
+<path d="M595,217 L641,217 L641,351 L653,351 L653,737 L695,737" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>trạng thái cục bộ</title></path>
+<path d="M595,243 L654,243 L654,360 L677,360 L677,503 L695,503" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>phiên</title></path>
+<path d="M1245,269 L1317,269 L1317,333 L15,333 L15,529 L45,529" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>gọi API</title></path>
+<path d="M1245,295 L1265,295 L1265,342 L653,342 L653,555 L695,555" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>hồ sơ</title></path>
+<path d="M1245,321 L1278,321 L1278,351 L677,351 L677,1101 L695,1101" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>chuẩn hóa ảnh</title></path>
+<path d="M1245,607 L1291,607 L1291,620 L15,620 L15,607 L45,607" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>quản lý phiên</title></path>
+<path d="M595,633 L654,633 L654,593 L1303,593 L1303,633 L1345,633" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>lưu token</title></path>
+<path d="M595,659 L667,659 L667,602 L27,602 L27,919 L45,919" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>cache công khai</title></path>
+<path d="M595,425 L615,425 L615,611 L15,611 L15,945 L45,945" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>endpoint</title></path>
+<path d="M1895,191 L1928,191 L1928,360 L3,360 L3,191 L45,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>host</title></path>
+<path d="M595,217 L641,217 L641,333 L1327,333 L1327,737 L1345,737" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>luồng giao dịch</title></path>
+<g><rect x="45" y="110" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="110" width="550" height="43" rx="15" fill="#193d2d"/><text x="59" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">MainActivity</text>
+<text x="59" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Host điều hướng native</text>
+<text x="59" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">show(destination, addHistory)</text>
+<text x="59" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">bindActions(view)</text>
+</g>
+<g><rect x="695" y="110" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="695" y="110" width="550" height="43" rx="15" fill="#193d2d"/><text x="709" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">CommunityFragment</text>
+<text x="709" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Luồng giao diện nối API</text>
+<text x="709" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">go(screen, id, focus)</text>
+<text x="709" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">selectExploreTab(tab)</text>
+<text x="709" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">POST, TIP, chat, chợ, hồ sơ</text>
+</g>
+<g><rect x="1345" y="110" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="1345" y="110" width="550" height="43" rx="15" fill="#193d2d"/><text x="1359" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">ScreenFragment</text>
+<text x="1359" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Host các màn Android phụ</text>
+<text x="1359" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">onCreateView(inflater)</text>
+<text x="1359" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Nhận xử lý tương tác từ MainActivity</text>
+</g>
+<g><rect x="45" y="370" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="370" width="550" height="43" rx="15" fill="#193d2d"/><text x="59" y="398" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">FirebaseBackendClient</text>
+<text x="59" y="435" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">REST + Firebase Auth</text>
+<text x="59" y="457" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">request / requestFresh</text>
+<text x="59" y="479" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">uploadMedia / downloadMedia</text>
+</g>
+<g><rect x="695" y="370" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="695" y="370" width="550" height="43" rx="15" fill="#193d2d"/><text x="709" y="398" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">BackendSession</text>
+<text x="709" y="435" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Phiên và hồ sơ đăng nhập</text>
+<text x="709" y="457" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">get(context) / profile()</text>
+</g>
+<g><rect x="1345" y="370" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="1345" y="370" width="550" height="43" rx="15" fill="#193d2d"/><text x="1359" y="398" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">SessionVault</text>
+<text x="1359" y="435" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Lưu phiên cục bộ</text>
+<text x="1359" y="457" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Nội bộ data.remote</text>
+</g>
+<g><rect x="45" y="630" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="630" width="550" height="43" rx="15" fill="#193d2d"/><text x="59" y="658" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">OfflineSnapshotStore</text>
+<text x="59" y="695" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">SQLite công khai chỉ đọc</text>
+<text x="59" y="717" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Nội bộ data.remote</text>
+</g>
+<g><rect x="695" y="630" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="695" y="630" width="550" height="43" rx="15" fill="#193d2d"/><text x="709" y="658" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">DemoRepository</text>
+<text x="709" y="695" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">SharedPreferences</text>
+<text x="709" y="717" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Tuỳ chọn cục bộ và kết quả thanh toán demo</text>
+</g>
+<g><rect x="1345" y="630" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="1345" y="630" width="550" height="43" rx="15" fill="#193d2d"/><text x="1359" y="658" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">TradeRules</text>
+<text x="1359" y="695" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Ràng buộc luồng giao dịch</text>
+<text x="1359" y="717" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Bổ sung validation phía server</text>
+</g>
+<g><rect x="45" y="890" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="890" width="550" height="43" rx="15" fill="#193d2d"/><text x="59" y="918" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">BackendEndpointPolicy</text>
+<text x="59" y="955" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Chọn endpoint API</text>
+<text x="59" y="977" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Spark debug / HTTPS release</text>
+</g>
+<g><rect x="695" y="890" width="550" height="205" rx="15" fill="white" stroke="#94b39d"/><rect x="695" y="890" width="550" height="43" rx="15" fill="#193d2d"/><text x="709" y="918" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">PhotoUploadEncoder</text>
+<text x="709" y="955" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Nén/chuẩn hóa ảnh cho Firestore Spark</text>
+<text x="709" y="977" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">forFirestore(bytes)</text>
+</g>
+</svg>

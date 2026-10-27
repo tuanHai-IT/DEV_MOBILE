@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Function Diagram — Cộng đồng, SCAN &amp; Admin" id="function-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" page="1" pageWidth="2080" pageHeight="2295">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edge0" value="" edge="1" parent="1" source="root" target="g0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge1" value="" edge="1" parent="1" source="root" target="g1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge2" value="" edge="1" parent="1" source="root" target="g2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge3" value="" edge="1" parent="1" source="root" target="g3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge4" value="" edge="1" parent="1" source="root" target="g4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge5" value="" edge="1" parent="1" source="root" target="g5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge6" value="" edge="1" parent="1" source="root" target="g6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge7" value="" edge="1" parent="1" source="root" target="g7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge8" value="" edge="1" parent="1" source="root" target="g8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge9" value="" edge="1" parent="1" source="root" target="g9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge10" value="" edge="1" parent="1" source="root" target="g10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge11" value="" edge="1" parent="1" source="root" target="g11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge12" value="" edge="1" parent="1" source="root" target="g12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="root" value="EcoShare v2 / Function&#10;Mua bán có xác minh hai bên&#10;Thanh toán qua MoMo / VNPay" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="735" y="110" width="530" height="110" />
+        </mxCell>
+        <mxCell id="g0" value="Tài khoản &amp; xác minh&#10;• Đăng ký, đăng nhập, OTP; hồ sơ, địa chỉ&#10;• Xác minh cả người mua và người bán&#10;• Admin web duyệt / từ chối / hết hạn&#10;Models:&#10;User, Verification, Address" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="290" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g1" value="Trang chủ &amp; bài chia sẻ&#10;• Trang chủ chỉ POST đã đăng; soạn tối đa 500&#10;ký tự&#10;• Xem đầy đủ bài và bình luận; thích đỏ, lưu&#10;vàng&#10;• Ảnh, vật liệu, cân nặng, tags; bỏ tính năng&#10;chia sẻ&#10;Models:&#10;ContentEntry, Interaction, MediaAsset" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="720" y="290" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g2" value="Đơn hàng mua bán&#10;• Kiểm tra hai bên VERIFIED, không tự mua&#10;• Chốt giá, giữ tồn kho trong transaction&#10;• Giao nhận, hoàn tất, hủy, tranh chấp&#10;Models:&#10;Order, OrderItem" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1400" y="290" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g3" value="Thanh toán trung gian&#10;• MoMo / VNPay; backend tạo phiên&#10;• Webhook chữ ký, số tiền, mã đơn, idempotency&#10;• Thử lại, đối soát, hoàn tiền qua cổng&#10;Models:&#10;Payment" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="685" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g4" value="Bạn bè, chat &amp; thông báo&#10;• Lời mời kết bạn; chấp nhận / từ chối; tìm bạn&#10;• Thông báo thích, bình luận, kết bạn; đọc tất&#10;cả&#10;• Chat giữa hai tài khoản; tệp theo quyền&#10;Models:&#10;Conversation, Message, Interaction, MediaAsset" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="720" y="685" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g5" value="Đánh giá &amp; hỗ trợ&#10;• Đánh giá mỗi bên một lần sau hoàn tất&#10;• Báo cáo tin / tài khoản / khiếu nại đơn&#10;• Bằng chứng, người xử lý, kết quả&#10;Models:&#10;Review, Report, MediaAsset" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1400" y="685" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g6" value="Bản đồ &amp; thu gom&#10;• Danh sách / bản đồ điểm thu gom&#10;• Vật liệu tiếp nhận, giờ làm, vị trí&#10;• Admin web quản lý điểm &amp; đơn vị&#10;Models:&#10;CollectionPoint" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="1080" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g7" value="Điểm xanh &amp; nội dung&#10;• Sổ điểm, huy hiệu, bảng xếp hạng&#10;• Kiến thức, nhóm, sự kiện, thử thách, thưởng&#10;• Tương tác tham gia; không cộng trùng&#10;Models:&#10;GreenLedger, ContentEntry, Interaction" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="720" y="1080" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g8" value="Admin web: vận hành đầy đủ&#10;• Người dùng, phân quyền, xác minh, tin, báo&#10;cáo&#10;• Đơn hàng, thanh toán, đối soát, hoàn tiền&#10;• Danh mục, điểm thu gom, nội dung, điểm xanh&#10;Models:&#10;User, Verification, Listing, Report, Order,&#10;Payment, Category, CollectionPoint, ContentEntry,&#10;GreenLedger" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1400" y="1080" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g9" value="Admin web: kiểm soát hệ thống&#10;• Cấu hình ứng dụng, chính sách &amp; vai trò&#10;• Nhật ký quản trị, thống kê, xuất dữ liệu&#10;• Bắt buộc lý do cho thao tác nhạy cảm&#10;Models:&#10;SystemSetting, AuditLog" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="1475" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g10" value="Admin mobile: chức năng cơ bản&#10;• Tổng quan chỉ số&#10;• Duyệt / từ chối bài đăng&#10;• Tiếp nhận báo cáo; việc khác qua web&#10;Models:&#10;Listing, Report, AuditLog" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="720" y="1475" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g11" value="Khám phá: mẹo hay &amp; chợ đồ cũ&#10;• Mẹo hay TIP; soạn và đọc nội dung hướng dẫn&#10;• Chợ SALE có giá, tồn kho; duyệt trước niêm&#10;yết&#10;• Đặt mua cần xác minh cả người mua và người&#10;bán&#10;Models:&#10;ContentEntry, Listing, ListingItem, Category,&#10;MediaAsset" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1400" y="1475" width="600" height="335" />
+        </mxCell>
+        <mxCell id="g12" value="SCAN: ảnh lưu riêng tư&#10;• Spark: ảnh Firestore inline tối đa 384 KiB&#10;• Chỉ chủ ảnh và ADMIN xem; MODERATOR không xem&#10;• Lịch sử SCAN; Storage là tùy chọn Blaze riêng&#10;Models:&#10;ContentEntry, MediaAsset, AuditLog" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="40" y="1870" width="600" height="335" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

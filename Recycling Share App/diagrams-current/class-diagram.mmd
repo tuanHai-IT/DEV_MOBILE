@@ -1,0 +1,239 @@
+classDiagram
+direction LR
+    class User {
+        +String id
+        +String displayName
+        +String email
+        +String role
+        +String status
+        +String phone
+        +String bio
+        +String city
+        +String avatarKey
+        +String coverKey
+        +String createdAt
+    }
+    class Verification {
+        +String id
+        +String userId
+        +String status
+        +String submittedAt
+        +String reviewerId
+        +String reviewedAt
+        +String expiresAt
+        +String reason
+    }
+    class Address {
+        +String id
+        +String userId
+        +String recipient
+        +String phone
+        +String line
+        +String city
+        +long isDefault
+    }
+    class Category {
+        +String id
+        +String name
+        +String description
+        +long active
+    }
+    class Listing {
+        +String id
+        +String sellerId
+        +String kind
+        +String title
+        +String description
+        +String status
+        +String city
+        +Double latitude
+        +Double longitude
+        +String tagsJson
+        +String createdAt
+        +String moderatorId
+        +String moderationReason
+    }
+    class ListingItem {
+        +String id
+        +String listingId
+        +String categoryId
+        +String name
+        +String material
+        +String condition
+        +long priceVnd
+        +long stock
+        +String unit
+    }
+    class MediaAsset {
+        +String id
+        +String uploaderId
+        +String storageKey
+        +String mimeType
+        +String visibility
+        +String listingId
+        +String messageId
+        +String contentId
+        +String reportId
+        +String verificationId
+    }
+    class Interaction {
+        +String id
+        +String userId
+        +String type
+        +String listingId
+        +String contentId
+        +String targetUserId
+        +String parentCommentId
+        +Long likeCount
+        +String body
+        +String readAt
+        +String createdAt
+    }
+    class Order {
+        +String id
+        +String buyerId
+        +String sellerId
+        +String addressId
+        +String deliverySnapshot
+        +String status
+        +long subtotalVnd
+        +long shippingVnd
+        +long totalVnd
+        +String createdAt
+        +String completedAt
+    }
+    class OrderItem {
+        +String id
+        +String orderId
+        +String listingItemId
+        +String titleSnapshot
+        +long quantity
+        +long unitPriceVnd
+    }
+    class Payment {
+        +String id
+        +String orderId
+        +String parentPaymentId
+        +String kind
+        +String provider
+        +String providerRef
+        +String idempotencyKey
+        +long amountVnd
+        +String currency
+        +String status
+        +String createdAt
+        +String confirmedAt
+    }
+    class Conversation {
+        +String id
+        +String memberAId
+        +String memberBId
+        +String orderId
+        +String createdAt
+    }
+    class Message {
+        +String id
+        +String conversationId
+        +String senderId
+        +String body
+        +String contentId
+        +String contentKind
+        +String sentAt
+        +String readAt
+    }
+    class Report {
+        +String id
+        +String reporterId
+        +String listingId
+        +String contentId
+        +String targetUserId
+        +String orderId
+        +String reason
+        +String status
+        +String resolverId
+        +String resolution
+        +String createdAt
+    }
+    class GreenLedger {
+        +String id
+        +String userId
+        +String orderId
+        +String contentId
+        +long points
+        +String reason
+        +String dedupeKey
+        +String createdAt
+    }
+    class ContentEntry {
+        +String id
+        +String authorId
+        +String parentId
+        +String kind
+        +String title
+        +String body
+        +String status
+        +String startsAt
+        +String endsAt
+        +long pointsCost
+        +String metadataJson
+    }
+    class AuditLog {
+        +String id
+        +String actorId
+        +String action
+        +String entityType
+        +String entityId
+        +String reason
+        +String createdAt
+    }
+    class SystemSetting {
+        +String id
+        +String key
+        +String valueJson
+        +String updatedBy
+        +String updatedAt
+    }
+    User "1" <-- "0..*" Verification : userId
+    User "0..1" <-- "0..*" Verification : reviewerId
+    User "1" <-- "0..*" Address : userId
+    User "1" <-- "0..*" Listing : sellerId
+    User "0..1" <-- "0..*" Listing : moderatorId
+    Listing "1" <-- "0..*" ListingItem : listingId
+    Category "1" <-- "0..*" ListingItem : categoryId
+    User "1" <-- "0..*" MediaAsset : uploaderId
+    Listing "0..1" <-- "0..*" MediaAsset : listingId
+    Message "0..1" <-- "0..*" MediaAsset : messageId
+    ContentEntry "0..1" <-- "0..*" MediaAsset : contentId
+    Report "0..1" <-- "0..*" MediaAsset : reportId
+    Verification "0..1" <-- "0..*" MediaAsset : verificationId
+    User "1" <-- "0..*" Interaction : userId
+    Listing "0..1" <-- "0..*" Interaction : listingId
+    ContentEntry "0..1" <-- "0..*" Interaction : contentId
+    User "0..1" <-- "0..*" Interaction : targetUserId
+    Interaction "0..1" <-- "0..*" Interaction : parentCommentId
+    User "1" <-- "0..*" Order : buyerId
+    User "1" <-- "0..*" Order : sellerId
+    Address "0..1" <-- "0..*" Order : addressId
+    Order "1" <-- "0..*" OrderItem : orderId
+    ListingItem "1" <-- "0..*" OrderItem : listingItemId
+    Order "1" <-- "0..*" Payment : orderId
+    Payment "0..1" <-- "0..*" Payment : parentPaymentId
+    User "1" <-- "0..*" Conversation : memberAId
+    User "1" <-- "0..*" Conversation : memberBId
+    Order "0..1" <-- "0..*" Conversation : orderId
+    Conversation "1" <-- "0..*" Message : conversationId
+    User "1" <-- "0..*" Message : senderId
+    ContentEntry "0..1" <-- "0..*" Message : contentId
+    User "1" <-- "0..*" Report : reporterId
+    Listing "0..1" <-- "0..*" Report : listingId
+    ContentEntry "0..1" <-- "0..*" Report : contentId
+    User "0..1" <-- "0..*" Report : targetUserId
+    Order "0..1" <-- "0..*" Report : orderId
+    User "0..1" <-- "0..*" Report : resolverId
+    User "1" <-- "0..*" GreenLedger : userId
+    Order "0..1" <-- "0..*" GreenLedger : orderId
+    ContentEntry "0..1" <-- "0..*" GreenLedger : contentId
+    User "1" <-- "0..*" ContentEntry : authorId
+    ContentEntry "0..1" <-- "0..*" ContentEntry : parentId
+    User "1" <-- "0..*" AuditLog : actorId
+    User "1" <-- "0..*" SystemSetting : updatedBy

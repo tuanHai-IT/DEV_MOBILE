@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="1155" viewBox="0 0 2160 1155" role="img" aria-label="Function Diagram — tính năng trên app"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#799987" /></marker></defs><rect width="100%" height="100%" fill="#f4f8f3" /><text x="40" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#193d2d">Function Diagram — tính năng trên app</text><text x="40" y="68" font-family="Arial,sans-serif" font-size="14" fill="#52675b">EcoShare • rà soát mã nguồn 23/10/2026 • sửa bằng draw.io / Mermaid</text>
+<path d="M765,152.5 L660,330.0" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1060.0,205 L1050.0,245" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1355,152.5 L1440,330.0" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M765,152.5 L660,565.0" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1060.0,205 L1050.0,480" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1355,152.5 L1440,565.0" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M765,152.5 L660,800.0" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1060.0,205 L1050.0,715" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1355,152.5 L1440,800.0" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1060.0,205 L350.0,950" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<path d="M1060.0,205 L1050.0,950" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title /></path>
+<g><rect x="765" y="100" width="590" height="105" rx="15" fill="white" stroke="#94b39d" /><rect x="765" y="100" width="590" height="43" rx="15" fill="#193d2d" /><text x="779" y="128" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">EcoShare / Function</text>
+<text x="779" y="165" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Các luồng có giao diện sử dụng trong Android và Admin Web</text>
+</g>
+<g><rect x="40" y="245" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="40" y="245" width="620" height="43" rx="15" fill="#193d2d" /><text x="54" y="273" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Tài khoản</text>
+<text x="54" y="310" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đăng nhập email/mật khẩu và khôi phục mật khẩu</text>
+<text x="54" y="332" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Hồ sơ, ảnh đại diện/ảnh bìa, địa chỉ và xác minh</text>
+<text x="54" y="354" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đăng nhập Google</text>
+</g>
+<g><rect x="740" y="245" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="740" y="245" width="620" height="43" rx="15" fill="#193d2d" /><text x="754" y="273" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Cộng đồng</text>
+<text x="754" y="310" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Bài chia sẻ và mẹo hay: tạo, sửa, đọc</text>
+<text x="754" y="332" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Thích, lưu, bình luận và trả lời</text>
+<text x="754" y="354" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Story ảnh/video; báo cáo nội dung</text>
+</g>
+<g><rect x="1440" y="245" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="1440" y="245" width="620" height="43" rx="15" fill="#193d2d" /><text x="1454" y="273" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Khám phá</text>
+<text x="1454" y="310" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tìm kiếm bài viết, mẹo hay và tin bán</text>
+<text x="1454" y="332" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Thử thách và cộng điểm Eco</text>
+<text x="1454" y="354" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Duyệt tin bán trước khi hiện công khai</text>
+</g>
+<g><rect x="40" y="480" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="40" y="480" width="620" height="43" rx="15" fill="#193d2d" /><text x="54" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Mua bán</text>
+<text x="54" y="545" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tạo/sửa tin bán, giá và tồn kho</text>
+<text x="54" y="567" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đơn mua và kiểm tra xác minh hai bên</text>
+<text x="54" y="589" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Danh sách và chi tiết đơn hàng</text>
+</g>
+<g><rect x="740" y="480" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="740" y="480" width="620" height="43" rx="15" fill="#a66b13" /><text x="754" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">DEMO · Thanh toán</text>
+<text x="754" y="545" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chọn MoMo hoặc VNPay trong app</text>
+<text x="754" y="567" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Lưu kết quả demo trên thiết bị</text>
+<text x="754" y="589" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Không chuyển tiền thật</text>
+</g>
+<g><rect x="1440" y="480" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="1440" y="480" width="620" height="43" rx="15" fill="#193d2d" /><text x="1454" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Bạn bè và thông báo</text>
+<text x="1454" y="545" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tìm bạn, gửi và xử lý lời mời</text>
+<text x="1454" y="567" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Xem thông báo và đánh dấu đã đọc</text>
+<text x="1454" y="589" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chia sẻ bài viết qua tin nhắn</text>
+</g>
+<g><rect x="40" y="715" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="40" y="715" width="620" height="43" rx="15" fill="#193d2d" /><text x="54" y="743" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Tin nhắn</text>
+<text x="54" y="780" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Hội thoại 1-1 và tin nhắn chờ</text>
+<text x="54" y="802" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Gửi tin nhắn chữ, ảnh và bài viết</text>
+<text x="54" y="824" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Tải lịch sử tin nhắn theo trang</text>
+</g>
+<g><rect x="740" y="715" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="740" y="715" width="620" height="43" rx="15" fill="#193d2d" /><text x="754" y="743" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">SCAN</text>
+<text x="754" y="780" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Chụp hoặc chọn ảnh sản phẩm</text>
+<text x="754" y="802" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Lưu lịch sử quét riêng tư</text>
+<text x="754" y="824" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đọc ảnh qua API có kiểm tra quyền</text>
+</g>
+<g><rect x="1440" y="715" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="1440" y="715" width="620" height="43" rx="15" fill="#193d2d" /><text x="1454" y="743" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Điểm Eco</text>
+<text x="1454" y="780" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Xem điểm và thanh tiến trình hồ sơ</text>
+<text x="1454" y="802" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Hoàn tất thử thách để nhận điểm</text>
+</g>
+<g><rect x="40" y="950" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="40" y="950" width="620" height="43" rx="15" fill="#193d2d" /><text x="54" y="978" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Admin Web</text>
+<text x="54" y="1015" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Quản lý người dùng, nội dung, tin bán, đơn hàng và giao dịch</text>
+<text x="54" y="1037" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Đối soát thanh toán; xử lý xác minh và báo cáo</text>
+<text x="54" y="1059" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Thống kê, cấu hình, sổ điểm, hoàn tiền và xuất CSV</text>
+</g>
+<g><rect x="740" y="950" width="620" height="170" rx="15" fill="white" stroke="#94b39d" /><rect x="740" y="950" width="620" height="43" rx="15" fill="#193d2d" /><text x="754" y="978" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Admin mobile</text>
+<text x="754" y="1015" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Xem tổng quan quản trị</text>
+<text x="754" y="1037" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Duyệt hoặc từ chối tin bán</text>
+<text x="754" y="1059" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">• Xử lý báo cáo kèm lý do</text>
+</g>
+</svg>

@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Class Diagram — lớp Android chính" id="runtime-class-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" page="1" pageWidth="1990" pageHeight="1480">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edge0" value="" edge="1" parent="1" source="MainActivity" target="CommunityFragment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.2682926829268293;entryX=0;entryY=0.2682926829268293;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="615" y="165" />
+              <mxPoint x="615" y="333" />
+              <mxPoint x="677" y="333" />
+              <mxPoint x="677" y="165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge1" value="" edge="1" parent="1" source="MainActivity" target="ScreenFragment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.3951219512195122;entryX=0;entryY=0.3951219512195122;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="628" y="191" />
+              <mxPoint x="628" y="342" />
+              <mxPoint x="1315" y="342" />
+              <mxPoint x="1315" y="191" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" value="" edge="1" parent="1" source="MainActivity" target="DemoRepository" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.5219512195121951;entryX=0;entryY=0.5219512195121951;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="641" y="217" />
+              <mxPoint x="641" y="351" />
+              <mxPoint x="653" y="351" />
+              <mxPoint x="653" y="737" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" value="" edge="1" parent="1" source="MainActivity" target="BackendSession" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.6487804878048781;entryX=0;entryY=0.6487804878048781;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="654" y="243" />
+              <mxPoint x="654" y="360" />
+              <mxPoint x="677" y="360" />
+              <mxPoint x="677" y="503" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" value="" edge="1" parent="1" source="CommunityFragment" target="FirebaseBackendClient" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.775609756097561;entryX=0;entryY=0.775609756097561;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1317" y="269" />
+              <mxPoint x="1317" y="333" />
+              <mxPoint x="15" y="333" />
+              <mxPoint x="15" y="529" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" value="" edge="1" parent="1" source="CommunityFragment" target="BackendSession" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.9024390243902439;entryX=0;entryY=0.9024390243902439;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1265" y="295" />
+              <mxPoint x="1265" y="342" />
+              <mxPoint x="653" y="342" />
+              <mxPoint x="653" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" value="" edge="1" parent="1" source="CommunityFragment" target="PhotoUploadEncoder" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=1.0292682926829269;entryX=0;entryY=1.0292682926829269;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1278" y="321" />
+              <mxPoint x="1278" y="351" />
+              <mxPoint x="677" y="351" />
+              <mxPoint x="677" y="1101" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" value="" edge="1" parent="1" source="BackendSession" target="FirebaseBackendClient" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=1.1560975609756097;entryX=0;entryY=1.1560975609756097;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1291" y="607" />
+              <mxPoint x="1291" y="620" />
+              <mxPoint x="15" y="620" />
+              <mxPoint x="15" y="607" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" value="" edge="1" parent="1" source="FirebaseBackendClient" target="SessionVault" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=1.2829268292682927;entryX=0;entryY=1.2829268292682927;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="654" y="633" />
+              <mxPoint x="654" y="593" />
+              <mxPoint x="1303" y="593" />
+              <mxPoint x="1303" y="633" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge9" value="" edge="1" parent="1" source="FirebaseBackendClient" target="OfflineSnapshotStore" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=1.4097560975609755;entryX=0;entryY=1.4097560975609755;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="667" y="659" />
+              <mxPoint x="667" y="602" />
+              <mxPoint x="27" y="602" />
+              <mxPoint x="27" y="919" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge10" value="" edge="1" parent="1" source="FirebaseBackendClient" target="BackendEndpointPolicy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.2682926829268293;entryX=0;entryY=0.2682926829268293;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="615" y="425" />
+              <mxPoint x="615" y="611" />
+              <mxPoint x="15" y="611" />
+              <mxPoint x="15" y="945" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge11" value="" edge="1" parent="1" source="ScreenFragment" target="MainActivity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.3951219512195122;entryX=0;entryY=0.3951219512195122;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1928" y="191" />
+              <mxPoint x="1928" y="360" />
+              <mxPoint x="3" y="360" />
+              <mxPoint x="3" y="191" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge12" value="" edge="1" parent="1" source="MainActivity" target="TradeRules" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;fontSize=10;strokeColor=#799987;endArrow=open;labelBackgroundColor=#f4f8f3;exitX=1;exitY=0.5219512195121951;entryX=0;entryY=0.5219512195121951;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="641" y="217" />
+              <mxPoint x="641" y="333" />
+              <mxPoint x="1327" y="333" />
+              <mxPoint x="1327" y="737" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MainActivity" value="MainActivity&#10;Host điều hướng native&#10;show(destination, addHistory)&#10;bindActions(view)" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="45" y="110" width="550" height="205" />
+        </mxCell>
+        <mxCell id="CommunityFragment" value="CommunityFragment&#10;Luồng giao diện nối API&#10;go(screen, id, focus)&#10;selectExploreTab(tab)&#10;POST, TIP, chat, chợ, hồ sơ" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="695" y="110" width="550" height="205" />
+        </mxCell>
+        <mxCell id="ScreenFragment" value="ScreenFragment&#10;Host các màn Android phụ&#10;onCreateView(inflater)&#10;Nhận xử lý tương tác từ MainActivity" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1345" y="110" width="550" height="205" />
+        </mxCell>
+        <mxCell id="FirebaseBackendClient" value="FirebaseBackendClient&#10;REST + Firebase Auth&#10;request / requestFresh&#10;uploadMedia / downloadMedia" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="45" y="370" width="550" height="205" />
+        </mxCell>
+        <mxCell id="BackendSession" value="BackendSession&#10;Phiên và hồ sơ đăng nhập&#10;get(context) / profile()" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="695" y="370" width="550" height="205" />
+        </mxCell>
+        <mxCell id="SessionVault" value="SessionVault&#10;Lưu phiên cục bộ&#10;Nội bộ data.remote" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1345" y="370" width="550" height="205" />
+        </mxCell>
+        <mxCell id="OfflineSnapshotStore" value="OfflineSnapshotStore&#10;SQLite công khai chỉ đọc&#10;Nội bộ data.remote" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="45" y="630" width="550" height="205" />
+        </mxCell>
+        <mxCell id="DemoRepository" value="DemoRepository&#10;SharedPreferences&#10;Tuỳ chọn cục bộ và kết quả thanh toán demo" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="695" y="630" width="550" height="205" />
+        </mxCell>
+        <mxCell id="TradeRules" value="TradeRules&#10;Ràng buộc luồng giao dịch&#10;Bổ sung validation phía server" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="1345" y="630" width="550" height="205" />
+        </mxCell>
+        <mxCell id="BackendEndpointPolicy" value="BackendEndpointPolicy&#10;Chọn endpoint API&#10;Spark debug / HTTPS release" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="45" y="890" width="550" height="205" />
+        </mxCell>
+        <mxCell id="PhotoUploadEncoder" value="PhotoUploadEncoder&#10;Nén/chuẩn hóa ảnh cho Firestore Spark&#10;forFirestore(bytes)" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacing=14;fontSize=13;fillColor=#ffffff;strokeColor=#94b39d;fontFamily=Arial;">
+          <mxGeometry as="geometry" x="695" y="890" width="550" height="205" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
