@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Firebase Admin browser smoke · Emulator only</title>
+  </head>
+  <body>
+    <p>Running browser smoke…</p>
+    <script type="module">
+      let stage = "initialization";
+      const wait = async (predicate) => {
+        for (let i = 0; i < 300; i++) {
+          if (predicate()) return;
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+        throw new Error(
+          "Timed out waiting for UI at " + stage + ": " +
+            document.querySelector("#status")?.textContent + " " +
+            document.querySelector("#edit-error")?.textContent,
+        );
+      };
+      const check = (condition, message) => {
+        if (!condition) throw new Error(message);
+      };
+      const results = [];
+      try {
+        const { default: config } = await import("../firebase-config.local.js");
+        check(
+          ["127.0.0.1", "localhost"].includes(location.hostname) &&
+            config.emulator &&
+            config.projectId === "demo-recycling-share",
+          "Only seeded demo project on loopback is allowed",
+        );
+        const markup = await (await fetch("../backend.html")).text();
+        const documentSource = new DOMParser().parseFromString(
+          markup,
+          "text/html",
+        );
+        documentSource
+          .querySelectorAll("script")
+          .forEach((script) => script.remove());
+        document.body.replaceChildren(...documentSource.body.childNodes);
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = "../backend.css";
+        document.head.append(stylesheet);
+        await import("../backend.js");
+        const $ = (id) => document.getElementById(id);
+        const login = async (email) => {
+          document.querySelector("[name=email]").value = email;
+          document.querySelector("[name=password]").value = "EcoShareDemo123!";
+          $("login").requestSubmit();
+          await wait(
+            () =>
+              !$("panel").hidden && $("content").textContent.trim().length > 0,
+          );
+        };
+        await login("admin@ecoshare.test");
+        check(
+          $("identity").textContent.includes("ADMIN"),
+          "Admin identity not loaded",
+        );
+        results.push("PASS Firebase login and live dashboard");
+        document.querySelector("[data-module=categories]").click();
+        await wait(
+          () =>
+            $("title").textContent === "Danh mục" &&
+            $("content").textContent.includes("Đồ dùng tái sử dụng"),
+        );
+        $("create").click();
+        await wait(() => $("editor").open);
+        const name = "Browser QA " + Date.now();
+        document.querySelector("#fields [name=name]").value = name;
+        document.querySelector("#fields [name=description]").value =
+          "Seeded Emulator browser regression";
+        document.querySelector("#fields [name=reason]").value =
+          "Browser smoke creates category through authenticated API";
+        document.querySelector("#fields [name=active]").checked = false;
+        check($("edit").checkValidity(), "An unchecked active setting must remain a valid form value");
+        $("edit").requestSubmit();
+        await wait(
+          () => !$("editor").open && $("content").textContent.includes(name),
+        );
+        results.push("PASS category form writes through real Functions API");
+        document.querySelector("[data-module=listings]").click();
+        await wait(
+          () =>
+            $("title").textContent === "Chợ đồ cũ" && !$("filter-label").hidden,
+        );
+        $("filter").value = "APPROVED";
+        $("filter").dispatchEvent(new Event("change"));
+        await wait(() =>
+          $("content").textContent.includes("Đèn bàn tái sử dụng"),
+        );
+        results.push("PASS listing status filter loads approved rows");
+        const originalFetch = window.fetch;
+        let releaseMedia;
+        window.fetch = (input, init) => {
+          if (!releaseMedia && String(input).includes("/media?parent_kind=LISTING")) {
+            return new Promise((resolve, reject) => {
+              releaseMedia = () => originalFetch(input, init).then(resolve, reject);
+            });
+          }
+          return originalFetch(input, init);
+        };
+        $("content").querySelector("td button").click();
+        stage = "intercept media lookup";
+        await wait(() => $("editor").open && !!releaseMedia);
+        $("close").click();
+        [...$("content").querySelectorAll("button")].find((item) => item.textContent === "Duyệt").click();
+        stage = "open review form";
+        await wait(() => $("editor").open && !!$("fields").querySelector("[name=reason]"));
+        await releaseMedia();
+        await new Promise((resolve) => setTimeout(resolve, 250));
+        check(!$("fields").textContent.includes("Tệp đính kèm"), "Stale detail response overwrote a review form");
+        window.fetch = originalFetch;
+        $("close").click();
+        $("content").querySelector("td button").click();
+        stage = "reload media detail";
+        await wait(() => $("editor").open && $("fields").textContent.includes("Tệp đính kèm"));
+        check(
+          !$("status").textContent.includes("không hợp lệ"),
+          "Detail lookup failed",
+        );
+        $("close").click();
+        results.push("PASS detail and media authorization lookup; stale response cannot alter another form");
+        $("logout").click();
+        await login("moderator@ecoshare.test");
+        check(
+          !document.querySelector("[data-module=payments]") &&
+            !document.querySelector("[data-module=users]"),
+          "Moderator can see admin navigation",
+        );
+        results.push("PASS moderator receives restricted navigation");
+        $("logout").click();
+      } catch (error) {
+        results.push("FAIL " + error.message);
+      }
+      const result = document.createElement("pre");
+      result.id = "browser-result";
+      result.textContent = results.join("\n");
+      result.style.cssText =
+        "position:fixed;top:0;left:0;right:0;padding:16px;z-index:9999;color:white;background:" +
+        (results.some((value) => value.startsWith("FAIL"))
+          ? "#852f20"
+          : "#135e3e");
+      document.body.append(result);
+    </script>
+  </body>
+</html>
