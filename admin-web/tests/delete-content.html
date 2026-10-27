@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Admin delete content DOM test</title></head>
+<body><p>Đang kiểm tra thao tác gỡ nội dung…</p><script type="module">
+// Every API request is intercepted. This test never reads or modifies Firebase cloud.
+const results = [];
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const wait = async (predicate, message) => {
+  for (let i = 0; i < 150; i++) {
+    if (predicate()) return;
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  throw new Error(message);
+};
+try {
+  check(["localhost", "127.0.0.1"].includes(location.hostname), "Loopback only");
+  const markup = new DOMParser().parseFromString(await (await fetch("../index.html")).text(), "text/html");
+  markup.querySelectorAll("script").forEach(script => script.remove());
+  document.body.replaceChildren(...markup.body.childNodes);
+  const items = {
+    posts: { id: "post-1", kind: "POST", title: "Bài thử xóa", body: "Nội dung thử", status: "PUBLISHED", author_id: "seller", materials: [], tags: [], created_at: "2026-10-20T00:00:00Z" },
+    tips: { id: "tip-1", kind: "TIP", title: "Mẹo thử xóa", body: "Nội dung mẹo", status: "PUBLISHED", author_id: "seller", materials: [], tags: [], created_at: "2026-10-20T00:00:00Z" },
+    listings: { id: "listing-1", title: "Tin bán thử xóa", status: "PENDING", seller_id: "seller", created_at: "2026-10-20T00:00:00Z" },
+  };
+  const deleted = [];
+  window.fetch = async (input, init = {}) => {
+    const url = new URL(input, location.href);
+    const method = init.method ?? "GET";
+    if (url.hostname === "identitytoolkit.googleapis.com" || url.pathname.includes("accounts:signInWithPassword"))
+      return Response.json({ idToken: "fake-token", refreshToken: "fake-refresh", expiresIn: "3600" });
+    const path = url.pathname.replace(/^.*\/v1(?=\/)/, "");
+    if (path === "/me") return Response.json({ id: "admin", display_name: "Admin thử", role: "ADMIN" });
+    if (path === "/admin/dashboard") return Response.json({ users: 1, orders: 0, moderation: {} });
+    if (path.startsWith("/admin/orders")) return Response.json({ items: [] });
+    if (method === "GET" && path === "/admin/community") {
+      const kind = url.searchParams.get("kind");
+      const row = kind === "POST" ? items.posts : kind === "TIP" ? items.tips : null;
+      return Response.json({ items: row && (!url.searchParams.get("status") || row.status === url.searchParams.get("status")) ? [{ ...row }] : [], next_cursor: null });
+    }
+    if (method === "GET" && path === "/admin/listings")
+      return Response.json({ items: items.listings.status === url.searchParams.get("status") ? [{ ...items.listings }] : [], next_cursor: null });
+    if (method === "GET" && path === "/admin/community/tip-1") return Response.json({ ...items.tips });
+    if (method === "GET" && path === "/admin/community/tip-1/comments") return Response.json({ items: [], next_cursor: null });
+    if (method === "GET" && path === "/media") return Response.json({ items: [], next_cursor: null });
+    if (method === "DELETE" && ["/admin/community/post-1", "/admin/community/tip-1", "/admin/listings/listing-1"].includes(path)) {
+      const reason = JSON.parse(init.body).reason;
+      check(reason.length >= 5, "Deletion reason missing");
+      deleted.push(path);
+      (path.includes("post-1") ? items.posts : path.includes("tip-1") ? items.tips : items.listings).status = path.includes("listing-1") ? "HIDDEN" : "ARCHIVED";
+      return new Response(null, { status: 204 });
+    }
+    throw new Error(`Unexpected request ${method} ${url.href}`);
+  };
+  await import("../backend.js");
+  const $ = id => document.getElementById(id);
+  $("login").querySelector('[name="email"]').value = "test@example.com";
+  $("login").querySelector('[name="password"]').value = "unused-test-value";
+  $("login").requestSubmit();
+  await wait(() => !$("panel").hidden && document.querySelector('[data-module="posts"]'), "Login did not finish");
+  const action = (name) => [...$("content").querySelectorAll("button")].find(button => button.textContent === name);
+  async function openPage(module, title) {
+    document.querySelector(`[data-module="${module}"]`).click();
+    await wait(() => $("title").textContent === title && !!action("Xóa"), `${module} did not show a delete action`);
+  }
+  async function confirm(title) {
+    $("delete-entry-confirmation").value = title;
+    $("delete-entry-reason").value = "Gỡ nội dung thử nghiệm trong kiểm tra giao diện.";
+    $("delete-entry-form").requestSubmit();
+    try { await wait(() => !$("delete-entry-dialog").open, `Delete did not complete for ${title}`); }
+    catch (error) { throw new Error(`${error.message}; dialog error=${$("delete-entry-error").textContent}; deleted=${deleted.join(",")}`); }
+  }
+  await openPage("posts", "Bài chia sẻ");
+  action("Xóa").click();
+  await wait(() => $("delete-entry-dialog").open, "Post confirmation did not open");
+  $("delete-entry-confirmation").value = "Sai tiêu đề";
+  $("delete-entry-reason").value = "Có lý do hợp lệ";
+  $("delete-entry-form").requestSubmit();
+  await wait(() => $("delete-entry-error").textContent.includes("chưa khớp"), "Wrong title was accepted");
+  check(deleted.length === 0, "Wrong title sent a delete request");
+  await confirm(items.posts.title);
+  check(items.posts.status === "ARCHIVED" && !action("Xóa"), "Archived post is still deletable");
+  results.push("PASS post needs title confirmation and is archived only after API success");
+  await openPage("tips", "Mẹo hay");
+  action("Chi tiết").click();
+  await wait(() => $("community-detail").open && [...$("community-body").querySelectorAll("button")].some(button => button.textContent === "Xóa bài"), "Tip detail delete action missing");
+  [...$("community-body").querySelectorAll("button")].find(button => button.textContent === "Xóa bài").click();
+  await wait(() => $("delete-entry-dialog").open, "Tip confirmation did not open");
+  await confirm(items.tips.title);
+  check(items.tips.status === "ARCHIVED" && !action("Xóa") && !$("community-detail").open, "Archived tip or detail dialog remained active");
+  results.push("PASS tip can be removed from its detail dialog");
+  await openPage("listings", "Chợ đồ cũ");
+  action("Xóa").click();
+  await wait(() => $("delete-entry-dialog").open, "Listing confirmation did not open");
+  await confirm(items.listings.title);
+  check(items.listings.status === "HIDDEN" && !$("content").textContent.includes(items.listings.title), "Removed listing remains in pending queue");
+  $("filter").value = "HIDDEN";
+  $("filter").dispatchEvent(new Event("change"));
+  await wait(() => $("content").textContent.includes(items.listings.title), "Removed listing missing from audit view");
+  check(!action("Xóa"), "Hidden listing can be deleted repeatedly");
+  results.push("PASS listing leaves pending queue and remains available in hidden audit view");
+  check(deleted.length === 3, "Expected exactly three delete requests");
+  $("logout").click();
+} catch (error) { results.push("FAIL " + error.message); }
+const output = document.createElement("pre");
+output.id = "delete-content-result";
+output.textContent = results.join("\n");
+document.body.append(output);
+</script></body></html>

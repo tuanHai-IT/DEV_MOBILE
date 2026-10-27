@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Admin live updates DOM test</title></head>
+<body><p>Đang kiểm tra cập nhật trực tiếp…</p><script type="module">
+// Local DOM test: intercept every application request, including Firebase Auth.
+// It never signs in or writes to the configured cloud project.
+const results = [];
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const wait = async (predicate, message) => {
+  for (let i = 0; i < 150; i++) {
+    if (predicate()) return;
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  throw new Error(message);
+};
+const json = (data) => Response.json(data);
+try {
+  check(["localhost", "127.0.0.1"].includes(location.hostname), "Loopback only");
+  const markup = new DOMParser().parseFromString(await (await fetch("../index.html")).text(), "text/html");
+  markup.querySelectorAll("script").forEach(script => script.remove());
+  document.body.replaceChildren(...markup.body.childNodes);
+  const user = { id: "u1", display_name: "Người dùng thử", email: "test@example.com", role: "MEMBER", status: "ACTIVE", points_balance: 10 };
+  const post = { id: "p1", kind: "POST", title: "Bài ban đầu", body: "Nội dung ban đầu", status: "PUBLISHED", author_id: "u1", materials: [], tags: [], created_at: "2026-10-20T00:00:00Z" };
+  let holdUsers = false, holdPosts = false, releaseUsers, releasePosts;
+  window.fetch = async (input, init = {}) => {
+    const url = new URL(input, location.href);
+    const method = init.method ?? "GET";
+    if (url.hostname === "identitytoolkit.googleapis.com" || url.pathname.includes("accounts:signInWithPassword"))
+      return json({ idToken: "fake-token", refreshToken: "fake-refresh", expiresIn: "3600" });
+    const path = url.pathname.replace(/^.*\/v1(?=\/)/, "");
+    if (path === "/me") return json({ id: "admin", display_name: "Admin thử", role: "ADMIN" });
+    if (path === "/admin/dashboard") return json({ users: 1, orders: 0, moderation: { published_content: 1 } });
+    if (path.startsWith("/admin/orders")) return json({ items: [] });
+    if (path === "/admin/users" && method === "GET") {
+      if (holdUsers) await new Promise(resolve => { releaseUsers = resolve; });
+      return json({ items: [{ ...user }], next_cursor: null });
+    }
+    if (path === "/admin/users/u1/points" && method === "POST") {
+      user.points_balance = JSON.parse(init.body).points;
+      return json({ id: "ledger1", balance: user.points_balance });
+    }
+    if (path === "/admin/community" && method === "GET") {
+      if (holdPosts) await new Promise(resolve => { releasePosts = resolve; });
+      return json({ items: [{ ...post }], next_cursor: null });
+    }
+    if (path === "/admin/community/p1" && method === "PATCH") {
+      const { reason, ...fields } = JSON.parse(init.body);
+      Object.assign(post, fields);
+      return json({ ...post });
+    }
+    throw new Error(`Unexpected request ${method} ${url.href}`);
+  };
+  await import("../backend.js");
+  const $ = id => document.getElementById(id);
+  $("login").querySelector('[name="email"]').value = "test@example.com";
+  $("login").querySelector('[name="password"]').value = "unused-test-value";
+  $("login").requestSubmit();
+  await wait(() => !$("panel").hidden && !!document.querySelector('[data-module="users"]'), "Login did not finish");
+  document.querySelector('[data-module="users"]').click();
+  await wait(() => $("content").textContent.includes("Người dùng thử"), "User list did not load");
+  holdUsers = true;
+  $("reload").click();
+  await wait(() => !!releaseUsers, "Reload did not start");
+  check($("content").textContent.includes("Người dùng thử"), "Reload erased visible rows while waiting for data");
+  holdUsers = false;
+  releaseUsers();
+  releaseUsers = null;
+  await wait(() => $("content").getAttribute("aria-busy") === "false", "Reload did not finish");
+  results.push("PASS reload keeps confirmed rows visible");
+  [...$("content").querySelectorAll("button")].find(button => button.textContent === "Đặt điểm Eco").click();
+  await wait(() => $("editor").open, "Points form did not open");
+  $("fields").querySelector('[name="points"]').value = "37";
+  $("fields").querySelector('[name="reason"]').value = "Kiểm tra cập nhật điểm tức thì.";
+  holdUsers = true;
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open && $("content").textContent.includes("37"), "Points did not paint before GET completed");
+  check($("content").textContent.includes("Người dùng thử"), "User row disappeared after points save");
+  results.push("PASS confirmed Eco points update immediately without reload");
+  await wait(() => !!releaseUsers, "Quiet points refresh did not start");
+  holdUsers = false;
+  releaseUsers();
+  document.querySelector('[data-module="posts"]').click();
+  await wait(() => $("content").textContent.includes("Bài ban đầu"), "Posts did not load");
+  [...$("content").querySelectorAll("button")].find(button => button.textContent === "Sửa").click();
+  await wait(() => $("editor").open, "Post editor did not open");
+  $("fields").querySelector('[name="title"]').value = "Bài vừa sửa";
+  $("fields").querySelector('[name="body"]').value = "Nội dung vừa sửa";
+  $("fields").querySelector('[name="reason"]').value = "Kiểm tra cập nhật bài viết tức thì.";
+  holdPosts = true;
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open && $("content").textContent.includes("Bài vừa sửa"), "Edited post did not paint before GET completed");
+  results.push("PASS confirmed post edit updates immediately without reload");
+  await wait(() => !!releasePosts, "Quiet post refresh did not start");
+  holdPosts = false;
+  releasePosts();
+  await new Promise(resolve => setTimeout(resolve, 150));
+  post.title = "Thay đổi từ phiên khác";
+  window.dispatchEvent(new Event("focus"));
+  await wait(() => $("content").textContent.includes("Thay đổi từ phiên khác"), "External change was not refreshed in the current tab");
+  results.push("PASS visible tab receives external edit without navigation");
+  $("logout").click();
+} catch (error) { results.push("FAIL " + error.message); }
+const output = document.createElement("pre");
+output.id = "live-updates-result";
+output.textContent = results.join("\n");
+document.body.append(output);
+</script></body></html>

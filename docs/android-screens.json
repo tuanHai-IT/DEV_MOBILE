@@ -1,0 +1,214 @@
+{
+  "onboarding": {
+    "title": "Vòng đời mới.\nGiá trị mới.",
+    "subtitle": "ECOSHARE / SỐNG XANH MỖI NGÀY"
+  },
+  "login": {
+    "title": "Chào mừng trở lại! 👋",
+    "subtitle": "TÀI KHOẢN ECOSHARE"
+  },
+  "register": {
+    "title": "Tạo tài khoản",
+    "subtitle": "GIA NHẬP CỘNG ĐỒNG ECOSHARE"
+  },
+  "otp": {
+    "title": "Xác nhận liên hệ",
+    "subtitle": "BƯỚC 02 / BẢO MẬT TÀI KHOẢN"
+  },
+  "forgot_password": {
+    "title": "Lấy lại mật khẩu",
+    "subtitle": "BẢO MẬT TÀI KHOẢN"
+  },
+  "home": {
+    "title": "Chào Lan, sống xanh nhé!",
+    "subtitle": "ECOSHARE / CỘNG ĐỒNG"
+  },
+  "explore": {
+    "title": "Khám phá điều xanh",
+    "subtitle": "KIẾN THỨC & CỘNG ĐỒNG ECOSHARE"
+  },
+  "market": {
+    "title": "Chợ đồ cũ",
+    "subtitle": "MUA BÁN / TÁI SỬ DỤNG VẬT PHẨM"
+  },
+  "market_detail": {
+    "title": "Đèn lọ thủy tinh vintage",
+    "subtitle": "ĐỒ GIA DỤNG / NHƯ MỚI"
+  },
+  "create_listing": {
+    "title": "Đăng bán món đồ",
+    "subtitle": "TIN ĐĂNG MỚI / CHỜ KIỂM DUYỆT"
+  },
+  "verification": {
+    "title": "Xác minh danh tính",
+    "subtitle": "DÀNH CHO CẢ NGƯỜI MUA & NGƯỜI BÁN"
+  },
+  "checkout": {
+    "title": "Xác nhận đặt mua",
+    "subtitle": "BƯỚC 01 / THÔNG TIN GIAO NHẬN"
+  },
+  "payment": {
+    "title": "Chọn cổng thanh toán",
+    "subtitle": "BƯỚC 02 / THANH TOÁN TRUNG GIAN"
+  },
+  "payment_result": {
+    "title": "Kết quả giao dịch",
+    "subtitle": "BƯỚC 03 / PHẢN HỒI TỪ CỔNG"
+  },
+  "orders": {
+    "title": "Đơn hàng của bạn",
+    "subtitle": "QUẢN LÝ ĐƠN MUA & ĐƠN BÁN"
+  },
+  "order_detail": {
+    "title": "Chi tiết đơn hàng",
+    "subtitle": "THEO DÕI VẬN CHUYỂN & GIAO NHẬN"
+  },
+  "review": {
+    "title": "Đánh giá giao dịch",
+    "subtitle": "GỬI PHẢN HỒI SAU KHI NHẬN HÀNG"
+  },
+  "dispute": {
+    "title": "Khiếu nại đơn hàng",
+    "subtitle": "TRỢ GIÚP & BẢO HỘ GIAO DỊCH"
+  },
+  "my_listings": {
+    "title": "Tin bán của tôi",
+    "subtitle": "QUẢN LÝ SẢN PHẨM ĐANG BÁN"
+  },
+  "messages": {
+    "title": "Tin nhắn cộng đồng",
+    "subtitle": "KẾT NỐI & TRAO ĐỔI SỐNG XANH"
+  },
+  "chat": {
+    "title": "Lê Thị Hoa",
+    "subtitle": "TIN NHẮN / TRÒ CHUYỆN SỐNG XANH"
+  },
+  "profile": {
+    "title": "Nguyễn Thị Lan",
+    "subtitle": "HỒ SƠ THÀNH VIÊN XANH"
+  },
+  "edit_profile": {
+    "title": "Chỉnh sửa hồ sơ",
+    "subtitle": "CẬP NHẬT THÔNG TIN CÁ NHÂN"
+  },
+  "addresses": {
+    "title": "Địa chỉ nhận hàng",
+    "subtitle": "SỔ ĐỊA CHỈ GIAO NHẬN"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "subtitle": "TÀI KHOẢN & ỨNG DỤNG"
+  },
+  "privacy_settings": {
+    "title": "Quyền riêng tư",
+    "subtitle": "QUẢN LÝ DỮ LIỆU CÁ NHÂN"
+  },
+  "notifications": {
+    "title": "Thông báo",
+    "subtitle": "CẬP NHẬT MỚI NHẤT"
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "subtitle": "MÓN ĐỒ / KIẾN THỨC / ĐỊA ĐIỂM"
+  },
+  "post_detail": {
+    "title": "Vườn treo từ chai nhựa",
+    "subtitle": "LÊ THỊ HOA / CÂU CHUYỆN SỐNG XANH"
+  },
+  "create_post": {
+    "title": "Chia sẻ câu chuyện",
+    "subtitle": "CỘNG ĐỒNG SỐNG XANH / CHỜ DUYỆT"
+  },
+  "image_viewer": {
+    "title": "Góc xanh tái sử dụng",
+    "subtitle": "ẢNH MINH HỌA NATIVE"
+  },
+  "hashtag": {
+    "title": "#TáiChếNhựa",
+    "subtitle": "CHỦ ĐỀ CỘNG ĐỒNG NỔI BẬT"
+  },
+  "report": {
+    "title": "Báo cáo vi phạm",
+    "subtitle": "AN TOÀN CỘNG ĐỒNG"
+  },
+  "friends": {
+    "title": "Bạn bè xanh",
+    "subtitle": "KẾT NỐI & TƯƠNG TÁC"
+  },
+  "recycling_map": {
+    "title": "Điểm thu gom gần bạn",
+    "subtitle": "BẢN ĐỒ KHU VỰC TP. HỒ CHÍ MINH"
+  },
+  "recycling_point_detail": {
+    "title": "Trạm xanh Thảo Điền",
+    "subtitle": "ĐIỂM THU GOM / DỮ LIỆU MẪU"
+  },
+  "material_guide": {
+    "title": "Phân loại rác dễ dàng",
+    "subtitle": "CẨM NANG TÁI CHẾ CHO MỌI NHÀ"
+  },
+  "guide_detail": {
+    "title": "Chai nhựa thành chậu cây",
+    "subtitle": "HƯỚNG DẪN TỪNG BƯỚC / 20 PHÚT"
+  },
+  "my_impact": {
+    "title": "Tác động của bạn",
+    "subtitle": "MỖI HÀNH ĐỘNG ĐỀU CÓ Ý NGHĨA"
+  },
+  "badges": {
+    "title": "Bộ sưu tập huy hiệu",
+    "subtitle": "GHI NHẬN ĐÓNG GÓP VÌ MÔI TRƯỜNG"
+  },
+  "leaderboard": {
+    "title": "Cộng đồng sống xanh",
+    "subtitle": "BẢNG XẾP HẠNG THÀNH VIÊN TÍCH CỰC"
+  },
+  "reward_shop": {
+    "title": "Góc phần thưởng",
+    "subtitle": "ĐỔI ĐIỂM XANH LẤY QUÀ TẶNG"
+  },
+  "challenge_detail": {
+    "title": "30 ngày dùng túi vải",
+    "subtitle": "THỬ THÁCH CỘNG ĐỒNG THÁNG NÀY"
+  },
+  "groups": {
+    "title": "Cộng đồng của bạn",
+    "subtitle": "NHÓM & SỰ KIỆN XANH"
+  },
+  "group_detail": {
+    "title": "Hội tái sử dụng TP.HCM",
+    "subtitle": "NHÓM CỘNG ĐỒNG HOẠT ĐỘNG"
+  },
+  "events": {
+    "title": "Hẹn nhau sống xanh",
+    "subtitle": "SỰ KIỆN CỘNG ĐỒNG GẦN BẠN"
+  },
+  "scanner": {
+    "title": "Nhận diện vật liệu",
+    "subtitle": "HƯỚNG DẪN KÝ HIỆU BAO BÌ VẬT LIỆU"
+  },
+  "help_center": {
+    "title": "Chúng tôi có thể giúp gì?",
+    "subtitle": "TRUNG TÂM TRỢ GIÚP & HỎI ĐÁP"
+  },
+  "admin_dashboard": {
+    "title": "Quản trị nhanh",
+    "subtitle": "ADMIN MOBILE / CHẾ ĐỘ DEMO"
+  },
+  "admin_moderation": {
+    "title": "Hàng chờ kiểm duyệt",
+    "subtitle": "ADMIN MOBILE / DUYỆT NỘI DUNG"
+  },
+  "admin_reports": {
+    "title": "Báo cáo vi phạm",
+    "subtitle": "ADMIN MOBILE / TIẾP NHẬN PHẢN ÁNH"
+  },
+  "create_menu": {
+    "title": "Tạo bài đăng",
+    "subtitle": "Bài chia sẻ, Mẹo hay, Chợ đồ cũ"
+  },
+  "terms_policy": {
+    "title": "Điều khoản & Chính sách",
+    "subtitle": "THÔNG TIN ECOSHARE"
+  }
+}

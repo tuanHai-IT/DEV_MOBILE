@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173d2b">
+  <title>EcoShare · Không gian quản trị</title>
+  <link rel="stylesheet" href="backend.css">
+</head>
+<body class="admin-app is-signed-out">
+  <a class="skip" href="#workspace">Đi tới nội dung chính</a>
+  <aside id="sidebar" aria-label="Không gian quản trị" hidden>
+    <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">♻</span><span>EcoShare<small>KHÔNG GIAN QUẢN TRỊ</small></span></a>
+    <nav id="modules" aria-label="Chức năng quản trị"></nav>
+    <div class="sidebar-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>
+      <strong>Một vòng đời mới.</strong>
+      <p>Mỗi giao dịch được quản lý tốt là một bước tiến cho cộng đồng.</p>
+    </div>
+    <div class="operator">
+      <span id="operator-avatar" class="avatar" aria-hidden="true">EC</span>
+      <div class="operator-info"><strong id="operator-name">Quản trị viên</strong><small id="operator-role">EcoShare</small></div>
+      <button id="logout" class="logout-button" type="button" aria-label="Đăng xuất" title="Đăng xuất" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5H5v14h4m5-14 7 7-7 7m-5-7h12"/></svg></button>
+    </div>
+  </aside>
+  <button id="sidebar-backdrop" class="sidebar-backdrop" type="button" aria-label="Đóng menu" hidden></button>
+  <main id="workspace" tabindex="-1">
+    <header class="topbar">
+      <div class="breadcrumb-wrap">
+        <button id="menu-toggle" class="icon-button menu-toggle" type="button" aria-label="Mở menu quản trị" aria-controls="sidebar" aria-expanded="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <span class="workspace-label">ECOSHARE</span><span class="slash" aria-hidden="true">/</span><span id="breadcrumb">Không gian quản trị</span>
+      </div>
+      <div class="connection-pill"><span class="live-dot" aria-hidden="true"></span><span id="connection-label">Kết nối cộng đồng xanh</span></div>
+    </header>
+    <section id="login-panel" class="login" aria-labelledby="login-title">
+      <div class="login-intro">
+        <span class="login-brand"><span class="brand-mark" aria-hidden="true">♻</span> EcoShare</span>
+        <div><p class="eyebrow">MỘT CỘNG ĐỒNG. NHIỀU THAY ĐỔI.</p><h2>Cùng tạo nên<br>một vòng đời mới.</h2><p>Chăm sóc cộng đồng, kết nối những món đồ và lan tỏa lối sống xanh mỗi ngày.</p></div>
+        <span class="intro-foot"><span aria-hidden="true">↗</span> Mỗi hành động nhỏ đều có ý nghĩa.</span>
+        <svg class="intro-leaf" viewBox="0 0 240 240" fill="none" aria-hidden="true"><path d="M38 210C30 100 91 30 209 30c0 113-61 180-171 180Z" stroke="currentColor" stroke-width="1.3"/><path d="M28 222 178 65M57 191l-3-70m34 35 78-1m-51-32-2-54m32 23 53-2" stroke="currentColor" stroke-width="1.3"/></svg>
+      </div>
+      <div class="login-form-wrap">
+        <p class="eyebrow">KHÔNG GIAN QUẢN TRỊ</p>
+        <h1 id="login-title">Chào mừng trở lại.</h1>
+        <p>Đăng nhập để đồng hành cùng cộng đồng EcoShare.</p>
+        <form id="login">
+          <label for="login-email">Địa chỉ email<input id="login-email" name="email" type="email" autocomplete="username" placeholder="admin@example.com" required></label>
+          <label for="login-password">Mật khẩu<input id="login-password" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="Nhập mật khẩu của bạn" required></label>
+          <button type="submit" class="primary-button">Đăng nhập <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-access-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7l8-4Z"/><path d="m8 12 3 3 5-6"/></svg>Dành cho tài khoản Admin và Moderator đã được phân quyền.</p>
+        <p id="configuration" class="configuration"></p>
+      </div>
+    </section>
+    <section id="panel" hidden aria-labelledby="title">
+      <div class="page-heading">
+        <div><p class="eyebrow" id="section-label">CÙNG VẬN HÀNH MỘT CỘNG ĐỒNG XANH</p><p id="identity" class="sr-only"></p><h1 id="title">Tổng quan</h1><p id="page-description">Theo dõi hoạt động và những việc cần bạn xử lý.</p></div>
+        <div class="heading-actions">
+          <button id="reload" class="secondary-button" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 7a7 7 0 0 1 12-1l2 6M4 12l2 6a7 7 0 0 0 12-1"/></svg>Làm mới</button>
+          <button id="csv" class="secondary-button" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg>Xuất CSV</button>
+        </div>
+      </div>
+      <div id="tools" class="tools">
+        <label class="search-field" for="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Tìm trong trang hiện tại</span><input id="search" type="search" placeholder="Tìm trong trang hiện tại…" autocomplete="off"></label>
+        <span id="results-count" class="results-count"></span>
+        <label id="filter-label" class="filter-field" hidden>Trạng thái<select id="filter"></select></label>
+        <button id="create" class="primary-button" type="button" hidden>+ Thêm mới</button>
+      </div>
+      <div id="content" class="module-content" aria-live="polite"></div>
+      <div class="pagination"><button id="next" class="secondary-button" type="button" hidden>Trang tiếp theo →</button></div>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+    <footer class="workspace-footer"><span>© EcoShare · Không gian quản trị</span><span>Cùng nhau, sống xanh hơn.</span></footer>
+  </main>
+  <dialog id="editor" aria-labelledby="edit-title">
+    <form id="edit">
+      <div class="dialog-heading"><span class="eyebrow">ECOSHARE / QUẢN TRỊ</span><h2 id="edit-title"></h2></div>
+      <div id="fields"></div><p id="edit-error" role="alert"></p>
+      <div class="actions dialog-actions"><button type="button" id="close" class="secondary-button">Đóng</button><button type="submit" class="primary-button">Lưu thay đổi</button></div>
+    </form>
+  </dialog>
+  <dialog id="delete-user-dialog" aria-labelledby="delete-user-title" aria-describedby="delete-user-summary">
+    <form id="delete-user-form">
+      <div class="dialog-heading"><span class="eyebrow">ECOSHARE / ADMIN</span><h2 id="delete-user-title">Xóa tài khoản người dùng</h2></div>
+      <p id="delete-user-summary" class="delete-warning"></p>
+      <label for="delete-user-confirmation">Nhập lại email hoặc UID tài khoản để xác nhận<input id="delete-user-confirmation" type="text" autocomplete="off" required maxlength="254"></label>
+      <label for="delete-user-reason">Lý do xóa<textarea id="delete-user-reason" required minlength="5" maxlength="1000" rows="3"></textarea></label>
+      <p id="delete-user-error" role="alert" aria-live="polite"></p>
+      <div class="actions dialog-actions"><button type="button" id="delete-user-cancel" class="secondary-button">Hủy</button><button type="submit" id="delete-user-submit" class="danger-button">Xóa tài khoản</button></div>
+    </form>
+  </dialog>
+  <dialog id="delete-entry-dialog" aria-labelledby="delete-entry-title" aria-describedby="delete-entry-summary">
+    <form id="delete-entry-form">
+      <div class="dialog-heading"><span class="eyebrow">ECOSHARE / KIỂM DUYỆT</span><h2 id="delete-entry-title">Xóa nội dung</h2></div>
+      <p id="delete-entry-summary" class="delete-warning"></p>
+      <label for="delete-entry-confirmation">Nhập lại tiêu đề để xác nhận<input id="delete-entry-confirmation" type="text" autocomplete="off" required maxlength="254"></label>
+      <label for="delete-entry-reason">Lý do xóa<textarea id="delete-entry-reason" required minlength="5" maxlength="1000" rows="3"></textarea></label>
+      <p id="delete-entry-error" role="alert" aria-live="polite"></p>
+      <div class="actions dialog-actions"><button type="button" id="delete-entry-cancel" class="secondary-button">Hủy</button><button type="submit" id="delete-entry-submit" class="danger-button">Xóa khỏi ứng dụng</button></div>
+    </form>
+  </dialog>
+  <dialog id="community-detail" aria-labelledby="community-title">
+    <div class="heading dialog-heading"><div><p class="eyebrow">ECOSHARE / CỘNG ĐỒNG</p><h2 id="community-title">Nội dung cộng đồng</h2></div><button type="button" id="community-close" class="secondary-button" aria-label="Đóng chi tiết">Đóng</button></div>
+    <div id="community-body" aria-live="polite"></div>
+  </dialog>
+  <script type="module" src="backend.js"></script>
+</body>
+</html>
+
