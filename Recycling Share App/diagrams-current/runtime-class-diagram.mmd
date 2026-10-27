@@ -1,0 +1,52 @@
+classDiagram
+direction LR
+    class MainActivity {
+        -show(destination, addHistory)
+        -bindActions(view)
+    }
+    class CommunityFragment {
+        +onCreateView(inflater, container, state)
+        +selectExploreTab(tab)
+        -go(screen, id, focus)
+    }
+    class ScreenFragment {
+        +onCreateView(inflater, container, state)
+    }
+    class FirebaseBackendClient {
+        +request(method, path, body, idempotencyKey, callback)
+        +uploadMedia(parentKind, parentId, mime, bytes, callback)
+        +downloadMedia(id, callback)
+    }
+    class BackendSession {
+        +get(context)
+        +profile()
+    }
+    class SessionVault {
+    }
+    class OfflineSnapshotStore {
+    }
+    class DemoRepository {
+        +get(key, fallback)
+        +put(key, value)
+    }
+    class TradeRules {
+        +requireStatus(status, expected)
+    }
+    class BackendEndpointPolicy {
+    }
+    class PhotoUploadEncoder {
+        +forFirestore(bytes)
+    }
+    MainActivity --> CommunityFragment : điều hướng
+    MainActivity --> ScreenFragment : điều hướng
+    MainActivity --> DemoRepository : trạng thái cục bộ
+    MainActivity --> BackendSession : phiên
+    CommunityFragment --> FirebaseBackendClient : gọi API
+    CommunityFragment --> BackendSession : hồ sơ
+    CommunityFragment --> PhotoUploadEncoder : chuẩn hóa ảnh
+    BackendSession --> FirebaseBackendClient : quản lý phiên
+    FirebaseBackendClient --> SessionVault : lưu token
+    FirebaseBackendClient --> OfflineSnapshotStore : cache công khai
+    FirebaseBackendClient --> BackendEndpointPolicy : endpoint
+    ScreenFragment --> MainActivity : host
+    MainActivity --> TradeRules : luồng giao dịch

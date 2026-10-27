@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2510" viewBox="0 0 2200 2510" role="img" aria-label="ERD logic — 18 thực thể app"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#799987"/></marker></defs><rect width="100%" height="100%" fill="#f4f8f3"/><text x="40" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#193d2d">ERD logic — 18 thực thể app</text><text x="40" y="68" font-family="Arial,sans-serif" font-size="14" fill="#52675b">EcoShare • rà soát mã nguồn 23/10/2026 • sửa bằng draw.io / Mermaid</text>
+<path d="M1035,165 L1055,165 L1055,553 L27,553 L27,165 L45,165" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M1035,191 L1068,191 L1068,562 L15,562 L15,191 L45,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>reviewer_id [0..1]</title></path>
+<path d="M1575,217 L1621,217 L1621,571 L3,571 L3,217 L45,217" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M495,718 L554,718 L554,1055 L27,1055 L27,243 L45,243" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>seller_id [1]</title></path>
+<path d="M495,744 L567,744 L567,1028 L15,1028 L15,269 L45,269" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>moderator_id [0..1]</title></path>
+<path d="M1035,770 L1055,770 L1055,1037 L3,1037 L3,770 L45,770" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [1]</title></path>
+<path d="M1035,796 L1068,796 L1068,1046 L1647,1046 L1647,321 L1665,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>category_id [1]</title></path>
+<path d="M1575,822 L1621,822 L1621,1055 L15,1055 L15,347 L45,347" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>uploader_id [1]</title></path>
+<path d="M1575,848 L1634,848 L1634,1028 L3,1028 L3,848 L45,848" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [0..1]</title></path>
+<path d="M1575,874 L1647,874 L1647,1037 L27,1037 L27,1824 L45,1824" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>message_id [0..1]</title></path>
+<path d="M1575,640 L1595,640 L1595,1046 L1635,1046 L1635,1590 L1665,1590" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M1575,666 L1608,666 L1608,1055 L543,1055 L543,1616 L585,1616" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>report_id [0..1]</title></path>
+<path d="M1575,692 L1621,692 L1621,1028 L567,1028 L567,217 L585,217" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>verification_id [0..1]</title></path>
+<path d="M2115,718 L2174,718 L2174,1037 L15,1037 L15,243 L45,243" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M2115,744 L2187,744 L2187,1046 L3,1046 L3,744 L45,744" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [0..1]</title></path>
+<path d="M2115,770 L2135,770 L2135,1055 L1647,1055 L1647,1720 L1665,1720" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M2115,796 L2148,796 L2148,1028 L15,1028 L15,321 L45,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>target_user_id [0..1]</title></path>
+<path d="M2115,822 L2161,822 L2161,1037 L1623,1037 L1623,822 L1665,822" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>parent_comment_id [0..1]</title></path>
+<path d="M495,1323 L554,1323 L554,1521 L27,1521 L27,373 L45,373" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>buyer_id [1]</title></path>
+<path d="M495,1349 L567,1349 L567,1530 L15,1530 L15,399 L45,399" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>seller_id [1]</title></path>
+<path d="M495,1115 L515,1115 L515,1503 L1083,1503 L1083,165 L1125,165" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>address_id [0..1]</title></path>
+<path d="M1035,1141 L1068,1141 L1068,1512 L27,1512 L27,1141 L45,1141" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [1]</title></path>
+<path d="M1035,1167 L1081,1167 L1081,1521 L555,1521 L555,692 L585,692" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_item_id [1]</title></path>
+<path d="M1575,1193 L1634,1193 L1634,1530 L3,1530 L3,1193 L45,1193" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [1]</title></path>
+<path d="M1575,1219 L1647,1219 L1647,1503 L1107,1503 L1107,1219 L1125,1219" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>parent_payment_id [0..1]</title></path>
+<path d="M2115,1245 L2135,1245 L2135,1512 L15,1512 L15,295 L45,295" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>member_a_id [1]</title></path>
+<path d="M2115,1271 L2148,1271 L2148,1521 L3,1521 L3,321 L45,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>member_b_id [1]</title></path>
+<path d="M2115,1297 L2161,1297 L2161,1530 L27,1530 L27,1297 L45,1297" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [0..1]</title></path>
+<path d="M495,1798 L554,1798 L554,1978 L1635,1978 L1635,1323 L1665,1323" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>conversation_id [1]</title></path>
+<path d="M495,1824 L567,1824 L567,1987 L3,1987 L3,399 L45,399" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>sender_id [1]</title></path>
+<path d="M495,1590 L515,1590 L515,1996 L1647,1996 L1647,1590 L1665,1590" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M1035,1616 L1068,1616 L1068,2005 L15,2005 L15,191 L45,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>reporter_id [1]</title></path>
+<path d="M1035,1642 L1081,1642 L1081,1978 L3,1978 L3,692 L45,692" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [0..1]</title></path>
+<path d="M1035,1668 L1094,1668 L1094,1987 L1647,1987 L1647,1668 L1665,1668" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M1035,1694 L1107,1694 L1107,1996 L15,1996 L15,269 L45,269" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>target_user_id [0..1]</title></path>
+<path d="M1035,1720 L1055,1720 L1055,2005 L3,2005 L3,1245 L45,1245" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [0..1]</title></path>
+<path d="M1035,1746 L1068,1746 L1068,1978 L27,1978 L27,321 L45,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>resolver_id [0..1]</title></path>
+<path d="M1575,1772 L1621,1772 L1621,1987 L15,1987 L15,347 L45,347" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M1575,1798 L1634,1798 L1634,1996 L3,1996 L3,1323 L45,1323" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [0..1]</title></path>
+<path d="M1575,1824 L1647,1824 L1647,2005 L1647,2005 L1647,1824 L1665,1824" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M2115,1590 L2135,1590 L2135,1978 L15,1978 L15,165 L45,165" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>author_id [1]</title></path>
+<path d="M2115,1616 L2148,1616 L2148,1987 L1623,1987 L1623,1616 L1665,1616" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>parent_id [0..1]</title></path>
+<path d="M495,2117 L541,2117 L541,2471 L27,2471 L27,217 L45,217" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>actor_id [1]</title></path>
+<path d="M1035,2143 L1094,2143 L1094,2480 L15,2480 L15,243 L45,243" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>updated_by [1]</title></path>
+<g><rect x="45" y="110" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="110" width="450" height="43" rx="15" fill="#193d2d"/><text x="59" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">User / users</text>
+<text x="59" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="59" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">display_name: TEXT</text>
+<text x="59" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">email: TEXT</text>
+<text x="59" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">role: TEXT</text>
+<text x="59" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="59" y="285" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">phone: TEXT NULL</text>
+<text x="59" y="307" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">bio: TEXT NULL</text>
+<text x="59" y="329" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">city: TEXT NULL</text>
+<text x="59" y="351" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">avatar_key: TEXT NULL</text>
+<text x="59" y="373" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">cover_key: TEXT NULL</text>
+<text x="59" y="395" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+</g>
+<g><rect x="585" y="110" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="110" width="450" height="43" rx="15" fill="#193d2d"/><text x="599" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Verification / verifications</text>
+<text x="599" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="599" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">user_id: TEXT [FK] → User [1]</text>
+<text x="599" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="599" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">submitted_at: TEXT</text>
+<text x="599" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reviewer_id: TEXT [FK] → User [0..1]</text>
+<text x="599" y="285" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reviewed_at: TEXT NULL</text>
+<text x="599" y="307" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">expires_at: TEXT NULL</text>
+<text x="599" y="329" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reason: TEXT NULL</text>
+</g>
+<g><rect x="1125" y="110" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1125" y="110" width="450" height="43" rx="15" fill="#193d2d"/><text x="1139" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Address / addresses</text>
+<text x="1139" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1139" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">user_id: TEXT [FK] → User [1]</text>
+<text x="1139" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">recipient: TEXT</text>
+<text x="1139" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">phone: TEXT</text>
+<text x="1139" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">line: TEXT</text>
+<text x="1139" y="285" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">city: TEXT</text>
+<text x="1139" y="307" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">is_default: INTEGER</text>
+</g>
+<g><rect x="1665" y="110" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1665" y="110" width="450" height="43" rx="15" fill="#193d2d"/><text x="1679" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Category / categories</text>
+<text x="1679" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1679" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">name: TEXT</text>
+<text x="1679" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">description: TEXT NULL</text>
+<text x="1679" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">active: INTEGER</text>
+</g>
+<g><rect x="45" y="585" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="585" width="450" height="43" rx="15" fill="#193d2d"/><text x="59" y="613" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Listing / listings</text>
+<text x="59" y="650" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="59" y="672" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">seller_id: TEXT [FK] → User [1]</text>
+<text x="59" y="694" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">kind: TEXT</text>
+<text x="59" y="716" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">title: TEXT</text>
+<text x="59" y="738" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">description: TEXT</text>
+<text x="59" y="760" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="59" y="782" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">city: TEXT</text>
+<text x="59" y="804" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">latitude: REAL NULL</text>
+<text x="59" y="826" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">longitude: REAL NULL</text>
+<text x="59" y="848" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">tags_json: TEXT NULL</text>
+<text x="59" y="870" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+<text x="59" y="892" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">moderator_id: TEXT [FK] → User [0..1]</text>
+<text x="59" y="914" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">moderation_reason: TEXT NULL</text>
+</g>
+<g><rect x="585" y="585" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="585" width="450" height="43" rx="15" fill="#193d2d"/><text x="599" y="613" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">ListingItem / listing_items</text>
+<text x="599" y="650" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="599" y="672" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">listing_id: TEXT [FK] → Listing [1]</text>
+<text x="599" y="694" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">category_id: TEXT [FK] → Category [1]</text>
+<text x="599" y="716" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">name: TEXT</text>
+<text x="599" y="738" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">material: TEXT</text>
+<text x="599" y="760" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">condition: TEXT</text>
+<text x="599" y="782" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">price_vnd: INTEGER</text>
+<text x="599" y="804" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">stock: INTEGER</text>
+<text x="599" y="826" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">unit: TEXT</text>
+</g>
+<g><rect x="1125" y="585" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1125" y="585" width="450" height="43" rx="15" fill="#193d2d"/><text x="1139" y="613" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">MediaAsset / media_assets</text>
+<text x="1139" y="650" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1139" y="672" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">uploader_id: TEXT [FK] → User [1]</text>
+<text x="1139" y="694" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">storage_key: TEXT</text>
+<text x="1139" y="716" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">mime_type: TEXT</text>
+<text x="1139" y="738" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">visibility: TEXT</text>
+<text x="1139" y="760" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">listing_id: TEXT [FK] → Listing [0..1]</text>
+<text x="1139" y="782" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">message_id: TEXT [FK] → Message [0..1]</text>
+<text x="1139" y="804" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">content_id: TEXT [FK] → ContentEntry [0..1]</text>
+<text x="1139" y="826" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">report_id: TEXT [FK] → Report [0..1]</text>
+<text x="1139" y="848" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">verification_id: TEXT [FK] → Verification [0..1]</text>
+</g>
+<g><rect x="1665" y="585" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1665" y="585" width="450" height="43" rx="15" fill="#193d2d"/><text x="1679" y="613" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Interaction / interactions</text>
+<text x="1679" y="650" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1679" y="672" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">user_id: TEXT [FK] → User [1]</text>
+<text x="1679" y="694" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">type: TEXT</text>
+<text x="1679" y="716" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">listing_id: TEXT [FK] → Listing [0..1]</text>
+<text x="1679" y="738" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">content_id: TEXT [FK] → ContentEntry [0..1]</text>
+<text x="1679" y="760" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">target_user_id: TEXT [FK] → User [0..1]</text>
+<text x="1679" y="782" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">parent_comment_id: TEXT [FK] → Interaction [0..1]</text>
+<text x="1679" y="804" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">like_count: INTEGER NULL</text>
+<text x="1679" y="826" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">body: TEXT NULL</text>
+<text x="1679" y="848" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">read_at: TEXT NULL</text>
+<text x="1679" y="870" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+</g>
+<g><rect x="45" y="1060" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="1060" width="450" height="43" rx="15" fill="#193d2d"/><text x="59" y="1088" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Order / orders</text>
+<text x="59" y="1125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="59" y="1147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">buyer_id: TEXT [FK] → User [1]</text>
+<text x="59" y="1169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">seller_id: TEXT [FK] → User [1]</text>
+<text x="59" y="1191" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">address_id: TEXT [FK] → Address [0..1]</text>
+<text x="59" y="1213" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">delivery_snapshot: TEXT</text>
+<text x="59" y="1235" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="59" y="1257" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">subtotal_vnd: INTEGER</text>
+<text x="59" y="1279" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">shipping_vnd: INTEGER</text>
+<text x="59" y="1301" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">total_vnd: INTEGER</text>
+<text x="59" y="1323" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+<text x="59" y="1345" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">completed_at: TEXT NULL</text>
+</g>
+<g><rect x="585" y="1060" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="1060" width="450" height="43" rx="15" fill="#193d2d"/><text x="599" y="1088" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">OrderItem / order_items</text>
+<text x="599" y="1125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="599" y="1147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">order_id: TEXT [FK] → Order [1]</text>
+<text x="599" y="1169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">listing_item_id: TEXT [FK] → ListingItem [1]</text>
+<text x="599" y="1191" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">title_snapshot: TEXT</text>
+<text x="599" y="1213" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">quantity: INTEGER</text>
+<text x="599" y="1235" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">unit_price_vnd: INTEGER</text>
+</g>
+<g><rect x="1125" y="1060" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1125" y="1060" width="450" height="43" rx="15" fill="#193d2d"/><text x="1139" y="1088" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Payment / payments</text>
+<text x="1139" y="1125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1139" y="1147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">order_id: TEXT [FK] → Order [1]</text>
+<text x="1139" y="1169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">parent_payment_id: TEXT [FK] → Payment [0..1]</text>
+<text x="1139" y="1191" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">kind: TEXT</text>
+<text x="1139" y="1213" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">provider: TEXT</text>
+<text x="1139" y="1235" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">provider_ref: TEXT NULL</text>
+<text x="1139" y="1257" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">idempotency_key: TEXT</text>
+<text x="1139" y="1279" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">amount_vnd: INTEGER</text>
+<text x="1139" y="1301" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">currency: TEXT</text>
+<text x="1139" y="1323" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="1139" y="1345" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+<text x="1139" y="1367" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">confirmed_at: TEXT NULL</text>
+</g>
+<g><rect x="1665" y="1060" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1665" y="1060" width="450" height="43" rx="15" fill="#193d2d"/><text x="1679" y="1088" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Conversation / conversations</text>
+<text x="1679" y="1125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1679" y="1147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">member_a_id: TEXT [FK] → User [1]</text>
+<text x="1679" y="1169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">member_b_id: TEXT [FK] → User [1]</text>
+<text x="1679" y="1191" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">order_id: TEXT [FK] → Order [0..1]</text>
+<text x="1679" y="1213" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+</g>
+<g><rect x="45" y="1535" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="1535" width="450" height="43" rx="15" fill="#193d2d"/><text x="59" y="1563" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Message / messages</text>
+<text x="59" y="1600" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="59" y="1622" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">conversation_id: TEXT [FK] → Conversation [1]</text>
+<text x="59" y="1644" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">sender_id: TEXT [FK] → User [1]</text>
+<text x="59" y="1666" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">body: TEXT</text>
+<text x="59" y="1688" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">content_id: TEXT [FK] → ContentEntry [0..1]</text>
+<text x="59" y="1710" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">content_kind: TEXT NULL</text>
+<text x="59" y="1732" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">sent_at: TEXT</text>
+<text x="59" y="1754" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">read_at: TEXT NULL</text>
+</g>
+<g><rect x="585" y="1535" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="1535" width="450" height="43" rx="15" fill="#193d2d"/><text x="599" y="1563" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Report / reports</text>
+<text x="599" y="1600" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="599" y="1622" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reporter_id: TEXT [FK] → User [1]</text>
+<text x="599" y="1644" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">listing_id: TEXT [FK] → Listing [0..1]</text>
+<text x="599" y="1666" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">content_id: TEXT [FK] → ContentEntry [0..1]</text>
+<text x="599" y="1688" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">target_user_id: TEXT [FK] → User [0..1]</text>
+<text x="599" y="1710" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">order_id: TEXT [FK] → Order [0..1]</text>
+<text x="599" y="1732" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reason: TEXT</text>
+<text x="599" y="1754" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="599" y="1776" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">resolver_id: TEXT [FK] → User [0..1]</text>
+<text x="599" y="1798" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">resolution: TEXT NULL</text>
+<text x="599" y="1820" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+</g>
+<g><rect x="1125" y="1535" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1125" y="1535" width="450" height="43" rx="15" fill="#193d2d"/><text x="1139" y="1563" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">GreenLedger / green_ledger</text>
+<text x="1139" y="1600" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1139" y="1622" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">user_id: TEXT [FK] → User [1]</text>
+<text x="1139" y="1644" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">order_id: TEXT [FK] → Order [0..1]</text>
+<text x="1139" y="1666" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">content_id: TEXT [FK] → ContentEntry [0..1]</text>
+<text x="1139" y="1688" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">points: INTEGER</text>
+<text x="1139" y="1710" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reason: TEXT</text>
+<text x="1139" y="1732" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">dedupe_key: TEXT</text>
+<text x="1139" y="1754" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+</g>
+<g><rect x="1665" y="1535" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="1665" y="1535" width="450" height="43" rx="15" fill="#193d2d"/><text x="1679" y="1563" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">ContentEntry / content_entries</text>
+<text x="1679" y="1600" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="1679" y="1622" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">author_id: TEXT [FK] → User [1]</text>
+<text x="1679" y="1644" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">parent_id: TEXT [FK] → ContentEntry [0..1]</text>
+<text x="1679" y="1666" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">kind: TEXT</text>
+<text x="1679" y="1688" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">title: TEXT</text>
+<text x="1679" y="1710" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">body: TEXT</text>
+<text x="1679" y="1732" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">status: TEXT</text>
+<text x="1679" y="1754" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">starts_at: TEXT NULL</text>
+<text x="1679" y="1776" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">ends_at: TEXT NULL</text>
+<text x="1679" y="1798" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">points_cost: INTEGER</text>
+<text x="1679" y="1820" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">metadata_json: TEXT</text>
+</g>
+<g><rect x="45" y="2010" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="45" y="2010" width="450" height="43" rx="15" fill="#193d2d"/><text x="59" y="2038" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">AuditLog / audit_logs</text>
+<text x="59" y="2075" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="59" y="2097" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">actor_id: TEXT [FK] → User [1]</text>
+<text x="59" y="2119" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">action: TEXT</text>
+<text x="59" y="2141" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">entity_type: TEXT</text>
+<text x="59" y="2163" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">entity_id: TEXT</text>
+<text x="59" y="2185" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">reason: TEXT</text>
+<text x="59" y="2207" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">created_at: TEXT</text>
+</g>
+<g><rect x="585" y="2010" width="450" height="425" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="2010" width="450" height="43" rx="15" fill="#193d2d"/><text x="599" y="2038" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">SystemSetting / system_settings</text>
+<text x="599" y="2075" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">id: TEXT [PK]</text>
+<text x="599" y="2097" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">key: TEXT</text>
+<text x="599" y="2119" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">value_json: TEXT</text>
+<text x="599" y="2141" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">updated_by: TEXT [FK] → User [1]</text>
+<text x="599" y="2163" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">updated_at: TEXT</text>
+</g>
+</svg>

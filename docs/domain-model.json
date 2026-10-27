@@ -1,0 +1,1180 @@
+[
+  {
+    "name": "User",
+    "table": "users",
+    "purpose": "Tài khoản, vai trò & trạng thái",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "display_name",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "email",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "role",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "phone",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "bio",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "city",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "avatar_key",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "cover_key",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Verification",
+    "table": "verifications",
+    "purpose": "Xác minh chung cho mua và bán",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "user_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "submitted_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "reviewer_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "User"
+      },
+      {
+        "name": "reviewed_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "expires_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Address",
+    "table": "addresses",
+    "purpose": "Địa chỉ giao nhận",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "user_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "recipient",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "phone",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "line",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "city",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "is_default",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Category",
+    "table": "categories",
+    "purpose": "Danh mục sản phẩm",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "name",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "description",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "active",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Listing",
+    "table": "listings",
+    "purpose": "Tin bán đồ cũ; COMMUNITY giữ tương thích",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "seller_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "kind",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "title",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "description",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "city",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "latitude",
+        "type": "REAL",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "longitude",
+        "type": "REAL",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "tags_json",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "moderator_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "User"
+      },
+      {
+        "name": "moderation_reason",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "ListingItem",
+    "table": "listing_items",
+    "purpose": "Sản phẩm thuộc tin bán",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "listing_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "Listing"
+      },
+      {
+        "name": "category_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "Category"
+      },
+      {
+        "name": "name",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "material",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "condition",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "price_vnd",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "stock",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "unit",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "MediaAsset",
+    "table": "media_assets",
+    "purpose": "Ảnh/video/tài liệu riêng tư",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "uploader_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "storage_key",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "mime_type",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "visibility",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "listing_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Listing"
+      },
+      {
+        "name": "message_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Message"
+      },
+      {
+        "name": "content_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "ContentEntry"
+      },
+      {
+        "name": "report_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Report"
+      },
+      {
+        "name": "verification_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Verification"
+      }
+    ]
+  },
+  {
+    "name": "Interaction",
+    "table": "interactions",
+    "purpose": "Tương tác, kết bạn, lịch sử và thông báo",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "user_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "type",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "listing_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Listing"
+      },
+      {
+        "name": "content_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "ContentEntry"
+      },
+      {
+        "name": "target_user_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "User"
+      },
+      {
+        "name": "parent_comment_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Interaction"
+      },
+      {
+        "name": "like_count",
+        "type": "INTEGER",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "body",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "read_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Order",
+    "table": "orders",
+    "purpose": "Đơn mua bán; một người bán mỗi đơn",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "buyer_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "seller_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "address_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Address"
+      },
+      {
+        "name": "delivery_snapshot",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "subtotal_vnd",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "shipping_vnd",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "total_vnd",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "completed_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "OrderItem",
+    "table": "order_items",
+    "purpose": "Chốt giá & số lượng tại lúc mua",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "order_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "Order"
+      },
+      {
+        "name": "listing_item_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "ListingItem"
+      },
+      {
+        "name": "title_snapshot",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "quantity",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "unit_price_vnd",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Payment",
+    "table": "payments",
+    "purpose": "Lần thanh toán/hoàn tiền qua cổng",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "order_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "Order"
+      },
+      {
+        "name": "parent_payment_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Payment"
+      },
+      {
+        "name": "kind",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "provider",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "provider_ref",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "idempotency_key",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "amount_vnd",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "currency",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "confirmed_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Conversation",
+    "table": "conversations",
+    "purpose": "Hội thoại giữa hai thành viên",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "member_a_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "member_b_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "order_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Order"
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Message",
+    "table": "messages",
+    "purpose": "Tin nhắn trong hội thoại",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "conversation_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "Conversation"
+      },
+      {
+        "name": "sender_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "body",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "content_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "ContentEntry"
+      },
+      {
+        "name": "content_kind",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "sent_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "read_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Review",
+    "table": "reviews",
+    "purpose": "Đánh giá sau đơn hoàn tất",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "order_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "Order"
+      },
+      {
+        "name": "author_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "target_user_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "rating",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "body",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "Report",
+    "table": "reports",
+    "purpose": "Báo cáo hoặc tranh chấp giao dịch",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "reporter_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "listing_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Listing"
+      },
+      {
+        "name": "content_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "ContentEntry"
+      },
+      {
+        "name": "target_user_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "User"
+      },
+      {
+        "name": "order_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Order"
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "resolver_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "User"
+      },
+      {
+        "name": "resolution",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "CollectionPoint",
+    "table": "collection_points",
+    "purpose": "Đơn vị & điểm thu gom",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "manager_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "User"
+      },
+      {
+        "name": "name",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "address",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "latitude",
+        "type": "REAL",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "longitude",
+        "type": "REAL",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "materials",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "opening_hours",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "GreenLedger",
+    "table": "green_ledger",
+    "purpose": "Sổ điểm; không cộng trùng",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "user_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "order_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "Order"
+      },
+      {
+        "name": "content_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "ContentEntry"
+      },
+      {
+        "name": "points",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "dedupe_key",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "ContentEntry",
+    "table": "content_entries",
+    "purpose": "Bài chia sẻ, mẹo hay, SCAN và nội dung cộng đồng",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "author_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "parent_id",
+        "type": "TEXT",
+        "nullable": true,
+        "target": "ContentEntry"
+      },
+      {
+        "name": "kind",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "title",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "body",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "status",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "starts_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "ends_at",
+        "type": "TEXT",
+        "nullable": true,
+        "target": null
+      },
+      {
+        "name": "points_cost",
+        "type": "INTEGER",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "metadata_json",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "AuditLog",
+    "table": "audit_logs",
+    "purpose": "Nhật ký thao tác quản trị",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "actor_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "action",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "entity_type",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "entity_id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  },
+  {
+    "name": "SystemSetting",
+    "table": "system_settings",
+    "purpose": "Cấu hình và phân quyền theo vai trò",
+    "fields": [
+      {
+        "name": "id",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "key",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "value_json",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      },
+      {
+        "name": "updated_by",
+        "type": "TEXT",
+        "nullable": false,
+        "target": "User"
+      },
+      {
+        "name": "updated_at",
+        "type": "TEXT",
+        "nullable": false,
+        "target": null
+      }
+    ]
+  }
+]

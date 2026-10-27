@@ -1,0 +1,275 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2430" viewBox="0 0 2200 2430" role="img" aria-label="Class Diagram — 20 lớp nghiệp vụ"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#799987"/></marker></defs><rect width="100%" height="100%" fill="#f4f8f3"/><text x="40" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#193d2d">Class Diagram — 20 lớp nghiệp vụ</text><text x="40" y="68" font-family="Arial,sans-serif" font-size="14" fill="#52675b">EcoShare v2 • 20 domain classes • INTEGER VND • Editable source: draw.io / Mermaid</text>
+<path d="M1000,165 L1020,165 L1020,528 L32,528 L32,165 L50,165" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M1000,191 L1033,191 L1033,537 L20,537 L20,191 L50,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>reviewer_id [0..1]</title></path>
+<path d="M1535,217 L1581,217 L1581,546 L8,546 L8,217 L50,217" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M465,703 L524,703 L524,1015 L32,1015 L32,243 L50,243" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>seller_id [1]</title></path>
+<path d="M465,729 L537,729 L537,988 L20,988 L20,269 L50,269" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>moderator_id [0..1]</title></path>
+<path d="M1000,755 L1020,755 L1020,997 L8,997 L8,755 L50,755" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [1]</title></path>
+<path d="M1000,781 L1033,781 L1033,1006 L1637,1006 L1637,321 L1655,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>category_id [1]</title></path>
+<path d="M1535,807 L1581,807 L1581,1015 L20,1015 L20,347 L50,347" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>uploader_id [1]</title></path>
+<path d="M1535,833 L1594,833 L1594,988 L8,988 L8,833 L50,833" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [0..1]</title></path>
+<path d="M1535,859 L1607,859 L1607,997 L32,997 L32,1779 L50,1779" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>message_id [0..1]</title></path>
+<path d="M1535,625 L1555,625 L1555,1006 L555,1006 L555,2005 L585,2005" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M1535,651 L1568,651 L1568,1015 L1078,1015 L1078,1571 L1120,1571" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>report_id [0..1]</title></path>
+<path d="M1535,677 L1581,677 L1581,988 L567,988 L567,217 L585,217" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>verification_id [0..1]</title></path>
+<path d="M2070,703 L2129,703 L2129,997 L20,997 L20,243 L50,243" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M2070,729 L2142,729 L2142,1006 L8,1006 L8,729 L50,729" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [0..1]</title></path>
+<path d="M2070,755 L2090,755 L2090,1015 L567,1015 L567,2135 L585,2135" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M2070,781 L2103,781 L2103,988 L20,988 L20,321 L50,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>target_user_id [0..1]</title></path>
+<path d="M465,1267 L511,1267 L511,1457 L8,1457 L8,347 L50,347" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>buyer_id [1]</title></path>
+<path d="M465,1293 L524,1293 L524,1466 L32,1466 L32,373 L50,373" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>seller_id [1]</title></path>
+<path d="M465,1319 L537,1319 L537,1475 L1090,1475 L1090,399 L1120,399" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>address_id [0..1]</title></path>
+<path d="M1000,1085 L1020,1085 L1020,1448 L8,1448 L8,1085 L50,1085" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [1]</title></path>
+<path d="M1000,1111 L1033,1111 L1033,1457 L567,1457 L567,651 L585,651" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_item_id [1]</title></path>
+<path d="M1535,1137 L1581,1137 L1581,1466 L20,1466 L20,1137 L50,1137" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [1]</title></path>
+<path d="M1535,1163 L1594,1163 L1594,1475 L1078,1475 L1078,1163 L1120,1163" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>parent_payment_id [0..1]</title></path>
+<path d="M2070,1189 L2142,1189 L2142,1448 L32,1448 L32,269 L50,269" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>member_a_id [1]</title></path>
+<path d="M2070,1215 L2090,1215 L2090,1457 L20,1457 L20,295 L50,295" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>member_b_id [1]</title></path>
+<path d="M2070,1241 L2103,1241 L2103,1466 L8,1466 L8,1241 L50,1241" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [0..1]</title></path>
+<path d="M465,1727 L511,1727 L511,1935 L1637,1935 L1637,1267 L1655,1267" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>conversation_id [1]</title></path>
+<path d="M465,1753 L524,1753 L524,1908 L20,1908 L20,373 L50,373" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>sender_id [1]</title></path>
+<path d="M1000,1779 L1072,1779 L1072,1917 L8,1917 L8,1319 L50,1319" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [1]</title></path>
+<path d="M1000,1545 L1020,1545 L1020,1926 L32,1926 L32,165 L50,165" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>author_id [1]</title></path>
+<path d="M1000,1571 L1033,1571 L1033,1935 L20,1935 L20,191 L50,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>target_user_id [1]</title></path>
+<path d="M1535,1597 L1581,1597 L1581,1908 L8,1908 L8,217 L50,217" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>reporter_id [1]</title></path>
+<path d="M1535,1623 L1594,1623 L1594,1917 L32,1917 L32,703 L50,703" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>listing_id [0..1]</title></path>
+<path d="M1535,1649 L1607,1649 L1607,1926 L20,1926 L20,269 L50,269" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>target_user_id [0..1]</title></path>
+<path d="M1535,1675 L1555,1675 L1555,1935 L8,1935 L8,1215 L50,1215" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [0..1]</title></path>
+<path d="M1535,1701 L1568,1701 L1568,1908 L32,1908 L32,321 L50,321" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>resolver_id [0..1]</title></path>
+<path d="M2070,1727 L2116,1727 L2116,1917 L20,1917 L20,347 L50,347" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>manager_id [0..1]</title></path>
+<path d="M465,2213 L524,2213 L524,2386 L8,2386 L8,373 L50,373" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>user_id [1]</title></path>
+<path d="M465,2239 L537,2239 L537,2395 L32,2395 L32,1319 L50,1319" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>order_id [0..1]</title></path>
+<path d="M465,2005 L485,2005 L485,2368 L555,2368 L555,2005 L585,2005" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>content_id [0..1]</title></path>
+<path d="M1000,2031 L1033,2031 L1033,2377 L8,2377 L8,191 L50,191" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>author_id [1]</title></path>
+<path d="M1000,2057 L1046,2057 L1046,2386 L567,2386 L567,2057 L585,2057" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>parent_id [0..1]</title></path>
+<path d="M1535,2083 L1594,2083 L1594,2395 L20,2395 L20,243 L50,243" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>actor_id [1]</title></path>
+<path d="M2070,2109 L2142,2109 L2142,2368 L8,2368 L8,269 L50,269" stroke="#799987" opacity="0.45" fill="none" marker-end="url(#arrow)"><title>updated_by [1]</title></path>
+<g><rect x="50" y="110" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="50" y="110" width="415" height="43" rx="15" fill="#193d2d"/><text x="64" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">User</text>
+<text x="64" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Tài khoản, vai trò &amp; trạng thái</text>
+<text x="64" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="64" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ displayName: String</text>
+<text x="64" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ email: String</text>
+<text x="64" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ role: String</text>
+<text x="64" y="285" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="64" y="307" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ phone: String?</text>
+<text x="64" y="329" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ bio: String?</text>
+<text x="64" y="351" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ city: String?</text>
+<text x="64" y="373" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ avatarKey: String?</text>
+<text x="64" y="395" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ coverKey: String?</text>
+<text x="64" y="417" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="585" y="110" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="110" width="415" height="43" rx="15" fill="#193d2d"/><text x="599" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Verification</text>
+<text x="599" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Xác minh chung cho mua và bán</text>
+<text x="599" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="599" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ userId: String → User [1]</text>
+<text x="599" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="599" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ submittedAt: String</text>
+<text x="599" y="285" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reviewerId: String? → User [0..1]</text>
+<text x="599" y="307" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reviewedAt: String?</text>
+<text x="599" y="329" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ expiresAt: String?</text>
+<text x="599" y="351" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reason: String?</text>
+</g>
+<g><rect x="1120" y="110" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1120" y="110" width="415" height="43" rx="15" fill="#193d2d"/><text x="1134" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Address</text>
+<text x="1134" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Địa chỉ giao nhận</text>
+<text x="1134" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1134" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ userId: String → User [1]</text>
+<text x="1134" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ recipient: String</text>
+<text x="1134" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ phone: String</text>
+<text x="1134" y="285" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ line: String</text>
+<text x="1134" y="307" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ city: String</text>
+<text x="1134" y="329" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ isDefault: long</text>
+</g>
+<g><rect x="1655" y="110" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1655" y="110" width="415" height="43" rx="15" fill="#193d2d"/><text x="1669" y="138" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Category</text>
+<text x="1669" y="175" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Danh mục sản phẩm</text>
+<text x="1669" y="197" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1669" y="219" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ name: String</text>
+<text x="1669" y="241" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ description: String?</text>
+<text x="1669" y="263" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ active: long</text>
+</g>
+<g><rect x="50" y="570" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="50" y="570" width="415" height="43" rx="15" fill="#193d2d"/><text x="64" y="598" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Listing</text>
+<text x="64" y="635" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Tin bán đồ cũ; COMMUNITY giữ tương thích</text>
+<text x="64" y="657" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="64" y="679" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ sellerId: String → User [1]</text>
+<text x="64" y="701" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ kind: String</text>
+<text x="64" y="723" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ title: String</text>
+<text x="64" y="745" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ description: String</text>
+<text x="64" y="767" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="64" y="789" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ city: String</text>
+<text x="64" y="811" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ latitude: double?</text>
+<text x="64" y="833" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ longitude: double?</text>
+<text x="64" y="855" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ tagsJson: String?</text>
+<text x="64" y="877" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+<text x="64" y="899" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ moderatorId: String? → User [0..1]</text>
+<text x="64" y="921" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ moderationReason: String?</text>
+</g>
+<g><rect x="585" y="570" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="570" width="415" height="43" rx="15" fill="#193d2d"/><text x="599" y="598" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">ListingItem</text>
+<text x="599" y="635" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Sản phẩm thuộc tin bán</text>
+<text x="599" y="657" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="599" y="679" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ listingId: String → Listing [1]</text>
+<text x="599" y="701" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ categoryId: String → Category [1]</text>
+<text x="599" y="723" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ name: String</text>
+<text x="599" y="745" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ material: String</text>
+<text x="599" y="767" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ condition: String</text>
+<text x="599" y="789" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ priceVnd: long</text>
+<text x="599" y="811" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ stock: long</text>
+<text x="599" y="833" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ unit: String</text>
+</g>
+<g><rect x="1120" y="570" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1120" y="570" width="415" height="43" rx="15" fill="#193d2d"/><text x="1134" y="598" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">MediaAsset</text>
+<text x="1134" y="635" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Ảnh/video/tài liệu riêng tư</text>
+<text x="1134" y="657" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1134" y="679" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ uploaderId: String → User [1]</text>
+<text x="1134" y="701" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ storageKey: String</text>
+<text x="1134" y="723" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ mimeType: String</text>
+<text x="1134" y="745" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ visibility: String</text>
+<text x="1134" y="767" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ listingId: String? → Listing [0..1]</text>
+<text x="1134" y="789" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ messageId: String? → Message [0..1]</text>
+<text x="1134" y="811" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ contentId: String? → ContentEntry [0..1]</text>
+<text x="1134" y="833" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reportId: String? → Report [0..1]</text>
+<text x="1134" y="855" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ verificationId: String? → Verification [0..1]</text>
+</g>
+<g><rect x="1655" y="570" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1655" y="570" width="415" height="43" rx="15" fill="#193d2d"/><text x="1669" y="598" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Interaction</text>
+<text x="1669" y="635" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Tương tác, kết bạn, lịch sử và thông báo</text>
+<text x="1669" y="657" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1669" y="679" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ userId: String → User [1]</text>
+<text x="1669" y="701" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ type: String</text>
+<text x="1669" y="723" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ listingId: String? → Listing [0..1]</text>
+<text x="1669" y="745" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ contentId: String? → ContentEntry [0..1]</text>
+<text x="1669" y="767" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ targetUserId: String? → User [0..1]</text>
+<text x="1669" y="789" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ body: String?</text>
+<text x="1669" y="811" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ readAt: String?</text>
+<text x="1669" y="833" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="50" y="1030" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="50" y="1030" width="415" height="43" rx="15" fill="#193d2d"/><text x="64" y="1058" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Order</text>
+<text x="64" y="1095" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Đơn mua bán; một người bán mỗi đơn</text>
+<text x="64" y="1117" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="64" y="1139" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ buyerId: String → User [1]</text>
+<text x="64" y="1161" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ sellerId: String → User [1]</text>
+<text x="64" y="1183" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ addressId: String? → Address [0..1]</text>
+<text x="64" y="1205" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ deliverySnapshot: String</text>
+<text x="64" y="1227" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="64" y="1249" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ subtotalVnd: long</text>
+<text x="64" y="1271" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ shippingVnd: long</text>
+<text x="64" y="1293" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ totalVnd: long</text>
+<text x="64" y="1315" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+<text x="64" y="1337" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ completedAt: String?</text>
+</g>
+<g><rect x="585" y="1030" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="1030" width="415" height="43" rx="15" fill="#193d2d"/><text x="599" y="1058" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">OrderItem</text>
+<text x="599" y="1095" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Chốt giá &amp; số lượng tại lúc mua</text>
+<text x="599" y="1117" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="599" y="1139" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ orderId: String → Order [1]</text>
+<text x="599" y="1161" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ listingItemId: String → ListingItem [1]</text>
+<text x="599" y="1183" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ titleSnapshot: String</text>
+<text x="599" y="1205" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ quantity: long</text>
+<text x="599" y="1227" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ unitPriceVnd: long</text>
+</g>
+<g><rect x="1120" y="1030" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1120" y="1030" width="415" height="43" rx="15" fill="#193d2d"/><text x="1134" y="1058" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Payment</text>
+<text x="1134" y="1095" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Lần thanh toán/hoàn tiền qua cổng</text>
+<text x="1134" y="1117" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1134" y="1139" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ orderId: String → Order [1]</text>
+<text x="1134" y="1161" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ parentPaymentId: String? → Payment [0..1]</text>
+<text x="1134" y="1183" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ kind: String</text>
+<text x="1134" y="1205" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ provider: String</text>
+<text x="1134" y="1227" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ providerRef: String?</text>
+<text x="1134" y="1249" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ idempotencyKey: String</text>
+<text x="1134" y="1271" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ amountVnd: long</text>
+<text x="1134" y="1293" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ currency: String</text>
+<text x="1134" y="1315" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="1134" y="1337" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+<text x="1134" y="1359" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ confirmedAt: String?</text>
+</g>
+<g><rect x="1655" y="1030" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1655" y="1030" width="415" height="43" rx="15" fill="#193d2d"/><text x="1669" y="1058" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Conversation</text>
+<text x="1669" y="1095" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Hội thoại giữa hai thành viên</text>
+<text x="1669" y="1117" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1669" y="1139" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ memberAId: String → User [1]</text>
+<text x="1669" y="1161" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ memberBId: String → User [1]</text>
+<text x="1669" y="1183" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ orderId: String? → Order [0..1]</text>
+<text x="1669" y="1205" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="50" y="1490" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="50" y="1490" width="415" height="43" rx="15" fill="#193d2d"/><text x="64" y="1518" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Message</text>
+<text x="64" y="1555" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Tin nhắn trong hội thoại</text>
+<text x="64" y="1577" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="64" y="1599" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ conversationId: String → Conversation [1]</text>
+<text x="64" y="1621" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ senderId: String → User [1]</text>
+<text x="64" y="1643" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ body: String</text>
+<text x="64" y="1665" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ sentAt: String</text>
+<text x="64" y="1687" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ readAt: String?</text>
+</g>
+<g><rect x="585" y="1490" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="1490" width="415" height="43" rx="15" fill="#193d2d"/><text x="599" y="1518" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Review</text>
+<text x="599" y="1555" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Đánh giá sau đơn hoàn tất</text>
+<text x="599" y="1577" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="599" y="1599" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ orderId: String → Order [1]</text>
+<text x="599" y="1621" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ authorId: String → User [1]</text>
+<text x="599" y="1643" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ targetUserId: String → User [1]</text>
+<text x="599" y="1665" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ rating: long</text>
+<text x="599" y="1687" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ body: String</text>
+<text x="599" y="1709" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="1120" y="1490" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1120" y="1490" width="415" height="43" rx="15" fill="#193d2d"/><text x="1134" y="1518" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">Report</text>
+<text x="1134" y="1555" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Báo cáo hoặc tranh chấp giao dịch</text>
+<text x="1134" y="1577" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1134" y="1599" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reporterId: String → User [1]</text>
+<text x="1134" y="1621" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ listingId: String? → Listing [0..1]</text>
+<text x="1134" y="1643" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ targetUserId: String? → User [0..1]</text>
+<text x="1134" y="1665" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ orderId: String? → Order [0..1]</text>
+<text x="1134" y="1687" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reason: String</text>
+<text x="1134" y="1709" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="1134" y="1731" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ resolverId: String? → User [0..1]</text>
+<text x="1134" y="1753" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ resolution: String?</text>
+<text x="1134" y="1775" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="1655" y="1490" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1655" y="1490" width="415" height="43" rx="15" fill="#193d2d"/><text x="1669" y="1518" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">CollectionPoint</text>
+<text x="1669" y="1555" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Đơn vị &amp; điểm thu gom</text>
+<text x="1669" y="1577" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1669" y="1599" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ managerId: String? → User [0..1]</text>
+<text x="1669" y="1621" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ name: String</text>
+<text x="1669" y="1643" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ address: String</text>
+<text x="1669" y="1665" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ latitude: double</text>
+<text x="1669" y="1687" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ longitude: double</text>
+<text x="1669" y="1709" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ materials: String</text>
+<text x="1669" y="1731" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ openingHours: String</text>
+<text x="1669" y="1753" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+</g>
+<g><rect x="50" y="1950" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="50" y="1950" width="415" height="43" rx="15" fill="#193d2d"/><text x="64" y="1978" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">GreenLedger</text>
+<text x="64" y="2015" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Sổ điểm; không cộng trùng</text>
+<text x="64" y="2037" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="64" y="2059" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ userId: String → User [1]</text>
+<text x="64" y="2081" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ orderId: String? → Order [0..1]</text>
+<text x="64" y="2103" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ contentId: String? → ContentEntry [0..1]</text>
+<text x="64" y="2125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ points: long</text>
+<text x="64" y="2147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reason: String</text>
+<text x="64" y="2169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ dedupeKey: String</text>
+<text x="64" y="2191" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="585" y="1950" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="585" y="1950" width="415" height="43" rx="15" fill="#193d2d"/><text x="599" y="1978" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">ContentEntry</text>
+<text x="599" y="2015" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Bài chia sẻ, mẹo hay, SCAN và nội dung cộng đồng</text>
+<text x="599" y="2037" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="599" y="2059" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ authorId: String → User [1]</text>
+<text x="599" y="2081" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ parentId: String? → ContentEntry [0..1]</text>
+<text x="599" y="2103" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ kind: String</text>
+<text x="599" y="2125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ title: String</text>
+<text x="599" y="2147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ body: String</text>
+<text x="599" y="2169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ status: String</text>
+<text x="599" y="2191" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ startsAt: String?</text>
+<text x="599" y="2213" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ endsAt: String?</text>
+<text x="599" y="2235" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ pointsCost: long</text>
+<text x="599" y="2257" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ metadataJson: String</text>
+</g>
+<g><rect x="1120" y="1950" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1120" y="1950" width="415" height="43" rx="15" fill="#193d2d"/><text x="1134" y="1978" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">AuditLog</text>
+<text x="1134" y="2015" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Nhật ký thao tác quản trị</text>
+<text x="1134" y="2037" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1134" y="2059" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ actorId: String → User [1]</text>
+<text x="1134" y="2081" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ action: String</text>
+<text x="1134" y="2103" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ entityType: String</text>
+<text x="1134" y="2125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ entityId: String</text>
+<text x="1134" y="2147" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ reason: String</text>
+<text x="1134" y="2169" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ createdAt: String</text>
+</g>
+<g><rect x="1655" y="1950" width="415" height="400" rx="15" fill="white" stroke="#94b39d"/><rect x="1655" y="1950" width="415" height="43" rx="15" fill="#193d2d"/><text x="1669" y="1978" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="white">SystemSetting</text>
+<text x="1669" y="2015" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">Cấu hình và phân quyền theo vai trò</text>
+<text x="1669" y="2037" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ id: String</text>
+<text x="1669" y="2059" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ key: String</text>
+<text x="1669" y="2081" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ valueJson: String</text>
+<text x="1669" y="2103" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ updatedBy: String → User [1]</text>
+<text x="1669" y="2125" font-family="Arial,sans-serif" font-size="12" fill="#193d2d">+ updatedAt: String</text>
+</g>
+</svg>
