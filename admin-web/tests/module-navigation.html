@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Admin module navigation smoke</title></head>
+<body><p>Checking Admin modules with mocked responses...</p><script type="module">
+// Intercept every application request. This test never signs in to or writes to Firebase.
+const results = [];
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const wait = async (predicate, message) => {
+  for (let i = 0; i < 150; i++) {
+    if (predicate()) return;
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  throw new Error(message);
+};
+try {
+  check(["localhost", "127.0.0.1"].includes(location.hostname), "Loopback only");
+  const source = new DOMParser().parseFromString(await (await fetch("../index.html")).text(), "text/html");
+  source.querySelectorAll("script").forEach(script => script.remove());
+  document.body.replaceChildren(...source.body.childNodes);
+  const requested = [];
+  let role = "ADMIN";
+  window.fetch = async (input, init = {}) => {
+    const url = new URL(input, location.href);
+    const method = init.method ?? "GET";
+    if (url.pathname.includes("accounts:signInWithPassword"))
+      return Response.json({ idToken: "fake-token", refreshToken: "fake-refresh", expiresIn: "3600" });
+    const path = url.pathname.replace(/^.*\/v1(?=\/)/, "") + url.search;
+    requested.push(`${method} ${path}`);
+    if (path === "/me") return Response.json({ id: "admin", display_name: "Browser QA", role });
+    if (path === "/admin/dashboard" || path === "/admin/stats")
+      return Response.json({ users: 1, orders: 0, moderation: {} });
+    if (method === "GET" && path.startsWith("/admin/"))
+      return Response.json({ items: [], next_cursor: null });
+    throw new Error(`Unexpected request ${method} ${url.href}`);
+  };
+  await import("../backend.js");
+  const $ = id => document.getElementById(id);
+  const login = async () => {
+    $("login").querySelector('[name="email"]').value = "test@example.com";
+    $("login").querySelector('[name="password"]').value = "unused-test-value";
+    $("login").requestSubmit();
+    await wait(() => !$("panel").hidden && $("content").getAttribute("aria-busy") === "false", "Login/dashboard did not load");
+  };
+  await login();
+  const modules = [
+    ["dashboard", "/admin/dashboard"],
+    ["users", "/admin/users"],
+    ["verifications", "/admin/verifications"],
+    ["posts", "/admin/community?kind=POST"],
+    ["tips", "/admin/community?kind=TIP"],
+    ["scans", "/admin/community?kind=SCAN"],
+    ["listings", "/admin/listings?status=PENDING"],
+    ["orders", "/admin/orders"],
+    ["payments", "/admin/payments"],
+    ["reports", "/admin/reports"],
+    ["categories", "/admin/categories"],
+    ["content", "/admin/content"],
+    ["green-ledger", "/admin/green-ledger"],
+    ["stats", "/admin/stats"],
+    ["settings", "/admin/settings"],
+    ["audit-logs", "/admin/audit-logs"],
+  ];
+  check(document.querySelectorAll("#modules [data-module]").length === modules.length, "Admin module count changed");
+  for (const [id, endpoint] of modules) {
+    const item = document.querySelector(`#modules [data-module="${id}"]`);
+    check(item, `Missing Admin module ${id}`);
+    const before = requested.length;
+    item.click();
+    await wait(() => requested.slice(before).includes(`GET ${endpoint}`) &&
+      $("content").getAttribute("aria-busy") === "false" &&
+      item.getAttribute("aria-current") === "page", `Module ${id} did not load ${endpoint}`);
+    check(!$("status").textContent, `Module ${id} reported ${$("status").textContent}`);
+  }
+  results.push(`PASS all ${modules.length} Admin modules load their expected API routes`);
+  $("logout").click();
+  role = "MODERATOR";
+  await login();
+  const visible = [...document.querySelectorAll("#modules [data-module]")].map(item => item.dataset.module);
+  const allowed = ["dashboard", "posts", "tips", "listings", "reports", "content"];
+  check(visible.length === allowed.length && visible.every(id => allowed.includes(id)),
+    `Moderator menu mismatch: ${visible.join(", ")}`);
+  results.push("PASS Moderator menu only exposes six permitted modules");
+  $("logout").click();
+} catch (error) { results.push("FAIL " + error.message); }
+const output = document.createElement("pre");
+output.id = "module-navigation-result";
+output.textContent = results.join("\n");
+document.body.append(output);
+</script></body></html>
