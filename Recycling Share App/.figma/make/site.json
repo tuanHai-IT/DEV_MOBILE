@@ -1,0 +1,10 @@
+{
+  "description": "Connect with others to share and discuss recycling ideas, upload images of recycled items, and learn sustainable practices in a vibrant community.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
