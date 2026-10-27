@@ -28,4 +28,13 @@
     <item name="community_camera" type="id" />
     <item name="home_eco_points_banner" type="id" />
     <item name="home_eco_points_value" type="id" />
+    <item name="community_payout_holder" type="id" />
+    <item name="community_payout_bank" type="id" />
+    <item name="community_payout_number" type="id" />
+    <item name="community_payout_phone" type="id" />
+    <item name="community_payout_bank_method" type="id" />
+    <item name="community_payout_momo_method" type="id" />
+    <item name="community_payout_save" type="id" />
+    <item name="community_payout_status" type="id" />
+    <item name="community_payout_open" type="id" />
 </resources>

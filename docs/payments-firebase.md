@@ -2,6 +2,8 @@
 
 **Chế độ ứng dụng hiện tại: chỉ demo.** Nút **Thanh toán thử · Demo** trong chi tiết đơn cho chọn MoMo hoặc VNPay và hiển thị kết quả mô phỏng ngay trong app. App không gọi API tạo phiên thanh toán, không mở cổng thanh toán, không chuyển tiền và không đổi trạng thái đơn hàng trên máy chủ. Backend vẫn giữ adapter MoMo/VNPay ở trạng thái tắt để tham khảo nếu sau này quyết định tích hợp thanh toán thật; phần cấu hình bên dưới chưa cần thực hiện cho bản demo.
 
+Từ 27/10/2026, người bán phải [khai báo tài khoản nhận tiền](payout-account.md) ngân hàng hoặc MoMo trước khi tạo/gửi lại tin bán và trước khi tin được duyệt. Đây là thông tin tự khai báo được lưu riêng tư; không xác minh quyền sở hữu tài khoản hoặc thực hiện chi trả. Người dùng khai báo trong Hồ sơ/Cài đặt; backend kiểm tra điều kiện trong transaction.
+
 Backend lưu dữ liệu giao dịch trong Cloud Firestore, chỉ server dùng Firebase Admin SDK được ghi `payments`, `orders`, `order_items` và sổ điểm. Ứng dụng gửi Firebase ID token qua `Authorization: Bearer <token>`. Người mua và người bán phải có tài khoản ACTIVE, hồ sơ VERIFIED còn hạn trước khi tạo phiên thanh toán.
 
 Chưa có merchant credentials trong project. Mặc định các cổng thật đều tắt; backend trả HTTP 503 khi cổng chưa bật hoặc thiếu cấu hình. `EMULATOR` là phương thức thử riêng, chỉ tồn tại khi backend kết nối đồng thời Auth, Firestore và Storage Emulator. Nó không thu tiền.

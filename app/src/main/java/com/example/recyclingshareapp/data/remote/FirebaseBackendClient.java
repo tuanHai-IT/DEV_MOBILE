@@ -716,6 +716,8 @@ public final class FirebaseBackendClient implements AutoCloseable {
 
     private static boolean cacheableJsonPath(String path) {
         if (path == null) return false;
+        // Recipient details are read fresh and never kept in page/history caches.
+        if (path.equals("/me/payout-account") || path.startsWith("/me/payout-account?")) return false;
         if (publicOfflineJsonPath(path)) return true;
         if (path.length() <= 512 && (path.equals("/me") || path.startsWith("/me/")
                 || path.equals("/notifications") || path.startsWith("/notifications?")

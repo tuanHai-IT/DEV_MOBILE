@@ -424,7 +424,7 @@ public class MainActivity extends AppCompatActivity {
         show("login", false);
     }
     private boolean communityScreen(String name) {
-        return Arrays.asList("home", "explore", "messages", "message_requests", "chat", "create_menu", "create_post", "post_detail", "tip_detail", "report", "share_post", "friends", "notifications", "scanner", "profile", "user_profile", "market_detail", "create_listing", "market", "edit_profile", "addresses", "orders", "order_detail", "payment_demo", "payment_demo_result", "my_listings", "verification", "admin_dashboard", "admin_moderation", "admin_reports").contains(name);
+        return Arrays.asList("home", "explore", "messages", "message_requests", "chat", "create_menu", "create_post", "post_detail", "tip_detail", "report", "share_post", "friends", "notifications", "scanner", "profile", "user_profile", "market_detail", "create_listing", "market", "edit_profile", "payout_account", "addresses", "orders", "order_detail", "payment_demo", "payment_demo_result", "my_listings", "verification", "admin_dashboard", "admin_moderation", "admin_reports").contains(name);
     }
     private static boolean offlineGuestScreen(String name) {
         return Arrays.asList("home", "explore", "post_detail", "tip_detail", "market_detail").contains(name);
@@ -817,6 +817,7 @@ public class MainActivity extends AppCompatActivity {
                 else { repository.login(false);if(!registrationName.isEmpty())repository.put("profile_name",registrationName);show("home",false); }
                 break;
             case "logout": logoutFromProfile(); break;
+            case "open_payout_account": show("payout_account", true); break;
             case "buy": repository.verifyTrading(); show("checkout", true); break;
             case "submit_verification":
                 if (!Arrays.asList("UNVERIFIED","REJECTED","EXPIRED").contains(repository.verification())) throw new IllegalStateException("Hồ sơ đã được gửi hoặc đã xác minh.");

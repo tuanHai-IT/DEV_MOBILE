@@ -55,6 +55,8 @@ before(async () => {
         points_balance: 0,
         _verification_id: `${prefix}_${role}`,
         _pending_verification_id: null,
+        // Deliberately fake declaration for unrelated marketplace behavior tests.
+        _payout_account: { method: "BANK", bank_name: "Test bank", account_number: "0000000000", account_holder: "Test account", updated_at: ctx.now() },
       });
     await ctx.db
       .collection("verifications")
