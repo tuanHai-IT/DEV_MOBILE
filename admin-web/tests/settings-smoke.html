@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Admin settings smoke · Emulator only</title></head>
+<body><p>Checking Admin settings in the demo Emulator...</p><script type="module">
+import { FirebaseBackendClient } from "../firebase-client.js";
+
+const results = [];
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const wait = async (predicate, message) => {
+  for (let i = 0; i < 300; i++) {
+    if (predicate()) return;
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  throw new Error(message + ": " + (document.getElementById("status")?.textContent ?? "") + " " +
+    (document.getElementById("edit-error")?.textContent ?? ""));
+};
+
+try {
+  const { default: config } = await import("../firebase-config.local.js");
+  const apiUrl = new URL(config.apiBase);
+  check(["localhost", "127.0.0.1"].includes(location.hostname) &&
+    config.emulator === true && config.projectId === "demo-recycling-share" &&
+    ["localhost", "127.0.0.1"].includes(apiUrl.hostname) && apiUrl.port === "5001" &&
+    apiUrl.pathname === "/demo-recycling-share/asia-southeast1/api/v1" &&
+    config.authEmulatorHost === "127.0.0.1:9099", "Isolated demo Emulator configuration required");
+
+  const direct = new FirebaseBackendClient(config);
+  await direct.login("admin@ecoshare.test", "EcoShareDemo123!");
+  const before = await direct.request("/admin/settings");
+  const existed = before.items.some(item => item.key === "contact");
+  const source = new DOMParser().parseFromString(await (await fetch("../index.html")).text(), "text/html");
+  source.querySelectorAll("script").forEach(script => script.remove());
+  document.body.replaceChildren(...source.body.childNodes);
+  await import("../backend.js");
+  const $ = id => document.getElementById(id);
+  $("login").querySelector('[name="email"]').value = "admin@ecoshare.test";
+  $("login").querySelector('[name="password"]').value = "EcoShareDemo123!";
+  $("login").requestSubmit();
+  await wait(() => !$("panel").hidden && !!document.querySelector('[data-module="settings"]'), "Admin login did not complete");
+  document.querySelector('[data-module="settings"]').click();
+  await wait(() => $("title").textContent === "Cấu hình" && $("content").getAttribute("aria-busy") === "false", "Settings list did not load");
+  check(!$("create").hidden, "Settings create button is hidden");
+  results.push(`PASS settings list loaded (${before.items.length} groups before test)`);
+
+  $("create").click();
+  await wait(() => $("editor").open && !!$("fields").querySelector('[name="key"]'), "Settings group picker did not open");
+  $("fields").querySelector('[name="key"]').value = "contact";
+  $("edit").requestSubmit();
+  await wait(() => $("editor").open && !!$("fields").querySelector('[name="support_email"]'), "Contact settings form did not open");
+  const first = `qa-settings-${Date.now()}@example.test`;
+  $("fields").querySelector('[name="support_email"]').value = first;
+  $("fields").querySelector('[name="reason"]').value = "Browser QA creates demo contact setting.";
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open, "Contact settings create did not save");
+  const created = await direct.request("/admin/settings/contact");
+  check(created.value?.support_email === first, "Created contact value was not stored");
+  await wait(() => $("content").textContent.includes("contact"), "Created contact row did not appear");
+  results.push(`PASS ${existed ? "upsert" : "create"} contact setting via browser and read through API`);
+
+  const contactRow = [...$("content").querySelectorAll("tr")].find(row => row.textContent.includes("contact"));
+  check(contactRow, "Contact row missing after save");
+  [...contactRow.querySelectorAll("button")].find(button => button.textContent === "Chi tiết").click();
+  await wait(() => $("editor").open && $("fields").textContent.includes(first), "Contact detail did not show stored value");
+  $("close").click();
+  [...contactRow.querySelectorAll("button")].find(button => button.textContent === "Sửa").click();
+  await wait(() => $("editor").open && !!$("fields").querySelector('[name="support_email"]'), "Contact edit form did not open");
+  check($("fields").querySelector('[name="support_email"]').value === first, "Edit form did not load stored value");
+  const second = `qa-settings-edited-${Date.now()}@example.test`;
+  $("fields").querySelector('[name="support_email"]').value = second;
+  $("fields").querySelector('[name="reason"]').value = "Browser QA edits demo contact setting.";
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open, "Contact settings edit did not save");
+  const edited = await direct.request("/admin/settings/contact");
+  check(edited.value?.support_email === second, "Edited contact value was not stored");
+  results.push("PASS read contact detail and edit value through browser");
+  $("logout").click();
+  direct.logout();
+} catch (error) { results.push("FAIL " + error.message); }
+const output = document.createElement("pre");
+output.id = "settings-result";
+output.textContent = results.join("\n");
+document.body.append(output);
+</script></body></html>
