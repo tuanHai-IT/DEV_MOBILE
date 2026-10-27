@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>Community admin smoke · Emulator only</title></head>
+<body><p>Đang kiểm tra quản trị cộng đồng…</p><script type="module">
+import { FirebaseBackendClient } from "../firebase-client.js";
+const results = [];
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const wait = async (predicate) => {
+  for (let i = 0; i < 300; i++) { if (predicate()) return; await new Promise(resolve => setTimeout(resolve, 100)); }
+  throw new Error("Timed out: " + document.querySelector("#status")?.textContent + " " + document.querySelector("#edit-error")?.textContent);
+};
+try {
+  const { default: config } = await import("../firebase-config.local.js");
+  check(["localhost", "127.0.0.1"].includes(location.hostname) && config.emulator && config.projectId === "demo-recycling-share", "Loopback demo emulator required");
+  const seller = new FirebaseBackendClient(config), admin = new FirebaseBackendClient(config);
+  await seller.login("seller@ecoshare.test", "EcoShareDemo123!");
+  await admin.login("admin@ecoshare.test", "EcoShareDemo123!");
+  const title = `Browser social QA ${Date.now()}`;
+  const post = await seller.request("/posts", { method: "POST", key: crypto.randomUUID(), body: {
+    title, body: "Chia sẻ tái chế chai nhựa để kiểm tra Firebase.", materials: ["Nhựa"], weight_kg: 1.5, tags: ["DIY"],
+  } });
+  const comment = await seller.request(`/posts/${post.id}/comments`, { method: "POST", key: crypto.randomUUID(), body: { body: "Bình luận cần kiểm duyệt trong trình duyệt." } });
+  const markup = new DOMParser().parseFromString(await (await fetch("../index.html")).text(), "text/html");
+  markup.querySelectorAll("script").forEach(script => script.remove());
+  document.body.replaceChildren(...markup.body.childNodes);
+  const style = document.createElement("link"); style.rel = "stylesheet"; style.href = "../backend.css"; document.head.append(style);
+  await import("../backend.js");
+  const $ = id => document.getElementById(id);
+  document.querySelector("[name=email]").value = "admin@ecoshare.test";
+  document.querySelector("[name=password]").value = "EcoShareDemo123!";
+  $("login").requestSubmit();
+  await wait(() => !$("panel").hidden && document.querySelector("[data-module=posts]"));
+  document.querySelector("[data-module=posts]").click();
+  await wait(() => $("title").textContent === "Bài chia sẻ" && $("content").querySelector("table"));
+  async function findPost() {
+    for (let page = 0; page < 20; page++) {
+      const row = [...$("content").querySelectorAll("tr")].find(row => row.textContent.includes(title));
+      if (row) return row;
+      check(!$("next").hidden, "Created post absent from admin pages");
+      const previous = $("content").textContent;
+      $("next").click();
+      await wait(() => $("content").textContent !== previous);
+    }
+    throw new Error("Created post exceeded bounded browser pagination");
+  }
+  let row = await findPost();
+  results.push("PASS default admin page reads real community records");
+  [...row.querySelectorAll("button")].find(button => button.textContent === "Chi tiết").click();
+  await wait(() => $("community-detail").open && $("community-body").textContent.includes("Bình luận cần kiểm duyệt"));
+  check($("community-body").textContent.includes("Chia sẻ tái chế chai nhựa"), "Full body missing");
+  results.push("PASS complete article and inline comments load from API");
+  [...$("community-body").querySelectorAll("button")].find(button => button.textContent === "Ẩn bình luận").click();
+  await wait(() => $("editor").open);
+  $("fields").querySelector("[name=reason]").value = "Browser QA hides one comment with audit reason.";
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open && $("community-body").textContent.includes("HIDDEN"));
+  const hiddenComment = await admin.request(`/admin/community/${post.id}/comments?status=HIDDEN`);
+  check(hiddenComment.items.some(item => item.id === comment.id), "Comment not persisted as hidden");
+  check((await seller.request(`/posts/${post.id}`)).comment_count === 0, "Visible comment count not updated");
+  results.push("PASS comment hiding persists and updates public count");
+  $("community-close").click();
+  row = await findPost();
+  [...row.querySelectorAll("button")].find(button => button.textContent === "Sửa").click();
+  await wait(() => $("editor").open);
+  const changed = "Nội dung đã chỉnh sửa từ Admin Panel và lưu vào Firebase.";
+  $("fields").querySelector("[name=body]").value = changed;
+  $("fields").querySelector("[name=reason]").value = "Browser QA verifies editing real community content.";
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open);
+  check((await seller.request(`/posts/${post.id}`)).body === changed, "Admin content update was not persisted");
+  results.push("PASS admin edit changes stored article returned to mobile API");
+  row = await findPost();
+  [...row.querySelectorAll("button")].find(button => button.textContent === "Ẩn").click();
+  await wait(() => $("editor").open);
+  $("fields").querySelector("[name=reason]").value = "Browser QA hides article after checking edit behavior.";
+  $("edit").requestSubmit();
+  await wait(() => !$("editor").open);
+  check((await admin.request(`/admin/community/${post.id}`)).status === "HIDDEN", "Article was not hidden in Firebase");
+  const publicClient = new FirebaseBackendClient(config);
+  let denied = false;
+  try { await publicClient.request(`/posts/${post.id}`); } catch { denied = true; }
+  check(denied, "Hidden article remains publicly readable");
+  results.push("PASS hiding removes article from public access");
+  $("logout").click();
+  document.querySelector("[name=email]").value = "moderator@ecoshare.test";
+  document.querySelector("[name=password]").value = "EcoShareDemo123!";
+  $("login").requestSubmit();
+  await wait(() => !$("panel").hidden && $("identity").textContent.includes("MODERATOR"));
+  check(document.querySelector("[data-module=posts]") && document.querySelector("[data-module=tips]") && !document.querySelector("[data-module=scans]"), "Moderator navigation exposes private scans");
+  results.push("PASS moderator navigation excludes private SCAN management");
+  $("logout").click();
+  await admin.request(`/admin/community/${post.id}`, { method: "DELETE", body: { reason: "Archive browser-only QA article after checks." } });
+} catch (error) { results.push("FAIL " + error.message); }
+const result = document.createElement("pre"); result.id = "browser-result"; result.textContent = results.join("\n");
+result.style.cssText = "position:fixed;top:0;left:0;right:0;padding:16px;z-index:9999;color:white;background:" + (results.some(value => value.startsWith("FAIL")) ? "#852f20" : "#135e3e");
+document.body.append(result);
+</script></body></html>
