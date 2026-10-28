@@ -15,29 +15,34 @@
 
 Chế độ này dành cho project `recycling-share-app` trên gói Spark. Máy tính chạy backend, còn đăng nhập và dữ liệu được lưu trên Firebase thật. Mọi thay đổi trên trang có thể xuất hiện trong ứng dụng, nên hãy kiểm tra kỹ trước khi lưu hoặc duyệt.
 
-Cần Node.js 22, dependency của `backend` đã cài và Firebase CLI đã đăng nhập bằng tài khoản có quyền truy cập project. Máy thành viên cần cài Node.js 22 và thêm `node`/`npm` vào `PATH`. Bản đóng gói không kèm Node portable. Mọi lệnh dưới đây chạy từ **thư mục gốc `RecyclingShareApp`**, không phải thư mục `admin-web`. Nếu chưa cài dependency, chạy một lần:
+Cần Node.js 22, dependency của `backend` đã cài và Firebase CLI đã đăng nhập bằng tài khoản có quyền truy cập project. Trên máy này, Node.js nằm trong `.tools/node-v22.23.3-win-x64` và chưa có trong `PATH` của PowerShell. Mọi lệnh dưới đây chạy từ **thư mục gốc `RecyclingShareApp`**, không phải thư mục `admin-web`. Nếu chưa cài dependency, chạy một lần:
 
 ```powershell
-npm --prefix backend ci
+$nodeDir = (Resolve-Path '.tools/node-v22.23.3-win-x64').Path
+$env:PATH = "$nodeDir;$env:PATH"
+& (Join-Path $nodeDir 'npm.cmd') --prefix backend ci
 ```
 
 Mở **PowerShell thứ nhất** tại thư mục gốc dự án để bật API:
 
 ```powershell
+$nodeDir = (Resolve-Path '.tools/node-v22.23.3-win-x64').Path
+$env:PATH = "$nodeDir;$env:PATH"
 $env:GCLOUD_PROJECT='recycling-share-app'
 $env:FIRESTORE_EMULATOR_HOST=$null
 $env:FIREBASE_AUTH_EMULATOR_HOST=$null
 $env:FIREBASE_STORAGE_EMULATOR_HOST=$null
-npm --prefix backend run dev:cloud
+& (Join-Path $nodeDir 'npm.cmd') --prefix backend run dev:cloud
 ```
 
-Để cửa sổ này mở. Khi thấy `EcoShare Spark API http://127.0.0.1:5002/v1`, mở PowerShell thứ hai và chạy `Invoke-RestMethod http://127.0.0.1:5002/v1/health`; phản hồi phải có `status: ok`. Nếu báo chưa đăng nhập Firebase CLI, chạy `& .\backend\node_modules\.bin\firebase.cmd login` trong cửa sổ có `node`/`npm` trong `PATH`, rồi bật API lại.
+Để cửa sổ này mở. Khi thấy `EcoShare Spark API http://127.0.0.1:5002/v1`, mở PowerShell thứ hai và chạy `Invoke-RestMethod http://127.0.0.1:5002/v1/health`; phản hồi phải có `status: ok`. Nếu báo chưa đăng nhập Firebase CLI, chạy `& .\backend\node_modules\.bin\firebase.cmd login` trong cửa sổ đã đặt `PATH`, rồi bật API lại. Nếu dùng Node.js 22 cài sẵn trong `PATH` trên máy khác, có thể thay lệnh `& (Join-Path $nodeDir 'npm.cmd')` bằng `npm`.
 
 Mở **PowerShell thứ hai** tại thư mục gốc để chuẩn bị cấu hình web và bật trang:
 
 ```powershell
 $env:GCLOUD_PROJECT='recycling-share-app'
-node admin-web/scripts/configure-firebase.mjs --local-cloud
+$nodeDir = (Resolve-Path '.tools/node-v22.23.3-win-x64').Path
+& (Join-Path $nodeDir 'node.exe') admin-web/scripts/configure-firebase.mjs --local-cloud
 python -m http.server 5173 --directory admin-web --bind 127.0.0.1
 ```
 
