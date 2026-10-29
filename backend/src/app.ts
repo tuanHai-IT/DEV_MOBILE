@@ -63,7 +63,7 @@ export function createApp(ctx: Context) {
       .status(404)
       .json({ error: { code: "NOT_FOUND", message: "API không tồn tại." } }),
   );
-  const errors: ErrorRequestHandler = (error, _req, res, _next) => {
+  const errors: ErrorRequestHandler = (error, req, res, _next) => {
     if (res.headersSent) {
       res.end();
       return;
@@ -124,8 +124,9 @@ export function createApp(ctx: Context) {
       .json({
         error: {
           code: "INTERNAL",
-          message:
-            "Không xử lý được yêu cầu. Thử lại với cùng Idempotency-Key.",
+          message: ["GET", "HEAD", "OPTIONS"].includes(req.method)
+            ? "Không tải được dữ liệu. Vui lòng thử lại sau."
+            : "Chưa xác nhận được kết quả. Vui lòng kiểm tra lại trước khi thử lại.",
           request_id: res.locals.request_id,
         },
       });

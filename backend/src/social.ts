@@ -456,8 +456,12 @@ export function registerSocialRoutes(router: Router, ctx: Context): void {
     const q = search(req), limit = z.coerce.number().int().min(1).max(100).parse(req.query.limit ?? 50);
     if (!q) { res.json({items: [], next_cursor: null}); return; }
     const [contents, listings] = await Promise.all([
-      ctx.db.collection("content_entries").where("status", "==", "PUBLISHED").where("kind", "in", ["TIP", "CHALLENGE"]).orderBy("created_at", "desc").limit(100).get(),
-      ctx.db.collection("listings").where("status", "==", "APPROVED").orderBy("created_at", "desc").limit(100).get(),
+      // Match the feed's explicit document-ID order and deployed composite indexes.
+      // Firestore otherwise defaults __name__ to DESC after created_at DESC.
+      ctx.db.collection("content_entries").where("status", "==", "PUBLISHED").where("kind", "in", ["TIP", "CHALLENGE"])
+        .orderBy("created_at", "desc").orderBy("__name__", "asc").limit(100).get(),
+      ctx.db.collection("listings").where("status", "==", "APPROVED")
+        .orderBy("created_at", "desc").orderBy("__name__", "asc").limit(100).get(),
     ]);
     const matches = [
       ...contents.docs.map(docData).filter(row => `${row.title ?? ""} ${row.body ?? ""}`.toLocaleLowerCase("vi").includes(q)),
