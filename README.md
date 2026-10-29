@@ -1,90 +1,171 @@
-# ♻ Recycling Share App — EcoShare (Nhóm 9)
+<p align="center">
+  <img src="docs/assets/readme/hero.svg" width="100%" alt="EcoShare — Chia sẻ hôm nay, xanh hơn mỗi ngày">
+</p>
 
-Ứng dụng mua bán đồ đã qua sử dụng và chia sẻ kiến thức tái chế. **Giao dịch mua bán thay cho yêu cầu trao đổi; cả người mua và người bán đều phải được xác minh.** Màn hình thanh toán MoMo/VNPay hiện chỉ là demo, không chuyển tiền thật hoặc xác nhận đơn đã trả tiền. Điểm thu gom mới có model/API và màn mẫu, chưa có luồng app. Admin làm việc chính trên web; mobile chỉ có quản trị cơ bản.
+<p align="center">
+  <strong>Ứng dụng Android kết nối cộng đồng sống xanh</strong><br>
+  Chia sẻ kiến thức tái chế, tìm cảm hứng tái sử dụng và mua bán đồ đã qua sử dụng.
+</p>
 
-## Bản bàn giao hiện tại
+<p align="center">
+  <img src="https://img.shields.io/badge/Android-24%2B-18784F?style=flat-square&amp;logo=android&amp;logoColor=white" alt="Android API 24 trở lên">
+  <img src="https://img.shields.io/badge/Java-11-18784F?style=flat-square" alt="Mã nguồn Android Java 11">
+  <img src="https://img.shields.io/badge/Node.js-22-18784F?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 22">
+  <img src="https://img.shields.io/badge/Firebase-Auth%20%2B%20Firestore-18784F?style=flat-square&amp;logo=firebase&amp;logoColor=white" alt="Firebase Authentication và Firestore">
+  <img src="https://img.shields.io/badge/Đồ_án-Nhóm_9-D8EEA7?style=flat-square&amp;labelColor=183E2D" alt="Đồ án nhóm 9">
+</p>
 
-- **Khai báo tài khoản nhận tiền trước khi đăng bán:** Hồ sơ/Cài đặt hỗ trợ ngân hàng hoặc ví MoMo; app và backend cùng kiểm tra trước khi tạo/gửi lại/duyệt tin bán. Đây là thông tin tự khai báo; thanh toán vẫn là demo. Xem [hướng dẫn](docs/payout-account.md).
-- **53 layout màn hình Android native Java/XML**, ngoài layout host `activity_main.xml`. Luồng cộng đồng đã dùng Firebase Auth và REST API: đăng bài/mẹo hay, đọc toàn văn và bình luận, thích/lưu, bạn bè, thông báo và SCAN. Các luồng hồ sơ, địa chỉ, xác minh, đăng bán và đơn hàng cũng đã nối API.
-- **Trang chủ hiển thị bài chia sẻ đã xuất bản và story**. Khám phá có **Mẹo hay**, **Thử thách** và **Chợ đồ cũ**. Nút **+** mở lựa chọn đăng bài chia sẻ, mẹo hay hoặc tin bán. Trái tim chuyển đỏ khi thích; biểu tượng lưu chuyển vàng; bài POST/TIP có thể chia sẻ qua tin nhắn.
-- **Admin web dùng Firebase thật** tại trang mặc định: quản lý người dùng, xác minh, bài chia sẻ, mẹo hay, ảnh SCAN, chợ đồ cũ, đơn hàng, thanh toán, báo cáo và các khu vực vận hành. Có xem toàn văn/ảnh/bình luận, tạo/sửa/ẩn/lưu trữ, lý do xử lý và nhật ký.
-- **20 mô hình trong backend/schema**; Class Diagram và ERD hiển thị 18 thực thể có luồng giao diện đang dùng trong Android/Admin Web. Thanh toán MoMo/VNPay ở Android là demo; Admin Web có trang quản lý/đối soát giao dịch. Bộ sơ đồ có draw.io, SVG, PNG, Mermaid và ZIP.
-- **Admin mobile cơ bản đã nối API**: tổng quan, duyệt/từ chối tin bán, xử lý báo cáo kèm lý do. Xác minh, phân quyền, thanh toán và cấu hình đầy đủ thuộc Admin web.
+<p align="center">
+  <a href="#gioi-thieu">Giới thiệu</a> ·
+  <a href="#tinh-nang">Tính năng</a> ·
+  <a href="#giao-dien">Giao diện</a> ·
+  <a href="#kien-truc">Kiến trúc</a> ·
+  <a href="#bat-dau">Cách chạy</a> ·
+  <a href="#tai-lieu">Tài liệu</a> ·
+  <a href="#thanh-vien">Thành viên</a>
+</p>
 
-Theo yêu cầu giữ **gói Spark miễn phí**, backend chạy bằng **Node trên máy tính**, dùng **Firebase Authentication và Firestore cloud** của project `recycling-share-app`. API local ở cổng **5002**, Admin web chạy localhost. Ảnh được lưu inline trong Firestore, tối đa **384 KiB/tệp**, và tải qua API có kiểm tra quyền. Chế độ này không triển khai Cloud Functions, không dùng Cloud Storage và chưa cung cấp backend công khai khi máy tính tắt. Source Functions/Storage và Emulator vẫn được giữ để kiểm thử.
+---
 
-**Đã kết nối Firebase cloud ngày 19/10/2026**: triển khai Authentication Email/Password, Firestore Rules/Indexes; database `(default)` ở `nam5` và billing vẫn tắt. Tài khoản Admin thật đã sẵn sàng, chủ tài khoản đã tự đặt mật khẩu. Cloud có **3 bài chia sẻ, 2 mẹo hay, 1 SCAN riêng tư, 3 tin bán chờ duyệt** cùng ảnh thật. Đã đọc lại dữ liệu/ảnh qua API và kiểm tra sửa–đọc–khôi phục bài trong database. Tin bán mẫu giữ `PENDING` đến khi hoàn tất xác minh và duyệt hợp lệ; không tạo KYC, đơn hàng hoặc thanh toán giả trên cloud. Các tài khoản `@ecoshare.test` và bộ mẫu Emulator tách riêng. Tab Tin nhắn đã đọc/ghi hội thoại qua API; một số tùy chọn cài đặt và màn hình phụ còn prototype. Thanh toán merchant thật chưa bật; hoàn tiền VNPay tự động chưa triển khai.
+<a id="gioi-thieu"></a>
 
-Hướng dẫn: [Rà soát hệ thống và sơ đồ hiện hành](docs/system-audit-2026-10-23.md) · [Bản cập nhật cộng đồng](docs/community-release.md) · [Backend Firebase và triển khai](docs/firebase-backend.md) · [API v1](docs/firebase-api.md) · [Kết nối Android](docs/android-firebase.md) · [Quản trị cộng đồng](docs/social-admin.md) · [Kết quả kiểm thử](docs/verification.md).
+## Một cộng đồng, nhiều vòng đời mới
 
-**Sửa lỗi app tự thoát khi đăng nhập — 19/10/2026:** đã sửa việc đóng kết nối TLS trên main thread khi đăng nhập thất bại hoặc đăng xuất. Bản debug của project hiện tại tự dùng Spark; bản release tiếp tục dùng HTTPS. Xem [nguyên nhân, bản sửa và cách kiểm tra](docs/android-login-fix.md).
+**EcoShare — Recycling Share App** là đồ án xây dựng một không gian để mọi người chia sẻ kinh nghiệm tái chế, kết nối với nhau và tìm chủ mới cho những món đồ còn giá trị sử dụng.
 
-**Sửa lỗi tải dữ liệu chập chờn — 19/10/2026:** đã ghi nhận kết nối bị đóng trước khi nhận HTTP headers trên Android, trong khi API máy tính vẫn trả 200. Client thử lại GET đúng một lần bằng kết nối mới khi gặp EOF/reset; không tự gửi lại thao tác ghi vì lỗi mạng. Màn hình giữ thông báo lỗi cụ thể và cho chạm để thử lại; feed cũng tránh tải dư byte ảnh từ Firestore. Chưa kết luận thành phần nào đóng kết nối ban đầu. Xem [bằng chứng, phạm vi sửa và cách kiểm tra](docs/network-fix.md).
+Hệ thống gồm **ứng dụng Android native**, **API Node.js/TypeScript** và **Admin Web** dùng chung Firebase Authentication và Firestore. Giao diện sử dụng tông xanh, các cụm nội dung bo góc và bố cục thích ứng theo hướng màn hình.
 
-Kết quả tích hợp mới nhất: backend Firebase Emulator **130/130**, Android JVM **17/17**, Android instrumentation **39/39** với Emulator và **1/1** kiểm thử chat UI riêng; thêm **1/1** lượt chỉ đọc Firebase cloud thật. Ngày 20/10, kiểm thử SQLite offline **3/3** và giao diện mở nội dung sau khi mất phiên **1/1** đạt. Kiểm tra mô hình **13/13**; browser Admin/Community trên Emulator **11/11**, không có lỗi JavaScript. Giao diện Admin tại 375px và desktop không tràn ngang; APK debug build thành công. Cấu hình OAuth Google cho Android đã được thêm ngày 20/10/2026; đăng nhập Google thật vẫn cần kiểm thử trên thiết bị. Phạm vi và lệnh kiểm tra tại [verification.md](docs/verification.md). Đã lưu [ảnh giao diện thực tế](docs/community-release.md#ảnh-giao-diện-và-tệp-bàn-giao).
+**Bản chạy hiện tại:** backend trên máy tính, Firebase cloud theo gói Spark, Admin Web tại localhost. Cần giữ backend hoạt động để dùng các tính năng dữ liệu của app. Thanh toán MoMo/VNPay là **mô phỏng**, chưa chuyển tiền thật.
 
-## Cấu trúc
+<a id="tinh-nang"></a>
 
-```text
-app/src/main/
-  java/com/example/recyclingshareapp/
-    MainActivity.java          # Host điều hướng native
-    ui/CommunityFragment.java  # Cộng đồng và các luồng Firebase đã nối
-    ui/ScreenFragment.java     # Các destination native còn lại
-    data/remote/               # FirebaseBackendClient và BackendSession
-    data/                      # Cache/prototype cũ và TradeRules
-    model/                     # Đúng 20 DTO nghiệp vụ
-  res/layout/                  # activity_main + 53 fragment XML
-  res/values/                  # Tiếng Việt, màu, theme, style
-  res/drawable/                # Background và minh họa vector
-admin-web/                     # Admin HTML/CSS/JS, không cần npm
-backend/                       # Functions TypeScript, nghiệp vụ Firebase và test
-firestore.rules, storage.rules # Quyền dữ liệu và tệp
-firebase.json                  # Functions, Hosting và Emulator
-database/schema.sql            # SQLite tham chiếu, FK/check/unique/trigger
-docs/                          # Kiến trúc, đối chiếu màn hình, catalogue, preview
-tools/                         # Sinh layout/model/sơ đồ và kiểm tra đồng bộ
-Recycling Share App/
-  src/                         # Source Figma/React gốc để đối chiếu
-  *.drawio, *.png               # Sơ đồ gốc (giữ làm tư liệu)
-  diagrams-v2/                 # Bộ sơ đồ trước khi rà soát, giữ để đối chiếu
-  diagrams-current/            # Class/ERD/Function theo mã nguồn hiện tại
+## Tính năng chính
+
+| Khu vực | Trải nghiệm |
+| --- | --- |
+| **Cộng đồng** | Đăng bài chia sẻ và mẹo tái chế; xem story; thích, bình luận, lưu bài và chia sẻ qua tin nhắn. |
+| **Khám phá** | Tìm kiếm mẹo hay, thử thách và tin bán; xem nội dung chi tiết, tham gia thử thách Eco. |
+| **Bạn bè & tin nhắn** | Gửi/chấp nhận lời mời kết bạn; hội thoại cá nhân, tin nhắn chờ, ảnh đính kèm và nội dung được chia sẻ. |
+| **Chợ đồ cũ** | Đăng/sửa tin bán kèm ảnh, giá và tồn kho; kiểm duyệt trước khi công khai; quản lý đơn mua và đơn bán. |
+| **Hồ sơ cá nhân** | Cập nhật ảnh đại diện/ảnh bìa, địa chỉ nhận hàng, hồ sơ xác minh, tài khoản nhận tiền và tiến độ điểm Eco. |
+| **SCAN** | Chụp hoặc chọn ảnh sản phẩm, lưu và xem lại lịch sử riêng tư. |
+| **Thông báo** | Theo dõi tương tác và các cập nhật liên quan đến tài khoản. |
+| **Admin trên Android** | Xem tổng quan, duyệt/từ chối tin bán, xử lý báo cáo kèm lý do và quản lý thử thách. |
+| **Admin Web** | Quản lý người dùng, xác minh, nội dung, SCAN, tin bán, đơn hàng, bản ghi thanh toán, báo cáo, danh mục, sổ điểm và nhật ký quản trị. |
+
+**Quy tắc mua bán:** người mua và người bán đều cần được xác minh. Người bán phải khai báo tài khoản nhận tiền bằng **ngân hàng hoặc MoMo** trước khi tạo/gửi lại tin bán; backend kiểm tra điều kiện này cả khi duyệt tin. Xem [quy tắc khai báo nhận tiền](docs/payout-account.md).
+
+<details>
+<summary><strong>Phạm vi demo cần biết</strong></summary>
+
+- **MoMo/VNPay:** giao diện mô phỏng kết quả thanh toán trên thiết bị; không trừ tiền, chi trả cho người bán hoặc tự đánh dấu đơn đã thanh toán trên máy chủ.
+- **Tài khoản nhận tiền:** thông tin tự khai báo, chưa xác minh quyền sở hữu với ngân hàng/MoMo và chưa phải dịch vụ liên kết ví/chi trả.
+- **SCAN:** hỗ trợ chụp và lưu ảnh; chưa nhận diện vật liệu bằng AI.
+- **Đăng nhập Google:** đã tích hợp luồng đăng nhập, còn cần nghiệm thu bằng tài khoản thật trên thiết bị. Luồng Email/Password là cách chạy demo chính.
+- **Offline:** hỗ trợ đọc lại nội dung công khai đã lưu; thao tác ghi và dữ liệu mới vẫn cần kết nối.
+
+</details>
+
+<a id="giao-dien"></a>
+
+## Giao diện thực tế
+
+<table>
+  <tr>
+    <th width="33%">Cộng đồng sống xanh</th>
+    <th width="33%">Thanh toán mô phỏng</th>
+    <th width="33%">Quản trị trên Android</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/assets/readme/android-home.png" width="260" alt="Trang chủ Android: điểm Eco, story và bài chia sẻ"></td>
+    <td align="center"><img src="docs/assets/readme/android-payment-demo.png" width="260" alt="Giao diện chọn MoMo hoặc VNPay, có nhãn demo không chuyển tiền"></td>
+    <td align="center"><img src="docs/assets/readme/android-admin.png" width="260" alt="Admin Android: tổng quan, duyệt tin bán, báo cáo và thử thách Eco"></td>
+  </tr>
+</table>
+
+**Không gian quản trị trên web**
+
+<img src="docs/assets/readme/admin-web-dashboard.png" width="100%" alt="Admin Web EcoShare với bảng tổng quan và các khu vực quản lý">
+
+<sub>Ảnh chụp ứng dụng thật ngày 29–30/10/2026 trên Firebase Emulator. Tên, số tài khoản và số liệu hiển thị là dữ liệu kiểm thử. [Thông tin ảnh](docs/assets/readme/README.md).</sub>
+
+<a id="kien-truc"></a>
+
+## Kiến trúc & công nghệ
+
+```mermaid
+flowchart LR
+    Android["Android app · Java / XML"] -->|REST API| API["Backend · Node.js / TypeScript"]
+    Web["Admin Web · HTML / CSS / JS"] -->|REST API| API
+    Android -->|Đăng nhập| Auth["Firebase Authentication"]
+    Web -->|Đăng nhập| Auth
+    API -->|Xác thực token| Auth
+    API --> DB["Cloud Firestore"]
+    Android --> Cache["SQLite · cache nội dung công khai"]
 ```
 
-## Chạy Android
+| Thành phần | Công nghệ & vai trò |
+| --- | --- |
+| **Android** | Java 11, XML, AndroidX, Material Components, OkHttp; min SDK 24, compile/target SDK 37. |
+| **Backend** | Node.js 22, TypeScript, Express, Firebase Admin SDK; phân quyền, validation và nghiệp vụ tập trung tại API. |
+| **Dữ liệu & xác thực** | Firebase Authentication và Firestore. Chế độ Spark lưu ảnh inline, giới hạn **384 KiB/tệp**, tải qua API có kiểm tra quyền. |
+| **Admin Web** | HTML/CSS/JavaScript, chạy bằng static server; không cần build frontend bằng npm. |
+| **Lưu trữ trên Android** | SQLite cho nội dung công khai đã xem; `SessionVault` lưu phiên được mã hóa bằng AES-GCM với Android Keystore. |
+| **Kiểm thử** | Node Test Runner + Firebase Emulator Suite; JUnit/Espresso trên Android; công cụ kiểm tra mô hình và thiết kế. |
 
-Mở **thư mục gốc này** bằng Android Studio, để IDE dùng Gradle JDK đi kèm Android Studio. Project giữ nguyên cấu hình SDK/AGP/Gradle đang có (compile/target API 37, min API 24). SDK path trong `local.properties` là cấu hình riêng trên máy, không commit.
+Feed tải theo trang **6 mục**, nạp thêm khi cuộn; client có cache, tải ảnh bất đồng bộ và bỏ phản hồi không còn phù hợp với màn/phiên hiện tại. Xem [tài liệu tải dữ liệu](docs/data-loading.md).
+
+Firestore là nguồn dữ liệu vận hành. `database/schema.sql` là **schema tham chiếu**, không phải cơ sở dữ liệu máy chủ phải cài thêm.
+
+<a id="bat-dau"></a>
+
+## Chạy dự án trên máy
+
+Các lệnh dưới đây dùng **PowerShell**, chạy tại **thư mục gốc repo**.
+
+### 1. Chuẩn bị môi trường
+
+| Công cụ / cấu hình | Yêu cầu |
+| --- | --- |
+| Android Studio | Cài Android SDK 37, dùng Gradle JDK đi kèm IDE; thiết bị Android API 24 trở lên. |
+| Node.js | **22.x**, có `node` và `npm.cmd` trong `PATH`. |
+| Python | **3.x**, dùng để mở static server cho Admin Web. |
+| Firebase | Có Internet; mỗi thành viên dùng Google account được cấp quyền Auth/Firestore trên project của nhóm. |
+| Cấu hình Android | Đặt `google-services.json` đúng project/package vào `app/`; lấy từ người quản lý project hoặc Firebase Console. |
+
+`app/google-services.json` được bỏ qua trong Git. Có file cấu hình này **không đồng nghĩa** có quyền chạy backend. Quyền Google account trên Firebase và vai trò Admin bên trong EcoShare được cấp riêng.
+
+### 2. Cài dependency & đăng nhập Firebase CLI
 
 ```powershell
-./gradlew.bat :app:assembleDebug :app:testDebugUnitTest
+npm.cmd --prefix backend ci
+& .\backend\node_modules\.bin\firebase.cmd login
+& .\backend\node_modules\.bin\firebase.cmd projects:list
 ```
 
-APK: `app/build/outputs/apk/debug/app-debug.apk`. Chọn module `app` và Run lên emulator/điện thoại.
+Với project hiện tại, danh sách cần có **`recycling-share-app`**. Không cần cài Firebase CLI toàn cục; CLI đã có trong dependency backend. Tài khoản vẫn cần đủ quyền thao tác Auth/Firestore, ngoài việc nhìn thấy project.
 
-`app/google-services.json` được loại khỏi Git; Google Services plugin 4.5.0 chỉ áp dụng khi file này tồn tại. Thêm file không tự bật Firestore/Auth/Storage, deploy backend hoặc kích hoạt Google Sign-In. Client dùng REST nên không cần thêm Firebase Android SDK; xem [kết nối Android](docs/android-firebase.md).
-
-Để dùng dữ liệu cloud hiện tại: khởi chạy API Spark bên dưới và mở bản Android debug. Project `recycling-share-app` tự chọn **Spark miễn phí · Backend máy tính + Firestore cloud** và bỏ lựa chọn kết nối cũ đã lưu; không còn nút chọn backend ở màn hình đăng nhập. Dùng tài khoản Firebase thật và mật khẩu đã đặt; Android Emulator gọi API máy Windows qua `10.0.2.2:5002`. Kiểm thử Firebase Emulator dùng cấu hình trong mã kiểm thử, không chuyển môi trường trên màn hình đăng nhập; xem [hướng dẫn Android](docs/android-firebase.md).
-
-Sau đăng nhập, Trang chủ tải 3 bài chia sẻ đầu và lấy thêm theo vị trí cuộn. Các danh sách khác cũng đọc từng trang; Mẹo hay, Chợ đồ cũ và các màn thường dùng được nạp trước để đổi màn mượt hơn. Nội dung/ảnh công khai đã xem có bản SQLite để mở lại khi API tạm mất kết nối, kể cả khi mở lại app bằng nút **Xem nội dung công khai** ở màn đăng nhập; màn riêng tư đã xem chỉ được giữ trong RAM của phiên đăng nhập. Layout xoay ngang chuyển điều hướng sang bên trái và màn đăng nhập sang hai cột. Xem [cách tải dữ liệu và phạm vi cache](docs/data-loading.md).
-
-Admin làm việc chính trên web. Admin mobile hỗ trợ tổng quan, duyệt tin bán và xử lý báo cáo qua API. Tin nhắn giữa hai tài khoản đã dùng backend; một số tùy chọn cài đặt và khu vực phụ vẫn là prototype; xem phạm vi tại [đối chiếu màn hình](docs/screen-mapping.md). Nút đăng nhập Google đã nối Credential Manager với Firebase Auth REST; file cấu hình hiện có OAuth client Android/Web nhưng chưa kiểm thử đăng nhập trên thiết bị, xem [cách kiểm tra](docs/android-firebase.md#bật-đăng-nhập-google). Apple chưa được kết nối và đang ẩn.
-
-## Chạy backend Firebase
-
-Chế độ Spark hiện tại, chạy tại thư mục gốc với Node 22:
+### 3. Bật backend — terminal thứ nhất
 
 ```powershell
-npm --prefix backend ci
 $env:GCLOUD_PROJECT='recycling-share-app'
+$env:PORT='5002'
+$env:ECOSHARE_MEDIA_BACKEND='firestore'
 $env:FIRESTORE_EMULATOR_HOST=$null
 $env:FIREBASE_AUTH_EMULATOR_HOST=$null
 $env:FIREBASE_STORAGE_EMULATOR_HOST=$null
-npm --prefix backend run dev:cloud
+npm.cmd --prefix backend run dev:cloud
 ```
 
-Firebase CLI trên máy phải đăng nhập tài khoản có quyền project. Giữ terminal này chạy; API ở `http://127.0.0.1:5002/v1`. Cách chạy Firebase Emulator riêng, seed và cấu hình cổng nằm tại [docs/firebase-backend.md](docs/firebase-backend.md); Emulator cần thêm Java 21+ và dùng project `demo-recycling-share`.
+Giữ terminal này mở. Script tự build TypeScript và khởi động API tại **`http://127.0.0.1:5002/v1`**. Kiểm tra trong terminal khác:
 
-## Chạy Admin web
+```powershell
+Invoke-RestMethod http://127.0.0.1:5002/v1/health
+```
+
+Chế độ phát triển này dùng Firebase cloud với backend local, không yêu cầu triển khai Cloud Functions hoặc nâng gói Blaze. Khi tắt backend, app không thể thực hiện các thao tác cần API. Hướng dẫn lỗi cấu hình/quyền: [Backend README](backend/README.md).
+
+### 4. Mở Admin Web — terminal thứ hai
 
 ```powershell
 $env:GCLOUD_PROJECT='recycling-share-app'
@@ -92,41 +173,101 @@ node admin-web/scripts/configure-firebase.mjs --local-cloud
 python -m http.server 5173 --directory admin-web --bind 127.0.0.1
 ```
 
-Mở **http://127.0.0.1:5173/**, đăng nhập bằng email của tài khoản Admin thật và mật khẩu vừa đặt. Mục **Bài chia sẻ**, **Mẹo hay**, **Ảnh SCAN** và **Chợ đồ cũ** đọc cùng Firestore với app; sửa nội dung cần nhập lý do. Tài khoản `admin@ecoshare.test` chỉ dùng khi chuyển cấu hình về Emulator. Chi tiết: [admin-web/README.md](admin-web/README.md).
+Mở **[http://127.0.0.1:5173/](http://127.0.0.1:5173/)** và đăng nhập bằng tài khoản có vai trò **Admin** trong EcoShare. Script tạo cấu hình local cho web. Xem [hướng dẫn Admin Web](admin-web/README.md) nếu cần thiết lập tài khoản hoặc đổi môi trường.
 
-## Sơ đồ theo mã nguồn hiện tại
+### 5. Chạy ứng dụng Android
 
-- [Tải trọn bộ ZIP](<Recycling Share App/diagrams-current/ecoshare-diagrams-current.zip>)
-- [Class — 18 thực thể app](<Recycling Share App/diagrams-current/class-diagram.svg>) · [Class — các lớp Android chính](<Recycling Share App/diagrams-current/runtime-class-diagram.svg>)
-- [ERD logic — 18 thực thể app](<Recycling Share App/diagrams-current/erd.svg>) · [Sửa draw.io](<Recycling Share App/diagrams-current/erd.drawio>)
-- [Function — các tính năng có trên app](<Recycling Share App/diagrams-current/function-diagram.svg>) · [Sửa draw.io](<Recycling Share App/diagrams-current/function-diagram.drawio>)
+Mở **thư mục gốc repo** bằng Android Studio, đồng bộ Gradle, chọn module `app` và Run trên Android Emulator. Bản debug của project hiện tại tự kết nối API máy tính qua **`10.0.2.2:5002`**.
 
-SVG mở trực tiếp bằng trình duyệt, phóng to không vỡ hình; mỗi sơ đồ có `.mmd`, `.drawio` và `.png`. `docs/domain-model.json` và [bản đối chiếu Firestore](docs/firestore-physical-map.md) vẫn ghi đủ 20 mô hình/collection backend; `Review` và `CollectionPoint` không nằm trong sơ đồ app vì không có luồng giao diện tương ứng. [Báo cáo rà soát](docs/system-audit-2026-10-23.md) ghi căn cứ kiểm tra. Sơ đồ v2 được giữ để đối chiếu, không dùng làm mô hình hiện hành.
-
-## Tài liệu và kiểm thử
-
-- [Kiến trúc, quy tắc mua bán, ma trận admin và API dự kiến](docs/architecture.md)
-- [Đối chiếu màn hình Figma → Android](docs/screen-mapping.md)
-- [20 thực thể và toàn bộ trường](docs/domain-model.json)
-- [Preview Admin desktop](docs/previews/admin-desktop.png) · [Preview Android](docs/previews/android-home-review.png)
-- [Rà soát và sửa lỗi frontend ngày 18/10/2026](docs/frontend-review.md)
+Để chỉ build APK bằng terminal, cần đặt `JAVA_HOME` hoặc `java` trong `PATH` trỏ đến JDK/JBR phù hợp với Gradle (có thể dùng JBR đi kèm Android Studio):
 
 ```powershell
-python tools/validate_design.py
-./gradlew.bat :app:connectedDebugAndroidTest --no-configuration-cache
+.\gradlew.bat :app:assembleDebug
 ```
 
-Kiểm thử browser: sau khi khởi chạy và seed Emulator, mở `http://127.0.0.1:5174/tests/runner.html`. Các trang QA gọi API thật, từ chối project ngoài `demo-recycling-share`/localhost và có thể thêm dữ liệu QA vào Emulator. Kết quả kiểm tra bàn giao ghi tại [docs/verification.md](docs/verification.md).
+APK nằm tại `app/build/outputs/apk/debug/app-debug.apk`. Cách cấu hình cho điện thoại thật và Firebase Emulator riêng nằm trong [hướng dẫn Android](docs/android-firebase.md).
 
-`python tools/generate_design.py` sinh Java DTO/SQL/sơ đồ từ một nguồn chung. Các layout Firebase hiện được duy trì trực tiếp trong `app/src/main/res/layout/`; generator Android cũ đã có chốt dừng khi phát hiện `CommunityFragment.java` để bảo vệ giao diện mới. `python tools/configure_native.py --check` chỉ kiểm tra host/theme; thêm `--format` khi cần căn lề XML.
+## Cấu trúc repository
 
-## Thành viên nhóm
+```text
+RecyclingShareApp/
+├── app/                         # Ứng dụng Android native & kiểm thử
+│   └── src/main/
+│       ├── java/.../            # Điều hướng, UI, API client, cache, model
+│       └── res/                 # Layout XML, theme, icon, tiếng Việt
+├── backend/                     # REST API TypeScript, nghiệp vụ & test
+├── admin-web/                   # Giao diện quản trị HTML/CSS/JS
+├── database/                    # Schema SQL tham chiếu
+├── docs/                        # Hướng dẫn, kiểm toán, API & ảnh README
+├── tools/                       # Công cụ kiểm tra/sinh mô hình và sơ đồ
+├── Recycling Share App/
+│   ├── src/                     # Bản thiết kế React gốc để tham khảo
+│   └── diagrams-current/        # Class, ERD, Function & lớp Android
+├── firebase.json                # Cấu hình Firebase / Emulator
+├── firestore.rules              # Quy tắc truy cập Firestore
+└── firestore.indexes.json       # Chỉ mục truy vấn
+```
 
-| Họ tên | MSSV | Vai trò |
-|---|---|---|
-| Võ Hoàng Tuấn Hải | 31241027049 | Nhóm trưởng |
-| Lê Dương Anh Khoa | 31241020839 | Thành viên |
-| Nguyễn Đức Trung | 31241021311 | Thành viên |
-| Lý Minh Đạt | 31241022041 | Thành viên |
+## Kiểm thử & chất lượng
 
-Dự án phục vụ mục đích học tập. **Chia sẻ hôm nay — Xanh hơn mỗi ngày.**
+| Lượt kiểm tra | Kết quả đã ghi nhận |
+| --- | --- |
+| Backend, ngày **30/10/2026** | **159/159** ca, 13 suite, không lỗi hoặc bỏ qua; chạy với Firebase Emulator. [Chi tiết bản sửa tìm kiếm](docs/explore-search-fix.md). |
+| Android, ngày **30/10/2026** | **4/4** ca `ReportEvidenceUiTest`: quản trị, khai báo nhận tiền, thanh toán demo và đọc cache khi API bị ngắt. Đây là lượt kiểm tra tập trung, không phải chạy lại toàn bộ instrumentation. |
+
+Các lệnh để chạy lại từng nhóm kiểm tra:
+
+```powershell
+# Backend: script tự quản lý Firebase Emulator; cần Java 21+ trên PATH
+npm.cmd --prefix backend run test:emulators
+
+# Kiểm thử JVM của Android
+.\gradlew.bat :app:testDebugUnitTest
+
+# Đối chiếu mô hình và thiết kế
+python tools/validate_design.py
+```
+
+Kiểm thử tích hợp dùng project **`demo-recycling-share`**, tách với dữ liệu cloud của nhóm. Xem [lịch sử kiểm thử](docs/verification.md), [kiểm tra khai báo nhận tiền](docs/payout-account.md#kiểm-tra) và [mã kiểm thử UI tập trung](app/src/androidTest/java/com/example/recyclingshareapp/ReportEvidenceUiTest.java) để biết điều kiện và phạm vi từng lượt.
+
+<a id="tai-lieu"></a>
+
+## Tài liệu & sơ đồ
+
+| Nội dung | Tài liệu |
+| --- | --- |
+| Thiết lập dự án | [Backend](backend/README.md) · [Admin Web](admin-web/README.md) · [Android & Firebase](docs/android-firebase.md) |
+| API & dữ liệu | [REST API v1](docs/firebase-api.md) · [Mô hình nghiệp vụ](docs/domain-model.json) · [Đối chiếu Firestore](docs/firestore-physical-map.md) |
+| Giao dịch | [Thanh toán demo](docs/payments-firebase.md) · [Tài khoản nhận tiền](docs/payout-account.md) |
+| Chất lượng & vận hành | [Tải dữ liệu](docs/data-loading.md) · [Sửa tìm kiếm 30/10](docs/explore-search-fix.md) · [Rà soát hệ thống 23/10](docs/system-audit-2026-10-23.md) |
+| Phân công nhóm | [Phân chia công việc cho 5 thành viên](docs/phan-cong-github-5-thanh-vien.md) |
+
+**Sơ đồ phạm vi Android/Admin Web** — bản ngày 27/10/2026:
+
+| Sơ đồ | Bản xem |
+| --- | --- |
+| Class Diagram — thực thể nghiệp vụ | [SVG](<Recycling Share App/diagrams-current/class-diagram.svg>) |
+| Class Diagram — các lớp Android chính | [SVG](<Recycling Share App/diagrams-current/runtime-class-diagram.svg>) |
+| ERD logic | [SVG](<Recycling Share App/diagrams-current/erd.svg>) |
+| Function Diagram | [SVG](<Recycling Share App/diagrams-current/function-diagram.svg>) |
+
+[Tải bộ sơ đồ ZIP](<Recycling Share App/diagrams-current/ecoshare-diagrams-current.zip>) · [Phạm vi và cách cập nhật](<Recycling Share App/diagrams-current/README.md>). Có bản Mermaid, draw.io và PNG để chỉnh sửa hoặc đưa vào báo cáo.
+
+<a id="thanh-vien"></a>
+
+## Nhóm thực hiện
+
+| Thành viên | MSSV | GitHub |
+| --- | --- | --- |
+| Lê Dương Anh Khoa | 31241020839 | [KhoaLe-net17](https://github.com/KhoaLe-net17) |
+| Võ Hoàng Tuấn Hải | 31241027049 | [tuanHai-IT](https://github.com/tuanHai-IT) |
+| Lý Minh Đạt | 31241022041 | [AnhDatGiaSu2006](https://github.com/AnhDatGiaSu2006) |
+| Nguyễn Đức Trung | 31241021311 | [DuckkkTrung](https://github.com/DuckkkTrung) |
+| Võ Trọng Hoài Nghĩa | 31241023337 | [vonghiavn](https://github.com/vonghiavn) |
+
+---
+
+<p align="center">
+  <strong>Chia sẻ hôm nay — Xanh hơn mỗi ngày.</strong><br>
+  <sub>EcoShare · Đồ án nhóm 9 · Nội dung README cập nhật ngày 30/10/2026</sub>
+</p>
