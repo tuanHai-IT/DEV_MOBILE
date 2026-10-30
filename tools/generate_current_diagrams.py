@@ -55,7 +55,7 @@ def export(name: str, title: str, nodes: dict, edges: list, width: int, height: 
     svg = OUT / (name + ".svg")
     svg.write_text(svg.read_text(encoding="utf-8").replace(
         "EcoShare v2 • 20 domain classes • INTEGER VND • Editable source: draw.io / Mermaid",
-        "EcoShare • cập nhật chức năng 27/10/2026 • sửa bằng draw.io / Mermaid"), encoding="utf-8")
+        "EcoShare • rà soát mã nguồn 23/10/2026 • sửa bằng draw.io / Mermaid"), encoding="utf-8")
     if name == "function-diagram":
         ET.register_namespace("", "http://www.w3.org/2000/svg")
         drawing = ET.parse(svg)
@@ -117,7 +117,7 @@ for kind, title in (("class-diagram", "Class Diagram — 18 thực thể app"),
 # The 20 DTOs above are data containers, not the controllers of these flows.
 runtime = {
     "MainActivity": ["Host điều hướng native", "show(destination, addHistory)", "bindActions(view)"],
-    "CommunityFragment": ["Luồng giao diện nối API", "go(screen, id, focus)", "selectExploreTab(tab)", "payoutAccount() / listingComposer()", "POST, TIP, chat, chợ, hồ sơ"],
+    "CommunityFragment": ["Luồng giao diện nối API", "go(screen, id, focus)", "selectExploreTab(tab)", "POST, TIP, chat, chợ, hồ sơ"],
     "ScreenFragment": ["Host các màn Android phụ", "onCreateView(inflater)", "Nhận xử lý tương tác từ MainActivity"],
     "FirebaseBackendClient": ["REST + Firebase Auth", "request / requestFresh", "uploadMedia / downloadMedia"],
     "BackendSession": ["Phiên và hồ sơ đăng nhập", "get(context) / profile()"],
@@ -146,7 +146,7 @@ runtime_edges = [
 runtime_mmd = ["classDiagram", "direction LR"]
 runtime_methods = {
     "MainActivity": ["-show(destination, addHistory)", "-bindActions(view)"],
-    "CommunityFragment": ["+onCreateView(inflater, container, state)", "+selectExploreTab(tab)", "-go(screen, id, focus)", "-payoutAccount()", "-listingComposer()"],
+    "CommunityFragment": ["+onCreateView(inflater, container, state)", "+selectExploreTab(tab)", "-go(screen, id, focus)"],
     "ScreenFragment": ["+onCreateView(inflater, container, state)"],
     "FirebaseBackendClient": ["+request(method, path, body, idempotencyKey, callback)", "+uploadMedia(parentKind, parentId, mime, bytes, callback)", "+downloadMedia(id, callback)"],
     "BackendSession": ["+get(context)", "+profile()"],
@@ -170,10 +170,10 @@ export("runtime-class-diagram", "Class Diagram — lớp Android chính",
 # This diagram is limited to user/admin features present in the current UI.
 # Payment is shown as a device-only demo; it is not a backend Payment entity.
 groups = [
-    ("Tài khoản", ["Đăng nhập email/mật khẩu và khôi phục mật khẩu", "Hồ sơ, ảnh đại diện/ảnh bìa, địa chỉ và xác minh", "Khai báo tài khoản nhận tiền ngân hàng hoặc MoMo", "Đăng nhập Google"]),
+    ("Tài khoản", ["Đăng nhập email/mật khẩu và khôi phục mật khẩu", "Hồ sơ, ảnh đại diện/ảnh bìa, địa chỉ và xác minh", "Đăng nhập Google"]),
     ("Cộng đồng", ["Bài chia sẻ và mẹo hay: tạo, sửa, đọc", "Thích, lưu, bình luận và trả lời", "Story ảnh/video; báo cáo nội dung"]),
     ("Khám phá", ["Tìm kiếm bài viết, mẹo hay và tin bán", "Thử thách và cộng điểm Eco", "Duyệt tin bán trước khi hiện công khai"]),
-    ("Mua bán", ["Khai báo tài khoản nhận tiền trước khi đăng/gửi lại tin bán", "Tạo/sửa tin bán, giá và tồn kho", "Đơn mua và kiểm tra xác minh hai bên", "Danh sách và chi tiết đơn hàng"]),
+    ("Mua bán", ["Tạo/sửa tin bán, giá và tồn kho", "Đơn mua và kiểm tra xác minh hai bên", "Danh sách và chi tiết đơn hàng"]),
     ("DEMO · Thanh toán", ["Chọn MoMo hoặc VNPay trong app", "Lưu kết quả demo trên thiết bị", "Không chuyển tiền thật"]),
     ("Bạn bè và thông báo", ["Tìm bạn, gửi và xử lý lời mời", "Xem thông báo và đánh dấu đã đọc", "Chia sẻ bài viết qua tin nhắn"]),
     ("Tin nhắn", ["Hội thoại 1-1 và tin nhắn chờ", "Gửi tin nhắn chữ, ảnh và bài viết", "Tải lịch sử tin nhắn theo trang"]),
@@ -210,7 +210,7 @@ function_mmd.extend([
 export("function-diagram", "Function Diagram — tính năng trên app",
        function_nodes, function_edges, 2160, 1155)
 
-README = """# Sơ đồ EcoShare — phạm vi tính năng trên app (27/10/2026)
+README = """# Sơ đồ EcoShare — phạm vi tính năng trên app (23/10/2026)
 
 - `class-diagram`: 18 thực thể có luồng giao diện đang dùng trong Android/Admin Web, cùng thuộc tính và quan hệ.
 - `runtime-class-diagram`: các lớp Java chính điều khiển luồng Android; sơ đồ này mô tả cấu trúc chạy, không phải danh sách tính năng.
@@ -220,8 +220,6 @@ README = """# Sơ đồ EcoShare — phạm vi tính năng trên app (27/10/2026
 Các file `.mmd`, `.drawio`, `.svg` và `.png` lần lượt là nguồn Mermaid, bản chỉnh diagrams.net, bản xem/in và ảnh raster. ZIP chứa cả bộ cùng tài liệu đối chiếu. Sinh lại bằng `python tools/generate_current_diagrams.py` sau khi thay đổi mô hình hoặc phạm vi tính năng.
 
 Sơ đồ dữ liệu là mô hình logic; Firestore là nguồn dữ liệu vận hành và `database/schema.sql` là schema SQLite tham chiếu. `docs/domain-model.json` cùng `docs/firestore-physical-map.md` tiếp tục mô tả đủ 20 mô hình/collection backend, kể cả hai mục đã lược khỏi sơ đồ phạm vi app. Thanh toán trong Android chỉ lưu kết quả demo trên thiết bị; không tạo giao dịch thật. Xem `docs/system-audit-2026-10-23.md` để biết căn cứ phân loại giao diện.
-
-Khai báo nhận tiền bổ sung ngày 27/10 được lưu trong trường riêng tư `users._payout_account`, ngoài projection DTO/SQL. Function Diagram đã ghi điều kiện bắt buộc khai báo trước khi đăng/gửi lại tin bán; xem `payout-account.md` trong ZIP hoặc `docs/payout-account.md` của repo.
 """
 (OUT / "README.md").write_text(README, encoding="utf-8")
 
@@ -249,9 +247,4 @@ with zipfile.ZipFile(OUT / "ecoshare-diagrams-current.zip", "w", zipfile.ZIP_DEF
     physical = ROOT / "docs/firestore-physical-map.md"
     if physical.is_file():
         archive.write(physical, "firestore-physical-map.md")
-    payout = ROOT / "docs/payout-account.md"
-    if payout.is_file():
-        archive.write(payout, "payout-account.md")
-        for preview in (ROOT / "docs/previews/payout-account").glob("*.png"):
-            archive.write(preview, "previews/payout-account/" + preview.name)
 print("Generated current domain/runtime Class, ERD and Function diagrams.")
