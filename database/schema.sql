@@ -2,6 +2,7 @@
 
 PRAGMA foreign_keys = ON;
 
+-- Tài khoản, vai trò và trạng thái hoạt động.
 CREATE TABLE users (
   id TEXT PRIMARY KEY,
   display_name TEXT NOT NULL,
@@ -19,6 +20,7 @@ CREATE TABLE users (
   UNIQUE (email)
 );
 
+-- Hồ sơ xác minh dùng chung cho người mua và người bán.
 CREATE TABLE verifications (
   id TEXT PRIMARY KEY,
   user_id TEXT NOT NULL REFERENCES users(id),
@@ -35,6 +37,7 @@ CREATE INDEX idx_verifications_user_id ON verifications(user_id);
 
 CREATE INDEX idx_verifications_reviewer_id ON verifications(reviewer_id);
 
+-- Địa chỉ giao nhận của người dùng.
 CREATE TABLE addresses (
   id TEXT PRIMARY KEY,
   user_id TEXT NOT NULL REFERENCES users(id),
@@ -47,6 +50,7 @@ CREATE TABLE addresses (
 
 CREATE INDEX idx_addresses_user_id ON addresses(user_id);
 
+-- Danh mục phân loại sản phẩm.
 CREATE TABLE categories (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
@@ -55,6 +59,7 @@ CREATE TABLE categories (
   UNIQUE (name)
 );
 
+-- Tin đăng bán đồ cũ.
 CREATE TABLE listings (
   id TEXT PRIMARY KEY,
   seller_id TEXT NOT NULL REFERENCES users(id),
@@ -77,6 +82,7 @@ CREATE INDEX idx_listings_seller_id ON listings(seller_id);
 
 CREATE INDEX idx_listings_moderator_id ON listings(moderator_id);
 
+-- Sản phẩm thuộc một tin đăng. Giá là số nguyên VND.
 CREATE TABLE listing_items (
   id TEXT PRIMARY KEY,
   listing_id TEXT NOT NULL REFERENCES listings(id),
@@ -95,6 +101,7 @@ CREATE INDEX idx_listing_items_listing_id ON listing_items(listing_id);
 
 CREATE INDEX idx_listing_items_category_id ON listing_items(category_id);
 
+-- Ảnh, video hoặc tài liệu. Mỗi tệp chỉ gắn một đối tượng.
 CREATE TABLE media_assets (
   id TEXT PRIMARY KEY,
   uploader_id TEXT NOT NULL REFERENCES users(id),
@@ -123,6 +130,7 @@ CREATE INDEX idx_media_assets_report_id ON media_assets(report_id);
 
 CREATE INDEX idx_media_assets_verification_id ON media_assets(verification_id);
 
+-- Lượt thích, bình luận, theo dõi và thông báo.
 CREATE TABLE interactions (
   id TEXT PRIMARY KEY,
   user_id TEXT NOT NULL REFERENCES users(id),
@@ -146,6 +154,7 @@ CREATE INDEX idx_interactions_content_id ON interactions(content_id);
 
 CREATE INDEX idx_interactions_target_user_id ON interactions(target_user_id);
 
+-- Đơn mua bán. Tổng tiền bằng tạm tính cộng phí vận chuyển.
 CREATE TABLE orders (
   id TEXT PRIMARY KEY,
   buyer_id TEXT NOT NULL REFERENCES users(id),
@@ -171,6 +180,7 @@ CREATE INDEX idx_orders_seller_id ON orders(seller_id);
 
 CREATE INDEX idx_orders_address_id ON orders(address_id);
 
+-- Dòng hàng đã chốt tên và giá tại lúc mua.
 CREATE TABLE order_items (
   id TEXT PRIMARY KEY,
   order_id TEXT NOT NULL REFERENCES orders(id),
@@ -186,6 +196,7 @@ CREATE INDEX idx_order_items_order_id ON order_items(order_id);
 
 CREATE INDEX idx_order_items_listing_item_id ON order_items(listing_item_id);
 
+-- Lần thu tiền hoặc hoàn tiền qua MoMo và VNPay.
 CREATE TABLE payments (
   id TEXT PRIMARY KEY,
   order_id TEXT NOT NULL REFERENCES orders(id),
@@ -213,6 +224,7 @@ CREATE INDEX idx_payments_order_id ON payments(order_id);
 
 CREATE INDEX idx_payments_parent_payment_id ON payments(parent_payment_id);
 
+-- Hội thoại giữa hai thành viên.
 CREATE TABLE conversations (
   id TEXT PRIMARY KEY,
   member_a_id TEXT NOT NULL REFERENCES users(id),
@@ -228,6 +240,7 @@ CREATE INDEX idx_conversations_member_b_id ON conversations(member_b_id);
 
 CREATE INDEX idx_conversations_order_id ON conversations(order_id);
 
+-- Tin nhắn trong một hội thoại.
 CREATE TABLE messages (
   id TEXT PRIMARY KEY,
   conversation_id TEXT NOT NULL REFERENCES conversations(id),
@@ -247,6 +260,7 @@ CREATE INDEX idx_messages_sender_id ON messages(sender_id);
 
 CREATE INDEX idx_messages_content_id ON messages(content_id);
 
+-- Đánh giá sau khi đơn đã hoàn tất.
 CREATE TABLE reviews (
   id TEXT PRIMARY KEY,
   order_id TEXT NOT NULL REFERENCES orders(id),
@@ -266,6 +280,7 @@ CREATE INDEX idx_reviews_author_id ON reviews(author_id);
 
 CREATE INDEX idx_reviews_target_user_id ON reviews(target_user_id);
 
+-- Báo cáo vi phạm hoặc tranh chấp giao dịch.
 CREATE TABLE reports (
   id TEXT PRIMARY KEY,
   reporter_id TEXT NOT NULL REFERENCES users(id),
@@ -294,6 +309,7 @@ CREATE INDEX idx_reports_order_id ON reports(order_id);
 
 CREATE INDEX idx_reports_resolver_id ON reports(resolver_id);
 
+-- Điểm thu gom và người phụ trách.
 CREATE TABLE collection_points (
   id TEXT PRIMARY KEY,
   manager_id TEXT REFERENCES users(id),
@@ -311,6 +327,7 @@ CREATE TABLE collection_points (
 
 CREATE INDEX idx_collection_points_manager_id ON collection_points(manager_id);
 
+-- Sổ điểm xanh. Khóa dedupe_key chặn cộng trùng.
 CREATE TABLE green_ledger (
   id TEXT PRIMARY KEY,
   user_id TEXT NOT NULL REFERENCES users(id),
@@ -330,6 +347,7 @@ CREATE INDEX idx_green_ledger_order_id ON green_ledger(order_id);
 
 CREATE INDEX idx_green_ledger_content_id ON green_ledger(content_id);
 
+-- Bài viết, mẹo, ảnh quét và nội dung cộng đồng.
 CREATE TABLE content_entries (
   id TEXT PRIMARY KEY,
   author_id TEXT NOT NULL REFERENCES users(id),
@@ -352,6 +370,7 @@ CREATE INDEX idx_content_entries_author_id ON content_entries(author_id);
 
 CREATE INDEX idx_content_entries_parent_id ON content_entries(parent_id);
 
+-- Nhật ký thao tác quản trị.
 CREATE TABLE audit_logs (
   id TEXT PRIMARY KEY,
   actor_id TEXT NOT NULL REFERENCES users(id),
@@ -364,6 +383,7 @@ CREATE TABLE audit_logs (
 
 CREATE INDEX idx_audit_logs_actor_id ON audit_logs(actor_id);
 
+-- Cấu hình hệ thống theo khóa.
 CREATE TABLE system_settings (
   id TEXT PRIMARY KEY,
   key TEXT NOT NULL,
@@ -383,6 +403,7 @@ CREATE UNIQUE INDEX one_pending_verification_per_user ON verifications(user_id) 
 
 CREATE UNIQUE INDEX one_default_address_per_user ON addresses(user_id) WHERE is_default = 1;
 
+-- Chỉ tạo đơn khi cả hai bên đang hoạt động và đã được xác minh.
 CREATE TRIGGER verified_order_insert BEFORE INSERT ON orders BEGIN
   SELECT RAISE(ABORT, 'Both parties must be active and verified') WHERE
     (SELECT COUNT(*) FROM users u WHERE u.id IN (NEW.buyer_id, NEW.seller_id) AND u.status = 'ACTIVE'
@@ -390,6 +411,7 @@ CREATE TRIGGER verified_order_insert BEFORE INSERT ON orders BEGIN
         AND (v.expires_at IS NULL OR v.expires_at > strftime('%Y-%m-%dT%H:%M:%SZ','now')))) <> 2;
 END;
 
+-- Chỉ cho đánh giá khi đơn hoàn tất và đúng hai người tham gia.
 CREATE TRIGGER review_completed_order BEFORE INSERT ON reviews BEGIN
   SELECT RAISE(ABORT, 'Review requires completed order and participants') WHERE NOT EXISTS
     (SELECT 1 FROM orders o WHERE o.id = NEW.order_id AND o.status = 'COMPLETED' AND
@@ -397,10 +419,12 @@ CREATE TRIGGER review_completed_order BEFORE INSERT ON reviews BEGIN
      (o.seller_id = NEW.author_id AND o.buyer_id = NEW.target_user_id)));
 END;
 
+-- Nhật ký quản trị không được sửa hoặc xóa.
 CREATE TRIGGER audit_no_update BEFORE UPDATE ON audit_logs BEGIN SELECT RAISE(ABORT, 'Append-only audit log'); END;
 
 CREATE TRIGGER audit_no_delete BEFORE DELETE ON audit_logs BEGIN SELECT RAISE(ABORT, 'Append-only audit log'); END;
 
+-- Ảnh gắn với bài SCAN phải để chế độ riêng tư.
 CREATE TRIGGER scan_media_private_insert BEFORE INSERT ON media_assets BEGIN
   SELECT RAISE(ABORT, 'Scan media must be private') WHERE NEW.content_id IS NOT NULL
     AND NEW.visibility <> 'PRIVATE'
