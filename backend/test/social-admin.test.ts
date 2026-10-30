@@ -1,3 +1,6 @@
+/**
+ * Kiểm thử kiểm duyệt nội dung cộng đồng và ảnh quét riêng tư.
+ */
 import { after, before, describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";

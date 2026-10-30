@@ -1,3 +1,7 @@
+/**
+ * Thanh toán MoMo và VNPay: tạo phiên, kiểm tra chữ ký, cập nhật đơn và hoàn tiền.
+ * Chú thích không đổi thuật toán ký hay trạng thái giao dịch.
+ */
 import { createHmac, timingSafeEqual, randomUUID } from "node:crypto";
 import { isIP } from "node:net";
 import type { Router, Request } from "express";
@@ -55,6 +59,7 @@ const PRIVATE_FIELDS = new Set([
   "_request_ip",
 ]);
 
+// Id chỉ gồm chữ, số, gạch dưới và gạch ngang.
 function safeId(value: unknown): string {
   requireThat(
     typeof value === "string" && /^[a-zA-Z0-9_-]{1,128}$/.test(value),
@@ -65,6 +70,7 @@ function safeId(value: unknown): string {
   return value;
 }
 
+// Số tiền phải là số nguyên VND lớn hơn 0.
 export function parseVnd(value: unknown): number {
   requireThat(
     (typeof value === "number" && Number.isSafeInteger(value)) ||
@@ -83,6 +89,7 @@ export function parseVnd(value: unknown): number {
   return amount;
 }
 
+// Đưa giá trị về chuỗi trước khi ghép dữ liệu ký.
 function scalar(value: unknown): string {
   requireThat(
     typeof value === "string" ||
@@ -94,6 +101,7 @@ function scalar(value: unknown): string {
   return String(value);
 }
 
+// So sánh chữ ký theo thời gian cố định để tránh lộ từng ký tự.
 function equalSignature(actual: unknown, expected: string): boolean {
   if (
     typeof actual !== "string" ||
@@ -114,6 +122,7 @@ const hmac = (
 ): string => createHmac(algorithm, secret).update(value, "utf8").digest("hex");
 
 // VNPay uses application/x-www-form-urlencoded encoding (space -> '+') and sorted keys.
+// Ghép tham số VNPay theo thứ tự khóa, bỏ chữ ký cũ.
 export function canonicalVnpay(data: Record<string, unknown>): string {
   const params = new URLSearchParams();
   for (const key of Object.keys(data).sort()) {
@@ -130,6 +139,7 @@ export function canonicalVnpay(data: Record<string, unknown>): string {
   return params.toString();
 }
 
+// Ký chuỗi VNPay bằng HMAC-SHA512.
 export function signVnpay(
   data: Record<string, unknown>,
   secret: string,
@@ -137,6 +147,7 @@ export function signVnpay(
   return hmac("sha512", secret, canonicalVnpay(data));
 }
 
+// Đối chiếu chữ ký VNPay gửi về với chữ ký tự tính.
 export function verifyVnpay(
   data: Record<string, unknown>,
   secret: string,
@@ -144,6 +155,7 @@ export function verifyVnpay(
   return equalSignature(data.vnp_SecureHash, signVnpay(data, secret));
 }
 
+// Ký thông điệp MoMo theo danh sách trường quy định.
 export function signMomo(
   data: Record<string, unknown>,
   keys: readonly string[],
@@ -210,6 +222,7 @@ const MOMO_REFUND = [
   "transId",
 ] as const;
 
+// Kiểm tra chữ ký IPN của MoMo trước khi tin kết quả.
 export function verifyMomoNotification(
   data: Record<string, unknown>,
   accessKey: string,
@@ -222,6 +235,7 @@ export function verifyMomoNotification(
 }
 
 /** A signed success may correct an earlier failure; nothing can downgrade a confirmed charge. */
+// Suy trạng thái tài chính kế tiếp từ kết quả cổng thanh toán.
 export function nextFinancialStatus(
   current: FinancialStatus,
   incoming: PaymentResult["status"],
@@ -231,6 +245,7 @@ export function nextFinancialStatus(
   return incoming;
 }
 
+// Các trường cần cập nhật trên đơn sau khi thu tiền thành công.
 export function chargedOrderPatch(
   order: RecordData,
   paymentId: string,
@@ -254,6 +269,7 @@ export function chargedOrderPatch(
   };
 }
 
+// Bỏ các trường nội bộ trước khi trả giao dịch cho client.
 function publicPayment(data: RecordData): RecordData {
   return Object.fromEntries(
     Object.entries(data).filter(
@@ -262,6 +278,7 @@ function publicPayment(data: RecordData): RecordData {
   );
 }
 
+// URL callback và redirect bắt buộc dùng HTTPS.
 function requireHttps(value: string | undefined, name: string): string {
   let parsed: URL;
   try {
@@ -281,6 +298,7 @@ function requireHttps(value: string | undefined, name: string): string {
   return parsed!.toString();
 }
 
+// Đọc khóa cổng thanh toán từ cấu hình môi trường.
 function configuration(provider: PaymentProvider, ctx: Context): Configuration {
   if (provider === "EMULATOR") {
     requireThat(
@@ -374,6 +392,7 @@ function configuration(provider: PaymentProvider, ctx: Context): Configuration {
   };
 }
 
+// URL máy chủ dùng khi cổng gọi lại kết quả thanh toán.
 function callbackConfiguration(
   provider: "MOMO" | "VNPAY",
 ): Pick<Configuration, "merchant" | "secret" | "accessKey"> {
@@ -395,6 +414,7 @@ function callbackConfiguration(
   return { merchant, secret, accessKey };
 }
 
+// Đổi mốc thời gian sang ngày theo lịch Việt Nam cho VNPay.
 function vietnamDate(iso: string): string {
   return new Date(Date.parse(iso) + 7 * 60 * 60 * 1000)
     .toISOString()
@@ -402,6 +422,7 @@ function vietnamDate(iso: string): string {
     .slice(0, 14);
 }
 
+// Gọi API cổng thanh toán và đọc phản hồi JSON.
 async function providerPost(
   url: string,
   body: RecordData,
@@ -447,6 +468,7 @@ async function providerPost(
   return data as RecordData;
 }
 
+// Tạo phiên thanh toán mới trên MoMo hoặc VNPay.
 async function createGatewaySession(
   payment: RecordData,
   config: Configuration,
@@ -543,6 +565,7 @@ async function createGatewaySession(
 }
 
 /** Caller must already have verified the provider signature (or be the emulator-only admin route). */
+// Ghi kết quả cổng vào giao dịch và đơn, chỉ một lần thành công.
 export async function applyPaymentResult(
   ctx: Context,
   paymentId: string,
@@ -812,11 +835,13 @@ export async function applyPaymentResult(
   });
 }
 
+// Lấy địa chỉ IP của client gửi yêu cầu thanh toán.
 function clientIp(req: Request): string {
   const ip = (req.ip || "").replace(/^::ffff:/, "");
   return isIP(ip) ? ip : "127.0.0.1";
 }
 
+// Chỉ chấp nhận nhà cung cấp MOMO hoặc VNPAY.
 function providerValue(value: unknown, ctx: Context): PaymentProvider {
   requireThat(
     value === "MOMO" ||
@@ -829,6 +854,7 @@ function providerValue(value: unknown, ctx: Context): PaymentProvider {
   return value as PaymentProvider;
 }
 
+// Mở hoặc lấy lại phiên thanh toán cho một đơn.
 async function paymentSession(
   ctx: Context,
   req: Request,
@@ -1009,6 +1035,7 @@ async function paymentSession(
   }
 }
 
+// Hỏi lại cổng khi kết quả cục bộ chưa chốt.
 async function queryProvider(
   payment: RecordData,
   config: Configuration,
@@ -1196,6 +1223,7 @@ async function queryProvider(
   };
 }
 
+// Tạo giao dịch hoàn tiền gắn với lần thu thành công.
 async function createRefund(
   ctx: Context,
   chargeId: string,
@@ -1350,6 +1378,7 @@ async function createRefund(
   return publicPayment(docData(await refundRef.get()));
 }
 
+// Gắn route tạo thanh toán, callback và hoàn tiền.
 export function registerPaymentRoutes(router: Router, ctx: Context): void {
   router.post(
     "/orders/:id/payment-sessions",

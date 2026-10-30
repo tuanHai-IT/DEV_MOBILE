@@ -1,3 +1,7 @@
+/**
+ * Kiểm duyệt bài cộng đồng, mẹo và ảnh quét riêng tư.
+ * Chú thích không đổi quyền Admin hoặc trạng thái được phép của từng loại bài.
+ */
 import type { Request, Response, Router } from "express";
 import type { Query } from "firebase-admin/firestore";
 import { z } from "zod";
@@ -33,16 +37,19 @@ const createSchema = z.object({
   reason: reasonSchema,
 }).strict();
 const moderationRoles = ["ADMIN", "MODERATOR"];
+// Ảnh SCAN chỉ Admin được xem; loại bài khác phải là nội dung cộng đồng.
 function authorizeEntry(who: Actor, entry: Record<string, any>): void {
   requireThat(kinds.includes(entry.kind), 404, "NOT_FOUND", "Không tìm thấy nội dung cộng đồng.");
   requireThat(entry.kind !== "SCAN" || who.role === "ADMIN", 403, "FORBIDDEN", "Chỉ Admin được quản lý ảnh SCAN riêng tư.");
 }
+// Mỗi loại bài chỉ được gắn các trạng thái phù hợp.
 function entryStatus(kind: string, status: string): void {
   requireThat(
     kind === "SCAN" ? ["PRIVATE", "ARCHIVED"].includes(status) : ["DRAFT", "PUBLISHED", "HIDDEN", "ARCHIVED"].includes(status),
     400, "INVALID_STATUS", "Trạng thái không phù hợp với loại nội dung.",
   );
 }
+// Bỏ trường nội bộ, những trường bắt đầu bằng gạch dưới.
 function publicFields(row: Record<string, any>): Record<string, any> {
   return Object.fromEntries(Object.entries(row).filter(([key]) => !key.startsWith("_")));
 }

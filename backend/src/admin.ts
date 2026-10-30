@@ -1,3 +1,7 @@
+/**
+ * Route quản trị: danh mục, điểm thu gom, nội dung và cấu hình hệ thống.
+ * Chú thích chỉ để đọc code; request, quyền và dữ liệu ghi xuống không đổi.
+ */
 import type { Request, Router } from "express";
 import {
   AggregateField,
@@ -20,7 +24,6 @@ import {
   sha,
   type Context,
 } from "./core.js";
-import { userWithoutPayoutAccount } from "./payout-account.js";
 
 const roles = ["MEMBER", "COLLECTOR", "MODERATOR", "ADMIN"] as const;
 const short = (max: number) => z.string().trim().min(1).max(max);
@@ -135,6 +138,7 @@ const settingSchemas = {
 type SettingKey = keyof typeof settingSchemas;
 const settingKeys = Object.keys(settingSchemas) as SettingKey[];
 
+// Đọc id trên đường dẫn và chuẩn hóa qua pathId.
 function param(req: Request): string {
   return pathId(req.params.id);
 }
@@ -146,6 +150,7 @@ function supplied<T extends object>(parsed: T, raw: unknown): T {
     ),
   ) as T;
 }
+// Chỉ nhận khóa cấu hình đã được khai báo.
 function settingKey(value: unknown): SettingKey {
   const key = z.string().parse(value);
   requireThat(
@@ -156,6 +161,7 @@ function settingKey(value: unknown): SettingKey {
   );
   return key as SettingKey;
 }
+// Kiểm tra ngày, điểm thưởng và metadata trước khi lưu bài.
 function parseContent(input: unknown) {
   const parsed = contentSchema.parse(input);
   const starts = parsed.starts_at
@@ -206,6 +212,7 @@ function parseContent(input: unknown) {
   };
 }
 
+// Trả cấu hình ở dạng đọc, kèm giá trị JSON đã tách.
 function projectedSetting(row: DocumentData): DocumentData {
   let value: unknown = null;
   try {
@@ -224,10 +231,12 @@ function projectedSetting(row: DocumentData): DocumentData {
 }
 
 const legacyContentKinds = ["ARTICLE", "GROUP", "EVENT", "CHALLENGE", "REWARD", "BADGE"];
+// Bài cộng đồng mới đi qua API riêng, không dùng route cũ.
 function legacyContent(row: DocumentData): DocumentData {
   requireThat(legacyContentKinds.includes(row.kind),404,"NOT_FOUND","Use the community management API for posts, tips and private scans.");
   return row;
 }
+// Gắn các route quản trị lên router dùng chung.
 export function registerAdminRoutes(router: Router, ctx: Context): void {
   const dashboard = asyncRoute(async (_req, res) => {
     const who = actor(res, ["ADMIN", "MODERATOR"]);
@@ -325,8 +334,7 @@ export function registerAdminRoutes(router: Router, ctx: Context): void {
           "==",
           z.enum(["ACTIVE", "SUSPENDED"]).parse(req.query.status),
         );
-      const result = await page(query, req);
-      res.json({ ...result, items: result.items.map(userWithoutPayoutAccount) });
+      res.json(await page(query, req));
     }),
   );
 
@@ -334,7 +342,7 @@ export function registerAdminRoutes(router: Router, ctx: Context): void {
     "/admin/users/:id",
     asyncRoute(async (req, res) => {
       actor(res, ["ADMIN"]);
-      res.json(userWithoutPayoutAccount(docData(await ctx.db.collection("users").doc(param(req)).get())));
+      res.json(docData(await ctx.db.collection("users").doc(param(req)).get()));
     }),
   );
 
@@ -402,7 +410,7 @@ export function registerAdminRoutes(router: Router, ctx: Context): void {
         audit(tx, ctx, who, "USER_ACCESS_UPDATED", "User", uid, input.reason);
         return { ...user, ...update };
       });
-      res.json(userWithoutPayoutAccount(result));
+      res.json(result);
     }),
   );
 

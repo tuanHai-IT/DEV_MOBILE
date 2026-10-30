@@ -1,3 +1,6 @@
+/**
+ * Kiểm thử chữ ký MoMo, VNPay và các bước cập nhật thanh toán.
+ */
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHmac, randomUUID } from "node:crypto";

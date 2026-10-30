@@ -1,3 +1,6 @@
+/**
+ * Kiểm thử route quản trị: phân quyền, danh mục, nội dung và cấu hình.
+ */
 import { after, before, describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";

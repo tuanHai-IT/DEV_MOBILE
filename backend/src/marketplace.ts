@@ -1,3 +1,7 @@
+/**
+ * Chợ đồ cũ: tin đăng, giữ tồn kho khi đặt hàng và hội thoại mua bán.
+ * Chú thích không đổi điều kiện hủy đơn hay cách trừ kho.
+ */
 import type { Router } from "express";
 import { FieldValue, type Transaction } from "firebase-admin/firestore";
 import { z } from "zod";
@@ -17,7 +21,6 @@ import {
   type Context,
   type Actor,
 } from "./core.js";
-import { requirePayoutAccount } from "./payout-account.js";
 
 const label = z.string().trim().min(1).max(200);
 const itemBody = z
@@ -140,6 +143,7 @@ async function releaseOrder(
   return true;
 }
 
+// Hủy các đơn hết hạn giữ hàng và trả lại số lượng tồn kho.
 export async function expireOrders(ctx: Context): Promise<number> {
   // Persist the scan position so unresolved gateway payments cannot starve later orders.
   const checkpoint = ctx.db
@@ -187,6 +191,7 @@ export async function expireOrders(ctx: Context): Promise<number> {
   return count;
 }
 
+// Gắn route danh mục, tin đăng, đơn hàng và hội thoại.
 export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
   router.get(
     "/categories",
@@ -305,7 +310,7 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
         id = sha(`listing:${who.uid}:${key}`),
         hash = sha(JSON.stringify(body));
       const result = await ctx.db.runTransaction(async (tx) => {
-        const seller = await assertActiveVerified(tx, ctx, who.uid);
+        await assertActiveVerified(tx, ctx, who.uid);
         const ref = ctx.db.collection("listings").doc(id),
           existing = await tx.get(ref);
         if (existing.exists) {
@@ -317,7 +322,6 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
           );
           return docData(existing);
         }
-        requirePayoutAccount(seller);
         for (const item of body.items) {
           const category = docData(
             await tx.get(
@@ -375,7 +379,7 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
         .refine((b) => Object.keys(b).length > 0)
         .parse(req.body);
       await ctx.db.runTransaction(async (tx) => {
-        const seller = await assertActiveVerified(tx, ctx, who.uid);
+        await assertActiveVerified(tx, ctx, who.uid);
         const ref = ctx.db.collection("listings").doc(id),
           row = docData(await tx.get(ref));
         requireThat(
@@ -384,7 +388,6 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
           "FORBIDDEN",
           "Chỉ chủ bài đăng được chỉnh sửa.",
         );
-        requirePayoutAccount(seller);
         requireThat(
           row.status !== "HIDDEN",
           409,
@@ -439,7 +442,7 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
           .refine((value) => Object.keys(value).length > 0)
           .parse(req.body);
       await ctx.db.runTransaction(async (tx) => {
-        const seller = await assertActiveVerified(tx, ctx, who.uid);
+        await assertActiveVerified(tx, ctx, who.uid);
         const ref = ctx.db.collection("listing_items").doc(id),
           item = docData(await tx.get(ref));
         const parentRef = ctx.db.collection("listings").doc(item.listing_id),
@@ -456,7 +459,6 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
           "LISTING_HIDDEN",
           "Liên hệ quản trị viên để mở lại bài đăng.",
         );
-        if (Object.keys(body).some((key) => key !== "stock")) requirePayoutAccount(seller);
         if (body.category_id) {
           const category = docData(
             await tx.get(
@@ -515,10 +517,8 @@ export function registerMarketplaceRoutes(router: Router, ctx: Context): void {
           "SELF_REVIEW",
           "Không tự duyệt bài đăng của mình.",
         );
-        if (body.status === "APPROVED") {
-          const seller = await assertActiveVerified(tx, ctx, listing.seller_id);
-          requirePayoutAccount(seller);
-        }
+        if (body.status === "APPROVED")
+          await assertActiveVerified(tx, ctx, listing.seller_id);
         tx.update(ref, {
           ...body,
           moderator_id: who.uid,
