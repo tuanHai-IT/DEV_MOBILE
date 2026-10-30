@@ -20,7 +20,6 @@ import {
   sha,
   type Context,
 } from "./core.js";
-import { userWithoutPayoutAccount } from "./payout-account.js";
 
 const roles = ["MEMBER", "COLLECTOR", "MODERATOR", "ADMIN"] as const;
 const short = (max: number) => z.string().trim().min(1).max(max);
@@ -325,8 +324,7 @@ export function registerAdminRoutes(router: Router, ctx: Context): void {
           "==",
           z.enum(["ACTIVE", "SUSPENDED"]).parse(req.query.status),
         );
-      const result = await page(query, req);
-      res.json({ ...result, items: result.items.map(userWithoutPayoutAccount) });
+      res.json(await page(query, req));
     }),
   );
 
@@ -334,7 +332,7 @@ export function registerAdminRoutes(router: Router, ctx: Context): void {
     "/admin/users/:id",
     asyncRoute(async (req, res) => {
       actor(res, ["ADMIN"]);
-      res.json(userWithoutPayoutAccount(docData(await ctx.db.collection("users").doc(param(req)).get())));
+      res.json(docData(await ctx.db.collection("users").doc(param(req)).get()));
     }),
   );
 
@@ -402,7 +400,7 @@ export function registerAdminRoutes(router: Router, ctx: Context): void {
         audit(tx, ctx, who, "USER_ACCESS_UPDATED", "User", uid, input.reason);
         return { ...user, ...update };
       });
-      res.json(userWithoutPayoutAccount(result));
+      res.json(result);
     }),
   );
 
