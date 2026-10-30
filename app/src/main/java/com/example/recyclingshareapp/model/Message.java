@@ -1,13 +1,16 @@
 package com.example.recyclingshareapp.model;
 
-/** Tin nhắn trong hội thoại. Generated from docs/domain-model.json; amounts are integer VND. */
+/**
+ * Một tin nhắn trong hội thoại.
+ * Có thể kèm một bài viết hoặc mẹo để chia sẻ nhanh.
+ */
 public final class Message {
-    public String id;
-    public String conversationId;
-    public String senderId;
-    public String body;
-    public String contentId;
-    public String contentKind;
-    public String sentAt;
-    public String readAt;
+    public String id; // mã tin nhắn
+    public String conversationId; // hội thoại chứa tin
+    public String senderId; // người gửi
+    public String body; // nội dung chữ
+    public String contentId; // bài được đính kèm, nếu có
+    public String contentKind; // POST hoặc TIP khi có đính kèm
+    public String sentAt; // thời điểm gửi
+    public String readAt; // thời điểm người nhận đã đọc
 }

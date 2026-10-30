@@ -1,9 +1,11 @@
 package com.example.recyclingshareapp.model;
 
-/** Danh mục sản phẩm. Generated from docs/domain-model.json; amounts are integer VND. */
+/**
+ * Danh mục dùng để phân loại sản phẩm tái chế.
+ */
 public final class Category {
-    public String id;
-    public String name;
-    public String description;
-    public long active;
+    public String id; // mã danh mục
+    public String name; // tên danh mục, không trùng
+    public String description; // mô tả ngắn
+    public long active; // 1 khi danh mục đang được bán
 }

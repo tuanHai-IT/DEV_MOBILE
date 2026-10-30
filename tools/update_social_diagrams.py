@@ -3,6 +3,7 @@
 Run: python tools/update_social_diagrams.py
 Then: python tools/export_diagram_png.py --only function-diagram
 """
+# Chỉ làm mới sơ đồ chức năng, không đụng DTO hay schema.
 from pathlib import Path
 from hashlib import sha256
 import ast

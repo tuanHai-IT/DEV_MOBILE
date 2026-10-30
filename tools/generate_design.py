@@ -2,6 +2,7 @@
 
 Run: python tools/generate_design.py. No third-party dependencies.
 """
+# Nguồn sinh DTO, schema tham chiếu và file sơ đồ.
 from pathlib import Path
 from xml.sax.saxutils import escape
 import xml.etree.ElementTree as ET

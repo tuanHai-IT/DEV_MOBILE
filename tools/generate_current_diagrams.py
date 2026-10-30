@@ -4,6 +4,7 @@ Run: python tools/generate_current_diagrams.py
 The domain diagram comes from docs/domain-model.json; database/schema.sql is a
 reference schema, while production data lives in Firestore.
 """
+# Xuất sơ đồ từ domain model. Không ghi đè dữ liệu đang chạy.
 from __future__ import annotations
 
 import ast

@@ -2,6 +2,7 @@
 
 Keep interaction IDs and layout behavior here so regenerating XML preserves fixes.
 """
+# Giữ các chỉnh sửa tương tác để lần sinh XML sau không làm mất.
 import xml.etree.ElementTree as ET
 
 A = '{http://schemas.android.com/apk/res/android}'

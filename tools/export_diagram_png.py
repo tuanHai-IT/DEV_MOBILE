@@ -3,6 +3,7 @@
 Windows only, no npm/third-party Python packages. Uses a disposable local profile.
 Run: python tools/export_diagram_png.py
 """
+# Xuất PNG từ SVG bằng Edge. Không sửa nội dung sơ đồ.
 from pathlib import Path
 import argparse
 import subprocess

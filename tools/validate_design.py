@@ -1,4 +1,5 @@
 """Validate referential integrity, financial guards and Android/export consistency."""
+# Đối chiếu ràng buộc dữ liệu, quan hệ và file đã xuất.
 import json
 from pathlib import Path
 import sqlite3

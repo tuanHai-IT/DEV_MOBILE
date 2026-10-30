@@ -9,6 +9,7 @@ The former generator overwrote hand-edited layouts with an obsolete five-tab
 host. This script never generates views, labels, colors, or theme definitions.
 It exits with status 1 for a missing/invalid resource or a broken host contract.
 """
+# Chỉ kiểm tra host và theme Android đã có, không sinh lại giao diện.
 
 import argparse
 from pathlib import Path

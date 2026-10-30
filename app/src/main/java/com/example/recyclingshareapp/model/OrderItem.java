@@ -1,11 +1,14 @@
 package com.example.recyclingshareapp.model;
 
-/** Chốt giá & số lượng tại lúc mua. Generated from docs/domain-model.json; amounts are integer VND. */
+/**
+ * Dòng hàng trong đơn.
+ * Giá và tên được chốt tại thời điểm mua, không đổi theo tin đăng sau đó.
+ */
 public final class OrderItem {
-    public String id;
-    public String orderId;
-    public String listingItemId;
-    public String titleSnapshot;
-    public long quantity;
-    public long unitPriceVnd;
+    public String id; // mã dòng hàng
+    public String orderId; // đơn chứa dòng này
+    public String listingItemId; // sản phẩm gốc trong tin đăng
+    public String titleSnapshot; // tên sản phẩm tại lúc mua
+    public long quantity; // số lượng
+    public long unitPriceVnd; // đơn giá đã chốt, VND
 }

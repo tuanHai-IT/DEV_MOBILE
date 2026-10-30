@@ -3,6 +3,7 @@
 Run from the repository root: python tools/generate_android.py
 Only generated layouts, strings and style resources are replaced.
 """
+# Sinh file layout XML từ catalogue. Script không chạy cùng ứng dụng.
 from pathlib import Path
 from xml.sax.saxutils import escape
 import xml.etree.ElementTree as ET
